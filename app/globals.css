@@ -1050,18 +1050,16 @@ h1 {
 .admin-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 14px;
 }
 
 .admin-item {
-  min-height: 104px;
+  min-height: 184px;
   display: flex;
-  align-items: flex-end;
-  padding: 16px;
-  color: #26352f;
-  font-weight: 800;
-  line-height: 1.28;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -1073,6 +1071,21 @@ h1 {
   border-top: 3px solid transparent;
   background: linear-gradient(90deg, var(--accent), var(--accent-cool), var(--accent-gold)) top / 100% 3px no-repeat;
   opacity: 0.72;
+}
+
+.admin-item h3 {
+  position: relative;
+  margin: 0;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+.admin-item p {
+  position: relative;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .tool-groups {

@@ -35,6 +35,12 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /AI Workbench/);
   assert.match(html, /MarketplaceBot/);
   assert.match(html, /Системный администратор-программист/);
+  assert.match(html, /Системное администрирование/);
+  assert.match(html, /PowerShell и WMI/);
+  assert.match(html, /Железо и сборка ПК/);
+  assert.match(html, /Виртуальные машины/);
+  assert.match(html, /Windows Server и Bitrix/);
+  assert.match(html, /Диски и данные/);
   assert.match(html, /используют разработанный мной ServiceDesk/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|codex-preview/i);
 });
@@ -55,6 +61,10 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /class="lightbox"/);
   assert.match(docsHtml, /data-lightbox-src="screenshots\/servicedesk-dashboard-cover\.png"/);
   assert.match(docsHtml, /body\.lightbox-open/);
+  assert.match(docsHtml, /Системное администрирование/);
+  assert.match(docsHtml, /DNS\/DHCP/);
+  assert.match(docsHtml, /VMware/);
+  assert.match(docsHtml, /восстановление данных/);
   assert.match(docsHtml, /object-fit:\s*contain/);
   assert.doesNotMatch(docsHtml, /class="shot-main"[^>]+target="_blank"/);
   assert.doesNotMatch(docsHtml, /object-fit:\s*cover/);

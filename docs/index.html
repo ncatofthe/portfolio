@@ -256,6 +256,11 @@
       .card:hover::after { transform: translateX(0); }
       .experience-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
       .experience-card > span { display: block; margin-bottom: 12px; color: var(--accent); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+      .admin-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .admin-item { min-height: 184px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 20px; position: relative; overflow: hidden; }
+      .admin-item::before { content: ""; position: absolute; inset: 0; border-top: 3px solid transparent; background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold)) top / 100% 3px no-repeat; opacity: 0.72; }
+      .admin-item h3 { position: relative; margin: 0; color: #101614; font-size: 21px; line-height: 1.15; }
+      .admin-item p { position: relative; margin: 0; color: var(--muted); line-height: 1.5; }
       .stack-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
       .chips { margin-top: 16px; }
       .contact { display: grid; grid-template-columns: 1fr minmax(300px, 420px); gap: 34px; align-items: start; padding-bottom: 0; border: 0; background: transparent; box-shadow: none; }
@@ -283,6 +288,7 @@
         .topbar { width: 100%; margin-left: 0; justify-content: flex-start; overflow-x: auto; padding: 8px; margin-bottom: 44px; }
         .topbar a { white-space: nowrap; }
         .hero-grid, .project, .proof, .experience-grid, .stack-groups, .contact { grid-template-columns: 1fr; }
+        .admin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .section-head { display: block; }
       }
@@ -294,6 +300,7 @@
         .lead { font-size: 20px; }
         .actions a { width: 100%; }
         .service-grid, .details { grid-template-columns: 1fr; }
+        .admin-grid { grid-template-columns: 1fr; }
         .section, .section.wide { width: min(100% - 28px, 1180px); padding: 58px 0; }
         .shot-main { min-height: 0; padding: 14px; }
         .shot-main img { min-height: 0; max-height: none; }
@@ -306,7 +313,7 @@
       }
     </style>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"Person","name":"Жихарев Глеб","jobTitle":"Разработчик внутренних сервисов и автоматизации","email":"mailto:zhikharev@sfuk.ru","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"],"knowsAbout":["Internal tools","Business automation","Service Desk","API integrations","React","TypeScript","Python","PostgreSQL"]}
+      {"@context":"https://schema.org","@type":"Person","name":"Жихарев Глеб","jobTitle":"Разработчик внутренних сервисов и автоматизации","email":"mailto:zhikharev@sfuk.ru","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"],"knowsAbout":["Internal tools","Business automation","Service Desk","API integrations","System administration","PowerShell","Windows/Linux","Networking","VMware","VirtualBox","Windows Server","Bitrix","Data recovery","React","TypeScript","Python","PostgreSQL"]}
     </script>
   </head>
   <body>
@@ -316,6 +323,7 @@
         <a href="#projects">Кейсы</a>
         <a href="#services">Чем полезен</a>
         <a href="#experience">Опыт</a>
+        <a href="#admin-skills">Администрирование</a>
         <a href="#stack">Стек</a>
         <a href="#contacts">Контакты</a>
       </nav>
@@ -429,6 +437,22 @@
         </div>
       </section>
 
+      <section class="section wide" id="admin-skills">
+        <div class="section-head"><div><p class="kicker">Системное администрирование</p><h2>Понимаю инфраструктуру, рабочие места и реальные ограничения пользователей</h2></div></div>
+        <div class="admin-grid">
+          <article class="admin-item"><h3>Поддержка рабочих мест</h3><p>Помощь пользователям, первичная диагностика, настройка окружения, разбор типовых проблем Windows/Linux и рабочих приложений.</p></article>
+          <article class="admin-item"><h3>Сети и доступность</h3><p>Понимание TCP/IP, DNS/DHCP, базовой маршрутизации, проверки доступности сервисов и поиска причин сетевых сбоев.</p></article>
+          <article class="admin-item"><h3>PowerShell и WMI</h3><p>Скрипты для сбора информации о системе, диагностики, инвентаризации и сокращения повторяющихся админских действий.</p></article>
+          <article class="admin-item"><h3>Виртуальные машины</h3><p>Работа с VMware и VirtualBox: тестовые стенды, изолированные окружения, проверка конфигураций и запуск сервисов в безопасной среде.</p></article>
+          <article class="admin-item"><h3>Windows Server и Bitrix</h3><p>Практическая работа с Windows Server и Bitrix-средой: сопровождение, разбор проблем, настройка окружения и помощь пользователям.</p></article>
+          <article class="admin-item"><h3>Инвентаризация и учет</h3><p>Структурирование данных по оборудованию, локальные утилиты учета, быстрый сбор характеристик рабочих станций.</p></article>
+          <article class="admin-item"><h3>Железо и сборка ПК</h3><p>Подбор комплектующих под задачу и бюджет, совместимость, диагностика узких мест, понимание апгрейдов и обслуживания.</p></article>
+          <article class="admin-item"><h3>Диски и данные</h3><p>Работа с HDD/SSD, первичная диагностика накопителей, проверка состояния, перенос данных и восстановление там, где это технически возможно.</p></article>
+          <article class="admin-item"><h3>Серверное оборудование</h3><p>Понимание серверного железа, накопителей, базового обслуживания, диагностики неисправностей и подбора компонентов под нагрузку.</p></article>
+          <article class="admin-item"><h3>Анализ и безопасность</h3><p>OSINT-подход, Wireshark, Hack The Box как практика внимательного анализа, проверки гипотез и аккуратной работы с данными.</p></article>
+        </div>
+      </section>
+
       <section class="section wide" id="other-projects">
         <div class="section-head"><div><p class="kicker">Дополнительные проекты</p><h2>Утилиты, боты и инструменты для прикладных задач</h2></div></div>
         <div class="project-list">
@@ -442,7 +466,7 @@
         <div class="section-head"><div><p class="kicker">Стек</p><h2>Основные технологии и дополнительные компетенции</h2></div></div>
         <div class="stack-groups">
           <article class="stack-group"><h3>Основной стек</h3><div class="chips"><span>Python</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>FastAPI</span><span>Express/Fastify</span><span>PostgreSQL</span><span>SQLite</span><span>REST API</span><span>Prisma</span><span>Docker</span><span>Playwright</span><span>Ollama</span></div></article>
-          <article class="stack-group"><h3>Дополнительные компетенции</h3><p>Не выношу это в основное позиционирование, но могу подключаться к задачам, где помогает опыт администрирования, анализа трафика, игровых движков и понимания железа.</p><div class="chips"><span>PHP</span><span>MySQL</span><span>PowerShell</span><span>Windows/Linux</span><span>WMI</span><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span><span>Unity</span><span>Unreal Engine</span><span>C#</span><span>подбор комплектующих ПК</span></div></article>
+          <article class="stack-group"><h3>Дополнительные компетенции</h3><p>Не выношу это в основное позиционирование, но могу подключаться к задачам, где помогает опыт администрирования, анализа трафика, игровых движков и понимания железа.</p><div class="chips"><span>PHP</span><span>MySQL</span><span>PowerShell</span><span>Windows/Linux</span><span>WMI</span><span>TCP/IP</span><span>DNS/DHCP</span><span>VMware</span><span>VirtualBox</span><span>Windows Server</span><span>Bitrix</span><span>удаленная поддержка</span><span>инвентаризация оборудования</span><span>HDD/SSD</span><span>SMART</span><span>серверное оборудование</span><span>восстановление данных</span><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span><span>Unity</span><span>Unreal Engine</span><span>C#</span><span>подбор комплектующих ПК</span></div></article>
         </div>
       </section>
 
