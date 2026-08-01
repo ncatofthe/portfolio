@@ -5,6 +5,7 @@ const contacts = {
   email: "zhikharev@sfuk.ru",
   phone: "+7 995 004-84-77",
   github: "https://github.com/ncatofthe",
+  githubPages: "https://ncatofthe.github.io/portfolio/",
 };
 
 const highlights = [
@@ -43,7 +44,24 @@ const projects = [
     stack: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "Playwright"],
     link: "https://github.com/ncatofthe/office-servicedesk",
     visual: "queue",
-    image: "/screenshots/office-servicedesk-login.jpg",
+    screenshots: [
+      {
+        src: "/screenshots/servicedesk-dashboard.png",
+        caption: "Главная панель с метриками",
+      },
+      {
+        src: "/screenshots/servicedesk-tickets.png",
+        caption: "Список заявок и фильтры",
+      },
+      {
+        src: "/screenshots/servicedesk-queue.png",
+        caption: "Очередь исполнителей",
+      },
+      {
+        src: "/screenshots/servicedesk-admin.png",
+        caption: "Настройки и роли",
+      },
+    ],
   },
   {
     title: "AI Workbench",
@@ -54,7 +72,16 @@ const projects = [
     stack: ["Python", "FastAPI", "React", "TypeScript", "SQLite", "Ollama"],
     link: "https://github.com/ncatofthe/ai-workbench",
     visual: "agents",
-    image: "/screenshots/ai-workbench.jpg",
+    screenshots: [
+      {
+        src: "/screenshots/ai-workbench.jpg",
+        caption: "Dashboard локальной платформы",
+      },
+      {
+        src: "/screenshots/ai-workbench-new-task.png",
+        caption: "Создание новой задачи",
+      },
+    ],
   },
   {
     title: "MarketplaceBot",
@@ -65,7 +92,12 @@ const projects = [
     stack: ["Python", "Tkinter", "Ozon API", "Wildberries API", "PyInstaller"],
     link: "https://github.com/ncatofthe/MarketplaceBot",
     visual: "market",
-    image: "",
+    screenshots: [
+      {
+        src: "/screenshots/marketplacebot-compile.png",
+        caption: "Проверка модулей без API-ключей",
+      },
+    ],
   },
   {
     title: "MAX Summary Bot",
@@ -74,9 +106,14 @@ const projects = [
     description:
       "Бот для создания кратких выжимок из текста, ссылок и файлов. Репозиторий разделяет слой мессенджера и core-processing: gateway принимает payload, нормализует данные, обращается к внутреннему API и возвращает структурированный ответ.",
     stack: ["TypeScript", "Fastify", "pnpm workspaces", "BullMQ", "Python extractor"],
-    link: "",
+    link: "https://github.com/ncatofthe/max_summary_bot",
     visual: "summary",
-    image: "",
+    screenshots: [
+      {
+        src: "/screenshots/max-summary-typecheck.png",
+        caption: "Typecheck gateway и интеграции",
+      },
+    ],
   },
   {
     title: "SystemInfo",
@@ -87,7 +124,12 @@ const projects = [
     stack: ["PowerShell", "WMI", "Windows"],
     link: "https://github.com/ncatofthe/SystemInfo",
     visual: "system",
-    image: "",
+    screenshots: [
+      {
+        src: "/screenshots/systeminfo-proof.png",
+        caption: "Preview Windows PowerShell-скрипта",
+      },
+    ],
   },
   {
     title: "Inventory App",
@@ -98,7 +140,12 @@ const projects = [
     stack: ["Python", "учет", "IT support"],
     link: "https://github.com/ncatofthe/inventory_app",
     visual: "inventory",
-    image: "",
+    screenshots: [
+      {
+        src: "/screenshots/inventory-compile.png",
+        caption: "Проверка entrypoint приложения",
+      },
+    ],
   },
 ];
 
@@ -250,9 +297,12 @@ export default function Home() {
         <div className="project-list">
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
-              {project.image ? (
+              {project.screenshots?.length ? (
                 <div className="project-shot">
-                  <img src={project.image} alt={`Скриншот проекта ${project.title}`} />
+                  <img
+                    src={project.screenshots[0].src}
+                    alt={`Скриншот проекта ${project.title}: ${project.screenshots[0].caption}`}
+                  />
                 </div>
               ) : (
                 <ProjectVisual type={project.visual} />
@@ -276,6 +326,19 @@ export default function Home() {
                 ) : (
                   <span className="project-note">Локальный/демо-проект</span>
                 )}
+                {project.screenshots?.length ? (
+                  <details className="screenshot-gallery">
+                    <summary>Скриншоты и проверки</summary>
+                    <div className="shot-strip">
+                      {project.screenshots.map((shot) => (
+                        <a href={shot.src} key={shot.src} target="_blank">
+                          <img src={shot.src} alt={shot.caption} />
+                          <span>{shot.caption}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                ) : null}
               </div>
             </article>
           ))}
@@ -309,6 +372,7 @@ export default function Home() {
           <a href={`mailto:${contacts.email}`}>Email: {contacts.email}</a>
           <a href="tel:+79950048477">Телефон: {contacts.phone}</a>
           <a href={contacts.github}>GitHub: ncatofthe</a>
+          <a href={contacts.githubPages}>GitHub Pages: portfolio</a>
         </div>
       </section>
     </main>

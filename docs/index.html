@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Жихарев Глеб - портфолио</title>
+    <meta
+      name="description"
+      content="Портфолио Жихарева Глеба: внутренние сервисы, сайты, боты, скрипты и автоматизация."
+    />
+    <style>
+      :root {
+        --bg: #f6f7f4;
+        --text: #17201b;
+        --muted: #5b675f;
+        --line: #d7ded4;
+        --panel: #ffffff;
+        --soft: #eef3ee;
+        --accent: #1f6f63;
+        --strong: #123f46;
+        --warm: #b45f3c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .hero {
+        min-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        padding: 22px clamp(18px, 4vw, 56px) 42px;
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(120deg, rgba(31, 111, 99, 0.08), transparent 38%),
+          linear-gradient(0deg, rgba(180, 95, 60, 0.08), transparent 32%),
+          var(--bg);
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-bottom: 56px;
+      }
+
+      .topbar a,
+      .button,
+      summary {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--strong);
+        font-weight: 800;
+      }
+
+      .topbar a {
+        padding: 9px 13px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .hero-grid {
+        width: min(1180px, 100%);
+        margin: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.72fr);
+        gap: clamp(28px, 5vw, 72px);
+        align-items: center;
+      }
+
+      .kicker {
+        margin: 0 0 12px;
+        color: var(--accent);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        overflow-wrap: anywhere;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 860px;
+        font-size: clamp(52px, 8vw, 108px);
+        line-height: 0.94;
+      }
+
+      .lead {
+        margin: 24px 0 0;
+        max-width: 760px;
+        color: #314039;
+        font-size: clamp(20px, 2.5vw, 30px);
+        line-height: 1.3;
+      }
+
+      .actions,
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .actions {
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 12px 18px;
+      }
+
+      .button.primary {
+        background: var(--strong);
+        color: #fff;
+      }
+
+      .panel,
+      .card,
+      .project,
+      .contact {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 16px 42px rgba(24, 39, 32, 0.08);
+      }
+
+      .panel {
+        display: grid;
+        gap: 14px;
+        padding: 22px;
+      }
+
+      .panel strong {
+        font-size: 28px;
+        line-height: 1.08;
+      }
+
+      .panel p,
+      .intro p,
+      .contact p,
+      .project p,
+      .card p {
+        color: var(--muted);
+        line-height: 1.58;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .metric {
+        min-height: 92px;
+        padding: 16px;
+        display: flex;
+        align-items: flex-end;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        font-weight: 800;
+      }
+
+      .section {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 76px 0;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: clamp(24px, 5vw, 78px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(32px, 4.2vw, 56px);
+        line-height: 1.05;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        align-items: flex-end;
+        margin-bottom: 28px;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        min-height: 210px;
+        padding: 20px;
+      }
+
+      .project-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .project {
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr);
+      }
+
+      .shot-main {
+        min-height: 330px;
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #17201b;
+      }
+
+      .shot-main img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        display: block;
+        object-fit: cover;
+        object-position: left top;
+        border-radius: 8px;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      }
+
+      .project-body {
+        padding: clamp(22px, 4vw, 38px);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .meta span,
+      .chips span {
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: var(--strong);
+        background: var(--soft);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .project h3,
+      .card h3 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.14;
+      }
+
+      details {
+        margin-top: 22px;
+      }
+
+      summary {
+        cursor: pointer;
+        width: fit-content;
+        padding: 9px 12px;
+      }
+
+      .strip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(190px, 240px);
+        gap: 12px;
+        margin-top: 14px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .strip a {
+        display: grid;
+        gap: 8px;
+        scroll-snap-align: start;
+      }
+
+      .strip img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: left top;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #111;
+      }
+
+      .strip span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr minmax(300px, 420px);
+        gap: 34px;
+        padding: 28px;
+      }
+
+      .links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .links a {
+        border-radius: 8px;
+        padding: 13px 14px;
+        background: var(--soft);
+        color: var(--strong);
+        font-weight: 800;
+      }
+
+      @media (max-width: 920px) {
+        .hero {
+          min-height: auto;
+        }
+
+        .topbar {
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding-bottom: 4px;
+          margin-bottom: 44px;
+        }
+
+        .topbar a {
+          white-space: nowrap;
+        }
+
+        .hero-grid,
+        .intro,
+        .project,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .service-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-head {
+          display: block;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .hero {
+          padding-inline: 16px;
+        }
+
+        h1 {
+          font-size: 52px;
+        }
+
+        .lead {
+          font-size: 20px;
+        }
+
+        .actions a {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .metrics,
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          width: min(100% - 28px, 1180px);
+          padding: 58px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Навигация">
+        <a href="#projects">Проекты</a>
+        <a href="#services">Услуги</a>
+        <a href="#stack">Стек</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">Портфолио для найма и фриланса</p>
+          <h1>Жихарев Глеб</h1>
+          <p class="lead">
+            Разработчик внутренних сервисов, сайтов, скриптов и ботов. Беру
+            прикладные задачи, разбираюсь в процессе и довожу решение до рабочего
+            состояния.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#projects">Смотреть проекты</a>
+            <a class="button" href="mailto:zhikharev@sfuk.ru">Написать на email</a>
+          </div>
+        </div>
+        <aside class="panel">
+          <p class="kicker">Фокус</p>
+          <strong>сервисы, сайты, боты, автоматизация</strong>
+          <p>
+            Подхожу для задач, где нужно быстро собрать полезный инструмент:
+            сайт, скрипт, простое приложение, интеграцию или внутреннюю панель.
+          </p>
+          <div class="metrics">
+            <div class="metric">ServiceDesk используют 3 компании</div>
+            <div class="metric">боты сократили ручную работу 3 сотрудникам</div>
+            <div class="metric">AI Workbench используют друзья-фрилансеры</div>
+            <div class="metric">проекты довожу от идеи до внедрения</div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section intro">
+        <div>
+          <p class="kicker">Обо мне</p>
+          <h2>Не привязан к одной узкой нише: решаю задачи кодом.</h2>
+        </div>
+        <p>
+          Работаю системным администратором-программистом и параллельно
+          разрабатываю собственные и коммерческие проекты. Умею разговаривать с
+          заказчиком без подробного ТЗ, переводить проблему в техническую
+          структуру, делать frontend/backend, подключать API, работать с базами
+          данных и проверять результат.
+        </p>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Что могу сделать</p>
+            <h2>Задачи для работы, фриланса и внутренней автоматизации</h2>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="card">
+            <h3>Сайты и интерфейсы</h3>
+            <p>Лендинги, многостраничные сайты, личные кабинеты, админки и адаптивная верстка.</p>
+          </article>
+          <article class="card">
+            <h3>Боты и интеграции</h3>
+            <p>Telegram-боты, обработчики сообщений, интеграции с API и автоматизация процессов.</p>
+          </article>
+          <article class="card">
+            <h3>Скрипты и утилиты</h3>
+            <p>Python/PowerShell-скрипты, desktop-приложения, обработка файлов и вспомогательные инструменты.</p>
+          </article>
+          <article class="card">
+            <h3>Внутренние сервисы</h3>
+            <p>Service Desk, CRM, таск-трекеры, роли доступа, REST API, базы данных, отчеты и панели.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Главные проекты</p>
+            <h2>Кейсы, где важен рабочий результат, а не только код</h2>
+          </div>
+        </div>
+        <div class="project-list">
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/servicedesk-dashboard.png" alt="Office ServiceDesk dashboard" /></div>
+            <div class="project-body">
+              <div class="meta"><span>внутренний сервис</span><span>используется 3 компаниями</span></div>
+              <h3>Office ServiceDesk</h3>
+              <p>
+                Портал для заявок сотрудников, очередей исполнителей, базы знаний,
+                вложений, комментариев, email intake/reply, ролей доступа и
+                администрирования. Заменяет хаотичный поток обращений в
+                мессенджерах и Freshdesk.
+              </p>
+              <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/office-servicedesk">Открыть GitHub</a></p>
+              <details open>
+                <summary>Скриншоты проекта</summary>
+                <div class="strip">
+                  <a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" /><span>Главная панель</span></a>
+                  <a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" /><span>Список заявок</span></a>
+                  <a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" /><span>Очередь исполнителей</span></a>
+                  <a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" /><span>Настройки и роли</span></a>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" /></div>
+            <div class="project-body">
+              <div class="meta"><span>AI-инструмент</span><span>используют друзья-фрилансеры</span></div>
+              <h3>AI Workbench</h3>
+              <p>
+                Локальная offline-first платформа для многоагентной разработки:
+                планирование задачи, распределение ролей, сохранение запусков и
+                контроль действий. AI использую практично, как ускоритель разработки.
+              </p>
+              <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>SQLite</span><span>Ollama</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/ai-workbench">Открыть GitHub</a></p>
+              <details>
+                <summary>Скриншоты проекта</summary>
+                <div class="strip">
+                  <a href="screenshots/ai-workbench.jpg"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" /><span>Dashboard</span></a>
+                  <a href="screenshots/ai-workbench-new-task.png"><img src="screenshots/ai-workbench-new-task.png" alt="New task" /><span>Создание задачи</span></a>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" /></div>
+            <div class="project-body">
+              <div class="meta"><span>автоматизация маркетплейсов</span><span>сократил ручную работу 3 сотрудникам</span></div>
+              <h3>MarketplaceBot</h3>
+              <p>
+                Desktop-приложение и боты для автоматических ответов на отзывы
+                Ozon и Wildberries: GUI, шаблоны по рейтингу, расписание,
+                настройки, логирование и Windows-сборка.
+              </p>
+              <div class="chips"><span>Python</span><span>Tkinter</span><span>Ozon API</span><span>Wildberries API</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/MarketplaceBot">Открыть GitHub</a></p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot typecheck" /></div>
+            <div class="project-body">
+              <div class="meta"><span>бот и обработка текста</span><span>demo-ready архитектура</span></div>
+              <h3>MAX Summary Bot</h3>
+              <p>
+                Бот для кратких выжимок из текста, ссылок и файлов. Messenger
+                gateway нормализует payload, обращается к внутреннему API и
+                возвращает структурированный ответ.
+              </p>
+              <div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Открыть GitHub</a></p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/systeminfo-proof.png" alt="SystemInfo preview" /></div>
+            <div class="project-body">
+              <div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div>
+              <h3>SystemInfo</h3>
+              <p>
+                PowerShell-скрипт для сбора ключевой информации о Windows 10/11
+                без прав администратора. Полезен для диагностики, поддержки
+                пользователей и инвентаризации рабочих станций.
+              </p>
+              <div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/SystemInfo">Открыть GitHub</a></p>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="shot-main"><img src="screenshots/inventory-compile.png" alt="Inventory App verification" /></div>
+            <div class="project-body">
+              <div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div>
+              <h3>Inventory App</h3>
+              <p>
+                Приложение для инвентаризации IT-оборудования: локальный учет
+                техники, быстрый доступ к информации и простой инструмент под
+                внутреннюю задачу.
+              </p>
+              <div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div>
+              <p><a class="button" href="https://github.com/ncatofthe/inventory_app">Открыть GitHub</a></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Технологии</p>
+            <h2>Стек, с которым уже работал на практике</h2>
+          </div>
+        </div>
+        <div class="chips">
+          <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>HTML/CSS</span>
+          <span>PHP 8</span><span>REST API</span><span>JWT/RBAC</span><span>MySQL</span><span>PostgreSQL</span>
+          <span>SQLite</span><span>Prisma</span><span>Express</span><span>Fastify</span><span>Telegram/API bots</span>
+          <span>Ozon/WB API</span><span>PowerShell</span><span>Linux/Windows</span><span>Git</span><span>Ollama/local LLM</span>
+        </div>
+      </section>
+
+      <section class="section" id="contacts">
+        <div class="contact">
+          <div>
+            <p class="kicker">Контакты</p>
+            <h2>Открыт к найму, проектной работе и фрилансу</h2>
+            <p>
+              Можно писать по задачам: сайт, бот, скрипт, небольшое приложение,
+              автоматизация, внутренняя CRM/ServiceDesk или доработка существующего проекта.
+            </p>
+          </div>
+          <div class="links">
+            <a href="https://t.me/karameliew">Telegram: @karameliew</a>
+            <a href="mailto:zhikharev@sfuk.ru">Email: zhikharev@sfuk.ru</a>
+            <a href="tel:+79950048477">Телефон: +7 995 004-84-77</a>
+            <a href="https://github.com/ncatofthe">GitHub: ncatofthe</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
