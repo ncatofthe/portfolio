@@ -109,6 +109,12 @@ const projects = [
       "Система помогает централизованно регистрировать, распределять и обрабатывать внутренние обращения вместо разрозненных чатов.",
     stack: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "Playwright"],
     link: "https://github.com/ncatofthe/office-servicedesk",
+    cover: {
+      src: "/screenshots/servicedesk-dashboard-cover.png",
+      caption: "Главная панель ServiceDesk",
+      width: 1274,
+      height: 796,
+    },
     screenshots: [
       {
         src: "/screenshots/servicedesk-dashboard.png",
@@ -232,6 +238,12 @@ const projects = [
       "Инструмент сокращает первичный сбор информации при диагностике и помогает стандартизировать инвентаризацию.",
     stack: ["PowerShell", "WMI", "Windows"],
     link: "https://github.com/ncatofthe/SystemInfo",
+    cover: {
+      src: "/screenshots/systeminfo-cover.png",
+      caption: "Пример отчета SystemInfo",
+      width: 1600,
+      height: 1000,
+    },
     screenshots: [
       {
         src: "/screenshots/systeminfo-proof.png",
@@ -271,7 +283,7 @@ const featuredProjects = projects.filter((project) => project.featured);
 const otherProjects = projects.filter((project) => !project.featured);
 
 function ProjectCard({ project, compact = false }: { project: (typeof projects)[number]; compact?: boolean }) {
-  const mainShot = project.screenshots[0];
+  const mainShot = project.cover ?? project.screenshots[0];
 
   return (
     <article className={`project-card ${compact ? "project-card-compact" : "project-card-featured"}`}>
