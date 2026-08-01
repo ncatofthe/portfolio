@@ -215,12 +215,12 @@
       .project { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr); align-items: start; }
       .project::before { content: ""; position: absolute; z-index: 2; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--accent), var(--cool), var(--warm), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 420ms ease; }
       .project:hover::before { transform: scaleX(1); }
-      .shot-main { position: relative; overflow: hidden; min-height: 0; width: 100%; aspect-ratio: 16 / 10; padding: 18px; display: flex; align-items: center; justify-content: center; background: #17201b; cursor: zoom-in; }
+      .shot-main { position: relative; overflow: hidden; min-height: 0; width: 100%; aspect-ratio: 16 / 9; padding: 18px; display: flex; align-items: center; justify-content: center; background: #17201b; cursor: zoom-in; }
       .shot-main::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 34%), radial-gradient(circle at 78% 18%, rgba(201, 150, 46, 0.14), transparent 18rem); opacity: 0.7; pointer-events: none; }
       .shot-main::after { content: ""; position: absolute; inset: 18px; border-radius: 8px; background: linear-gradient(180deg, transparent 62%, rgba(16, 22, 20, 0.16)); pointer-events: none; }
       .shot-main-open { position: absolute; z-index: 2; right: 30px; bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 999px; padding: 8px 11px; color: #fff; background: rgba(16, 22, 20, 0.72); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); font-size: 12px; font-weight: 800; opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity 180ms ease, transform 180ms ease; pointer-events: none; }
       .shot-main:hover .shot-main-open, .shot-main:focus-visible .shot-main-open { opacity: 1; transform: translate3d(0, 0, 0); }
-      .shot-main img { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 0; max-height: none; aspect-ratio: 16 / 10; display: block; object-fit: contain; object-position: center center; border-radius: 8px; background: #f5f7f4; box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28); transition: transform 420ms ease, filter 420ms ease; }
+      .shot-main img { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 0; max-height: none; aspect-ratio: 16 / 9; display: block; object-fit: contain; object-position: center center; border-radius: 8px; background: #f5f7f4; box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28); transition: transform 420ms ease, filter 420ms ease; }
       .project:hover .shot-main img { transform: scale(1.018); filter: saturate(1.08) contrast(1.03); }
       .project-body { padding: clamp(22px, 4vw, 38px); }
       .meta, .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -237,7 +237,7 @@
       .strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(190px, 240px); gap: 12px; margin-top: 14px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
       .strip a { display: grid; gap: 8px; scroll-snap-align: start; transition: transform 200ms ease; }
       .strip a:hover { transform: translateY(-3px); }
-      .strip img { width: 100%; height: 150px; aspect-ratio: 16 / 10; object-fit: contain; object-position: left top; border: 1px solid var(--line); border-radius: 8px; background: #f5f7f4; }
+      .strip img { width: 100%; height: 150px; aspect-ratio: 16 / 9; object-fit: contain; object-position: left top; border: 1px solid var(--line); border-radius: 8px; background: #f5f7f4; }
       .strip span { color: var(--muted); font-size: 13px; font-weight: 700; }
 
       .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
@@ -340,7 +340,7 @@
         </div>
         <div class="project-list">
           <article class="project">
-            <a class="shot-main" href="screenshots/servicedesk-dashboard-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Office ServiceDesk"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1274" height="796" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <a class="shot-main" href="screenshots/servicedesk-dashboard-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Office ServiceDesk"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1920" height="1080" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>внутренний сервис</span><span>используется 3 компаниями</span></div>
               <h3>Office ServiceDesk</h3>
@@ -354,7 +354,7 @@
               <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span><span>Playwright</span></div>
               <div class="project-actions">
                 <a class="button" href="https://github.com/ncatofthe/office-servicedesk">Исходный код</a>
-                <details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" width="1274" height="1433" loading="lazy" /><span>Главная панель</span></a><a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" width="1274" height="1874" loading="lazy" /><span>Список заявок</span></a><a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" width="1274" height="3124" loading="lazy" /><span>Очередь исполнителей</span></a><a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" width="1274" height="1583" loading="lazy" /><span>Настройки и роли</span></a></div></details>
+                <details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" width="1920" height="1080" loading="lazy" /><span>Главная панель</span></a><a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" width="1920" height="1080" loading="lazy" /><span>Список заявок</span></a><a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" width="1920" height="1080" loading="lazy" /><span>Очередь исполнителей</span></a><a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" width="1920" height="1080" loading="lazy" /><span>Настройки и роли</span></a></div></details>
               </div>
             </div>
           </article>

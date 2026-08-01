@@ -47,6 +47,8 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   ]);
 
   assert.match(docsHtml, /servicedesk-dashboard-cover\.png/);
+  assert.match(docsHtml, /servicedesk-dashboard-cover\.png"[^>]+width="1920" height="1080"/);
+  assert.match(docsHtml, /servicedesk-queue\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /requestAnimationFrame/);
   assert.match(docsHtml, /premium-shadow/);
   assert.match(docsHtml, /orbit-frame/);
