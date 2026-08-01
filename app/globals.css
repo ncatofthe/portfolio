@@ -173,6 +173,7 @@ h1 {
 .secondary-action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 46px;
   border-radius: 8px;
   padding: 12px 18px;
@@ -200,6 +201,9 @@ h1 {
 .service-card,
 .project-card,
 .contact-card,
+.result-card,
+.experience-card,
+.stack-group,
 .metric,
 .admin-item,
 .tool-group {
@@ -218,6 +222,9 @@ h1 {
 .service-card:hover,
 .project-card:hover,
 .contact-card:hover,
+.result-card:hover,
+.experience-card:hover,
+.stack-group:hover,
 .metric:hover,
 .admin-item:hover,
 .tool-group:hover {
@@ -282,6 +289,14 @@ h1 {
 
 .metric:hover::before {
   transform: scaleX(1);
+}
+
+.hero-role {
+  margin: 16px 0 0;
+  color: var(--accent-strong);
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.12;
+  font-weight: 800;
 }
 
 .section {
@@ -350,10 +365,51 @@ h1 {
   max-width: 760px;
 }
 
+.results-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 34px 0 22px;
+}
+
+.result-card {
+  min-height: 148px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 3px solid transparent;
+  background: linear-gradient(90deg, var(--accent), var(--accent-cool), var(--accent-gold)) top / 100% 3px no-repeat;
+}
+
+.result-card strong {
+  color: var(--ink);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1;
+}
+
+.result-card span {
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.services-grid-focused {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .service-card {
@@ -590,6 +646,51 @@ h1 {
   line-height: 1.58;
 }
 
+.project-headline {
+  color: #26352f !important;
+  font-weight: 800;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.project-detail-grid div {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.project-detail-grid span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project-detail-grid p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.project-actions .screenshot-gallery {
+  margin-top: 13px;
+}
+
+.project-card-compact .project-detail-grid {
+  grid-template-columns: 1fr;
+}
+
 .stack-list,
 .skill-cloud {
   display: flex;
@@ -750,6 +851,51 @@ h1 {
   line-height: 1.14;
 }
 
+.experience-section,
+.stack {
+  width: min(1260px, calc(100% - 36px));
+}
+
+.experience-grid,
+.stack-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.experience-card,
+.stack-group {
+  padding: 20px;
+}
+
+.experience-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.experience-card h3,
+.stack-group h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.14;
+}
+
+.experience-card p,
+.stack-group p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.stack-groups {
+  grid-template-columns: 1fr 1fr;
+}
+
 .skill-cloud {
   max-width: 920px;
 }
@@ -795,12 +941,19 @@ h1 {
   font-weight: 800;
   transition:
     transform 180ms ease,
-    background 180ms ease;
+    background 180ms ease,
+    outline-color 180ms ease;
 }
 
 .contact-card a:hover {
   transform: translateX(3px);
   background: #e4eff4;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgba(40, 111, 158, 0.42);
+  outline-offset: 3px;
 }
 
 @keyframes hero-wash {
@@ -892,11 +1045,15 @@ h1 {
   .hero-grid,
   .intro,
   .contact-section,
-  .project-card {
+  .project-card,
+  .results-strip,
+  .experience-grid,
+  .stack-groups {
     grid-template-columns: 1fr;
   }
 
-  .services-grid {
+  .services-grid,
+  .services-grid-focused {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -930,6 +1087,8 @@ h1 {
 
   .metric-grid,
   .services-grid,
+  .services-grid-focused,
+  .project-detail-grid,
   .admin-grid,
   .tool-groups {
     grid-template-columns: 1fr;

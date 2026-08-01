@@ -3,18 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Жихарев Глеб - портфолио</title>
-    <meta
-      name="description"
-      content="Портфолио Жихарева Глеба: внутренние сервисы, сайты, боты, скрипты и автоматизация."
-    />
+    <title>Жихарев Глеб - разработчик внутренних сервисов</title>
+    <meta name="description" content="Портфолио разработчика внутренних сервисов, автоматизации, API-интеграций, ботов и служебных приложений." />
+    <link rel="canonical" href="https://ncatofthe.github.io/portfolio/" />
+    <meta name="theme-color" content="#f6f7f4" />
+    <meta property="og:title" content="Жихарев Глеб - разработчик внутренних сервисов и автоматизации" />
+    <meta property="og:description" content="Service Desk, боты, интеграции, административные панели и служебные приложения для компаний." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ncatofthe.github.io/portfolio/" />
+    <meta property="og:image" content="https://ncatofthe.github.io/portfolio/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Жихарев Глеб - разработчик внутренних сервисов" />
+    <meta name="twitter:description" content="Внутренние сервисы, автоматизация, API-интеграции и боты." />
+    <meta name="twitter:image" content="https://ncatofthe.github.io/portfolio/og.png" />
+    <link rel="icon" href="favicon.svg" />
     <style>
       :root {
         --bg: #f6f7f4;
         --text: #17201b;
         --muted: #5b675f;
         --line: #d7ded4;
-        --panel: #ffffff;
         --soft: #eef3ee;
         --accent: #1f6f63;
         --strong: #123f46;
@@ -24,14 +32,8 @@
         --scroll-progress: 0;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
         background:
@@ -42,22 +44,11 @@
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
+      a { color: inherit; text-decoration: none; }
+      a:focus-visible, summary:focus-visible { outline: 3px solid rgba(40, 111, 158, 0.42); outline-offset: 3px; }
+      h1, h2, h3, p { overflow-wrap: anywhere; }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .scroll-progress {
-        position: fixed;
-        z-index: 30;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        pointer-events: none;
-      }
-
+      .scroll-progress { position: fixed; z-index: 30; top: 0; left: 0; width: 100%; height: 3px; pointer-events: none; }
       .scroll-progress::before {
         content: "";
         display: block;
@@ -70,7 +61,7 @@
       }
 
       .hero {
-        min-height: 92vh;
+        min-height: 94vh;
         display: flex;
         flex-direction: column;
         padding: 22px clamp(18px, 4vw, 56px) 42px;
@@ -83,42 +74,17 @@
         background-size: 140% 140%, 150% 150%, 130% 130%, auto;
         animation: hero-wash 14s ease-in-out infinite alternate;
       }
-
-      .topbar {
-        display: flex;
-        justify-content: flex-end;
-        gap: 8px;
-        margin-bottom: 56px;
-      }
-
-      .topbar a,
-      .button,
-      summary {
+      .topbar { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 56px; }
+      .topbar a {
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.72);
-        color: var(--strong);
-        font-weight: 800;
-      }
-
-      .topbar a {
         padding: 9px 13px;
         color: var(--muted);
         font-size: 14px;
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease,
-          color 180ms ease;
+        background: rgba(255, 255, 255, 0.56);
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
       }
-
-      .topbar a:hover {
-        transform: translateY(-2px);
-        border-color: rgba(31, 111, 99, 0.35);
-        color: var(--strong);
-        background: rgba(255, 255, 255, 0.9);
-      }
-
+      .topbar a:hover { transform: translateY(-2px); border-color: rgba(31, 111, 99, 0.35); color: var(--strong); background: rgba(255, 255, 255, 0.9); }
       .hero-grid {
         width: min(1180px, 100%);
         margin: auto;
@@ -127,829 +93,267 @@
         gap: clamp(28px, 5vw, 72px);
         align-items: center;
       }
-
-      .kicker {
-        margin: 0 0 12px;
-        color: var(--accent);
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        overflow-wrap: anywhere;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 860px;
-        font-size: clamp(52px, 8vw, 108px);
-        line-height: 0.94;
-      }
-
-      .lead {
-        margin: 24px 0 0;
-        max-width: 760px;
-        color: #314039;
-        font-size: clamp(20px, 2.5vw, 30px);
-        line-height: 1.3;
-      }
-
-      .actions,
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .actions {
-        margin-top: 34px;
-      }
-
+      .kicker { margin: 0 0 12px; color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 12px; }
+      h1 { margin: 0; max-width: 860px; font-size: clamp(52px, 8vw, 112px); line-height: 0.94; color: #101614; }
+      h2 { margin: 0; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.05; color: #101614; }
+      h3 { margin: 0; font-size: 22px; line-height: 1.14; color: #101614; }
+      .hero-role { margin: 16px 0 0; color: var(--strong); font-size: clamp(24px, 3vw, 38px); line-height: 1.12; font-weight: 800; }
+      .lead { margin: 24px 0 0; max-width: 760px; color: #314039; font-size: clamp(20px, 2.5vw, 30px); line-height: 1.3; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
       .button {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         min-height: 46px;
+        border-radius: 8px;
         padding: 12px 18px;
+        color: var(--strong);
+        border: 1px solid var(--strong);
+        font-weight: 800;
       }
+      .button.primary { color: #fff; background: var(--strong); }
 
-      .button.primary {
-        background: var(--strong);
-        color: #fff;
-      }
-
-      .panel,
-      .card,
-      .project,
-      .contact,
-      .admin-item,
-      .tool-group {
+      .panel, .result, .card, .project, .experience-card, .stack-group, .contact, .links {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.84);
         box-shadow: 0 16px 42px rgba(24, 39, 32, 0.08);
-        transition:
-          transform 220ms ease,
-          box-shadow 220ms ease,
-          border-color 220ms ease,
-          background 220ms ease;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
       }
-
-      .panel:hover,
-      .card:hover,
-      .project:hover,
-      .contact:hover,
-      .metric:hover,
-      .admin-item:hover,
-      .tool-group:hover {
+      .panel:hover, .result:hover, .card:hover, .project:hover, .experience-card:hover, .stack-group:hover, .contact:hover, .links:hover {
         transform: translateY(-4px);
         border-color: rgba(31, 111, 99, 0.28);
         box-shadow: 0 22px 56px rgba(24, 39, 32, 0.12);
       }
+      .panel { padding: 22px; animation: fade-up 760ms ease 120ms both; }
+      .panel strong { display: block; color: #101614; font-size: 28px; line-height: 1.08; }
+      .panel p, .project p, .card p, .experience-card p, .stack-group p, .contact p { color: var(--muted); line-height: 1.58; }
 
-      .panel {
-        display: grid;
-        gap: 14px;
-        padding: 22px;
-        animation: fade-up 760ms ease 120ms both;
-      }
+      .section { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 76px 0; }
+      .section.wide { width: min(1260px, calc(100% - 36px)); }
+      .section-head { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 28px; }
+      .proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 34px 0 22px; }
+      .result { min-height: 148px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+      .result::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold)) top / 100% 3px no-repeat; }
+      .result strong { color: #101614; font-size: clamp(28px, 3vw, 42px); line-height: 1; }
+      .result span { color: var(--muted); font-weight: 800; line-height: 1.35; }
 
-      .panel strong {
-        font-size: 28px;
-        line-height: 1.08;
-      }
+      .project-list { display: grid; gap: 16px; }
+      .project { overflow: hidden; display: grid; grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr); }
+      .shot-main { min-height: 330px; padding: 18px; display: flex; align-items: center; justify-content: center; background: #17201b; }
+      .shot-main img { width: 100%; aspect-ratio: 16 / 9; display: block; object-fit: contain; object-position: left top; border-radius: 8px; background: #f5f7f4; box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28); transition: transform 420ms ease, filter 420ms ease; }
+      .project:hover .shot-main img { transform: scale(1.025); filter: saturate(1.08) contrast(1.03); }
+      .project-body { padding: clamp(22px, 4vw, 38px); }
+      .meta, .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+      .meta { margin-bottom: 14px; }
+      .meta span, .chips span { border-radius: 999px; padding: 7px 10px; color: var(--strong); background: var(--soft); font-size: 13px; font-weight: 800; }
+      .headline { color: #26352f !important; font-weight: 800; }
+      .details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+      .details div { border-top: 1px solid var(--line); padding-top: 12px; }
+      .details span { color: var(--accent); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+      .details p { margin-top: 8px; font-size: 15px; line-height: 1.5; }
+      .project-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px; margin-top: 22px; }
+      details { margin-top: 0; }
+      summary { cursor: pointer; width: fit-content; border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; color: var(--strong); background: #fff; font-weight: 800; }
+      .strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(190px, 240px); gap: 12px; margin-top: 14px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
+      .strip a { display: grid; gap: 8px; scroll-snap-align: start; transition: transform 200ms ease; }
+      .strip a:hover { transform: translateY(-3px); }
+      .strip img { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; object-position: left top; border: 1px solid var(--line); border-radius: 8px; background: #f5f7f4; }
+      .strip span { color: var(--muted); font-size: 13px; font-weight: 700; }
 
-      .panel p,
-      .intro p,
-      .contact p,
-      .project p,
-      .card p {
-        color: var(--muted);
-        line-height: 1.58;
-      }
+      .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .card, .experience-card, .stack-group { padding: 20px; }
+      .card { min-height: 210px; position: relative; overflow: hidden; }
+      .card::after { content: ""; position: absolute; inset: auto 20px 18px; height: 2px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--cool), var(--warm)); transform: translateX(-110%); transition: transform 260ms ease; }
+      .card:hover::after { transform: translateX(0); }
+      .experience-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .experience-card > span { display: block; margin-bottom: 12px; color: var(--accent); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+      .stack-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .chips { margin-top: 16px; }
+      .contact { display: grid; grid-template-columns: 1fr minmax(300px, 420px); gap: 34px; align-items: start; padding-bottom: 0; border: 0; background: transparent; box-shadow: none; }
+      .links { display: grid; gap: 10px; padding: 20px; }
+      .links a { border-radius: 8px; padding: 13px 14px; background: var(--soft); color: var(--strong); font-weight: 800; transition: transform 180ms ease, background 180ms ease; }
+      .links a:hover { transform: translateX(3px); background: #e4eff4; }
 
-      .metrics {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
+      .scroll-ready .reveal-on-scroll { transition: opacity 720ms cubic-bezier(0.21, 0.74, 0.23, 1), transform 720ms cubic-bezier(0.21, 0.74, 0.23, 1), filter 720ms cubic-bezier(0.21, 0.74, 0.23, 1), box-shadow 220ms ease, border-color 220ms ease, background 220ms ease; transition-delay: var(--reveal-delay, 0ms); will-change: opacity, transform, filter; }
+      .scroll-ready .reveal-on-scroll:not(.is-visible) { opacity: 0; transform: translate3d(0, 28px, 0) scale(0.985); filter: blur(8px); }
+      .scroll-ready .reveal-on-scroll.is-visible { opacity: 1; filter: blur(0); }
 
-      .metric {
-        min-height: 92px;
-        padding: 16px;
-        display: flex;
-        align-items: flex-end;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        font-weight: 800;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .metric::before {
-        content: "";
-        position: absolute;
-        inset: auto 16px 14px;
-        height: 3px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold));
-        transform: scaleX(0.34);
-        transform-origin: left;
-        transition: transform 280ms ease;
-      }
-
-      .metric:hover::before {
-        transform: scaleX(1);
-      }
-
-      .section {
-        width: min(1180px, calc(100% - 36px));
-        margin: 0 auto;
-        padding: 76px 0;
-      }
-
-      .scroll-ready .reveal-on-scroll {
-        transition:
-          opacity 720ms cubic-bezier(0.21, 0.74, 0.23, 1),
-          transform 720ms cubic-bezier(0.21, 0.74, 0.23, 1),
-          filter 720ms cubic-bezier(0.21, 0.74, 0.23, 1),
-          box-shadow 220ms ease,
-          border-color 220ms ease,
-          background 220ms ease;
-        transition-delay: var(--reveal-delay, 0ms);
-        will-change: opacity, transform, filter;
-      }
-
-      .scroll-ready .reveal-on-scroll:not(.is-visible) {
-        opacity: 0;
-        transform: translate3d(0, 28px, 0) scale(0.985);
-        filter: blur(8px);
-      }
-
-      .scroll-ready .reveal-on-scroll.is-visible {
-        opacity: 1;
-        filter: blur(0);
-      }
-
-      .intro {
-        display: grid;
-        grid-template-columns: 0.72fr 1fr;
-        gap: clamp(24px, 5vw, 78px);
-        border-bottom: 1px solid var(--line);
-      }
-
-      h2 {
-        margin: 0;
-        font-size: clamp(32px, 4.2vw, 56px);
-        line-height: 1.05;
-      }
-
-      .section-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 32px;
-        align-items: flex-end;
-        margin-bottom: 28px;
-      }
-
-      .service-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .card {
-        min-height: 210px;
-        padding: 20px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card::after {
-        content: "";
-        position: absolute;
-        inset: auto 20px 18px;
-        height: 2px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--cool), var(--warm));
-        transform: translateX(-110%);
-        transition: transform 260ms ease;
-      }
-
-      .card:hover::after {
-        transform: translateX(0);
-      }
-
-      .project-list {
-        display: grid;
-        gap: 16px;
-      }
-
-      .project {
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr);
-      }
-
-      .shot-main {
-        min-height: 330px;
-        padding: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #17201b;
-      }
-
-      .shot-main img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        display: block;
-        object-fit: contain;
-        object-position: left top;
-        border-radius: 8px;
-        background: #f5f7f4;
-        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
-        transition:
-          transform 420ms ease,
-          filter 420ms ease;
-      }
-
-      .project:hover .shot-main img {
-        transform: scale(1.025);
-        filter: saturate(1.08) contrast(1.03);
-      }
-
-      .project-body {
-        padding: clamp(22px, 4vw, 38px);
-      }
-
-      .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 14px;
-      }
-
-      .meta span,
-      .chips span {
-        border-radius: 999px;
-        padding: 7px 10px;
-        color: var(--strong);
-        background: var(--soft);
-        font-size: 13px;
-        font-weight: 800;
-      }
-
-      .project h3,
-      .card h3 {
-        margin: 0;
-        font-size: 22px;
-        line-height: 1.14;
-      }
-
-      details {
-        margin-top: 22px;
-      }
-
-      summary {
-        cursor: pointer;
-        width: fit-content;
-        padding: 9px 12px;
-      }
-
-      .strip {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(190px, 240px);
-        gap: 12px;
-        margin-top: 14px;
-        overflow-x: auto;
-        padding-bottom: 6px;
-        scroll-snap-type: x mandatory;
-      }
-
-      .strip a {
-        display: grid;
-        gap: 8px;
-        scroll-snap-align: start;
-        transition: transform 200ms ease;
-      }
-
-      .strip a:hover {
-        transform: translateY(-3px);
-      }
-
-      .strip img {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        object-fit: contain;
-        object-position: left top;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #f5f7f4;
-        transition:
-          border-color 180ms ease,
-          filter 180ms ease;
-      }
-
-      .strip a:hover img {
-        border-color: rgba(31, 111, 99, 0.35);
-        filter: saturate(1.08);
-      }
-
-      .strip span {
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .tools-section {
-        width: min(1260px, calc(100% - 36px));
-      }
-
-      .admin-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-
-      .admin-item {
-        min-height: 104px;
-        display: flex;
-        align-items: flex-end;
-        padding: 16px;
-        color: #26352f;
-        font-weight: 800;
-        line-height: 1.28;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .admin-item::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-top: 3px solid transparent;
-        background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold)) top / 100% 3px no-repeat;
-        opacity: 0.72;
-      }
-
-      .tool-groups {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .tool-group {
-        min-height: 220px;
-        padding: 20px;
-      }
-
-      .tool-group h3 {
-        margin: 0;
-        font-size: 22px;
-        line-height: 1.14;
-      }
-
-      .contact {
-        display: grid;
-        grid-template-columns: 1fr minmax(300px, 420px);
-        gap: 34px;
-        padding: 28px;
-      }
-
-      .links {
-        display: grid;
-        gap: 10px;
-      }
-
-      .links a {
-        border-radius: 8px;
-        padding: 13px 14px;
-        background: var(--soft);
-        color: var(--strong);
-        font-weight: 800;
-        transition:
-          transform 180ms ease,
-          background 180ms ease;
-      }
-
-      .links a:hover {
-        transform: translateX(3px);
-        background: #e4eff4;
-      }
-
-      @keyframes hero-wash {
-        from {
-          background-position: 0% 0%, 100% 0%, 50% 100%, 0 0;
-        }
-
-        to {
-          background-position: 18% 10%, 82% 18%, 44% 76%, 0 0;
-        }
-      }
-
-      @keyframes fade-up {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+      @keyframes hero-wash { from { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; } to { background-position: 18% 10%, 82% 18%, 44% 76%, 0 0; } }
+      @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
       @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 1ms !important;
-          animation-iteration-count: 1 !important;
-          scroll-behavior: auto !important;
-          transition-duration: 1ms !important;
-        }
-
-        .scroll-ready .reveal-on-scroll {
-          opacity: 1 !important;
-          transform: none !important;
-          filter: none !important;
-        }
-
-        .scroll-progress {
-          display: none;
-        }
+        *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 1ms !important; }
+        .scroll-ready .reveal-on-scroll { opacity: 1 !important; transform: none !important; filter: none !important; }
+        .scroll-progress { display: none; }
       }
-
       @media (max-width: 920px) {
-        .hero {
-          min-height: auto;
-        }
-
-        .topbar {
-          justify-content: flex-start;
-          overflow-x: auto;
-          padding-bottom: 4px;
-          margin-bottom: 44px;
-        }
-
-        .topbar a {
-          white-space: nowrap;
-        }
-
-        .hero-grid,
-        .intro,
-        .project,
-        .contact {
-          grid-template-columns: 1fr;
-        }
-
-        .service-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .admin-grid,
-        .tool-groups {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .section-head {
-          display: block;
-        }
+        .hero { min-height: auto; }
+        .topbar { justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; margin-bottom: 44px; }
+        .topbar a { white-space: nowrap; }
+        .hero-grid, .project, .proof, .experience-grid, .stack-groups, .contact { grid-template-columns: 1fr; }
+        .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .section-head { display: block; }
       }
-
       @media (max-width: 620px) {
-        .hero {
-          padding-inline: 16px;
-        }
-
-        h1 {
-          font-size: 52px;
-        }
-
-        .lead {
-          font-size: 20px;
-        }
-
-        .actions a {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .metrics,
-        .service-grid,
-        .admin-grid,
-        .tool-groups {
-          grid-template-columns: 1fr;
-        }
-
-        .section {
-          width: min(100% - 28px, 1180px);
-          padding: 58px 0;
-        }
+        .hero { padding-inline: 16px; }
+        h1 { font-size: 52px; }
+        .lead { font-size: 20px; }
+        .actions a { width: 100%; }
+        .service-grid, .details { grid-template-columns: 1fr; }
+        .section, .section.wide { width: min(100% - 28px, 1180px); padding: 58px 0; }
+        .shot-main { min-height: 270px; padding: 14px; }
       }
     </style>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"Жихарев Глеб","jobTitle":"Разработчик внутренних сервисов и автоматизации","email":"mailto:zhikharev@sfuk.ru","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"],"knowsAbout":["Internal tools","Business automation","Service Desk","API integrations","React","TypeScript","Python","PostgreSQL"]}
+    </script>
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
     <header class="hero">
       <nav class="topbar" aria-label="Навигация">
-        <a href="#projects">Проекты</a>
-        <a href="#services">Услуги</a>
-        <a href="#tools">Инструменты</a>
+        <a href="#projects">Кейсы</a>
+        <a href="#services">Чем полезен</a>
+        <a href="#experience">Опыт</a>
         <a href="#stack">Стек</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="hero-grid">
         <div>
-          <p class="kicker">Портфолио для найма и фриланса</p>
+          <p class="kicker">Внутренние сервисы, автоматизация и интеграции</p>
           <h1>Жихарев Глеб</h1>
-          <p class="lead">
-            Системный администратор-программист, разработчик сервисов, сайтов,
-            скриптов, ботов и игровых прототипов. Беру прикладные задачи,
-            разбираюсь в процессе и довожу решение до рабочего состояния.
-          </p>
+          <p class="hero-role">Разработчик внутренних сервисов и автоматизации</p>
+          <p class="lead">Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний. Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend и backend и довожу продукт до внедрения.</p>
           <div class="actions">
-            <a class="button primary" href="#projects">Смотреть проекты</a>
-            <a class="button" href="mailto:zhikharev@sfuk.ru">Написать на email</a>
+            <a class="button primary" href="#projects">Посмотреть проекты</a>
+            <a class="button" href="https://t.me/karameliew">Обсудить задачу в Telegram</a>
+            <a class="button" href="resume-developer.pdf" download>Скачать резюме</a>
           </div>
         </div>
         <aside class="panel">
           <p class="kicker">Фокус</p>
-          <strong>сервисы, сайты, боты, автоматизация</strong>
-          <p>
-            Подхожу для задач, где нужно быстро собрать полезный инструмент:
-            сайт, скрипт, простое приложение, интеграцию или внутреннюю панель.
-            Также могу подключаться к администрированию, диагностике ПК,
-            Unity/Unreal Engine и C#.
-          </p>
-          <div class="metrics">
-            <div class="metric">ServiceDesk используют 3 компании</div>
-            <div class="metric">боты сократили ручную работу 3 сотрудникам</div>
-            <div class="metric">AI Workbench используют друзья-фрилансеры</div>
-            <div class="metric">проекты довожу от идеи до внедрения</div>
-            <div class="metric">работаю с Unity, Unreal Engine и C#</div>
-            <div class="metric">понимаю поддержку, железо и сборку ПК</div>
-          </div>
+          <strong>прикладные инструменты под рабочие процессы</strong>
+          <p>Основной профиль - внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения бизнеса.</p>
         </aside>
       </div>
     </header>
 
     <main>
-      <section class="section intro">
-        <div>
-          <p class="kicker">Обо мне</p>
-          <h2>Не привязан к одной узкой нише: решаю задачи кодом.</h2>
-        </div>
-        <p>
-          Работаю системным администратором-программистом и параллельно
-          разрабатываю собственные и коммерческие проекты. Умею разговаривать с
-          заказчиком без подробного ТЗ, переводить проблему в техническую
-          структуру, делать frontend/backend, подключать API, работать с базами
-          данных и проверять результат. Как системный администратор понимаю
-          рабочие места, сети, права доступа, железо, комплектующие и реальные
-          проблемы пользователей. Есть опыт OSINT, анализа сетевого трафика в
-          Wireshark и практики на Hack The Box.
-        </p>
+      <section class="section proof" aria-label="Ключевые результаты">
+        <article class="result"><strong>3 компании</strong><span>используют разработанный мной ServiceDesk</span></article>
+        <article class="result"><strong>3 сотрудника</strong><span>получили меньше ручной работы за счет автоматизации отзывов</span></article>
+        <article class="result"><strong>от анализа до запуска</strong><span>самостоятельно веду прикладные проекты и проверяю результат</span></article>
       </section>
 
-      <section class="section" id="services">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Что могу сделать</p>
-            <h2>Задачи для работы, фриланса и внутренней автоматизации</h2>
-          </div>
-        </div>
-        <div class="service-grid">
-          <article class="card">
-            <h3>Сайты и интерфейсы</h3>
-            <p>Лендинги, многостраничные сайты, личные кабинеты, админки и адаптивная верстка.</p>
-          </article>
-          <article class="card">
-            <h3>Боты и интеграции</h3>
-            <p>Telegram-боты, обработчики сообщений, интеграции с API и автоматизация процессов.</p>
-          </article>
-          <article class="card">
-            <h3>Скрипты и утилиты</h3>
-            <p>Python/PowerShell-скрипты, desktop-приложения, обработка файлов и вспомогательные инструменты.</p>
-          </article>
-          <article class="card">
-            <h3>Внутренние сервисы</h3>
-            <p>Service Desk, CRM, таск-трекеры, роли доступа, REST API, базы данных, отчеты и панели.</p>
-          </article>
-          <article class="card">
-            <h3>Системное администрирование</h3>
-            <p>Поддержка пользователей, диагностика Windows/Linux, настройка рабочих мест, скрипты и инвентаризация.</p>
-          </article>
-          <article class="card">
-            <h3>Игровые движки</h3>
-            <p>Unity, Unreal Engine, C#, прототипы механик, простые игровые системы и инструменты.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section tools-section" id="tools">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Инструментарий</p>
-            <h2>Разработка плюс системное администрирование</h2>
-          </div>
-        </div>
-        <div class="admin-grid">
-          <div class="admin-item">поддержка пользователей и рабочих мест</div>
-          <div class="admin-item">диагностика Windows 10/11 и базовая работа с Linux</div>
-          <div class="admin-item">PowerShell-автоматизация и сбор информации через WMI</div>
-          <div class="admin-item">понимание сетей, доступов и типовых офисных проблем</div>
-          <div class="admin-item">OSINT-поиск открытой информации и проверка цифровых следов</div>
-          <div class="admin-item">анализ трафика в Wireshark и практика на Hack The Box</div>
-          <div class="admin-item">сборка, апгрейд и подбор комплектующих ПК</div>
-          <div class="admin-item">BIOS/UEFI, драйверы, периферия и диагностика железа</div>
-        </div>
-        <div class="tool-groups">
-          <article class="tool-group">
-            <h3>Разработка</h3>
-            <div class="chips"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C#</span><span>React</span><span>Node.js</span><span>FastAPI</span><span>Express</span><span>Fastify</span><span>PHP 8</span><span>REST API</span></div>
-          </article>
-          <article class="tool-group">
-            <h3>Базы и backend</h3>
-            <div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Prisma</span><span>JWT/RBAC</span><span>BullMQ</span><span>Docker Compose</span><span>npm/pnpm</span></div>
-          </article>
-          <article class="tool-group">
-            <h3>Автоматизация и боты</h3>
-            <div class="chips"><span>Telegram/API bots</span><span>Ozon API</span><span>Wildberries API</span><span>PowerShell</span><span>WMI</span><span>парсинг</span><span>макросы</span></div>
-          </article>
-          <article class="tool-group">
-            <h3>Системное администрирование</h3>
-            <div class="chips"><span>Windows 10/11</span><span>Linux</span><span>RDP/SSH</span><span>сетевые настройки</span><span>диагностика ПК</span><span>сборка компьютеров</span><span>подбор комплектующих</span><span>инвентаризация</span></div>
-          </article>
-          <article class="tool-group">
-            <h3>Безопасность и анализ</h3>
-            <div class="chips"><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span><span>анализ сетевого трафика</span><span>поиск открытой информации</span><span>типовые уязвимости</span></div>
-          </article>
-          <article class="tool-group">
-            <h3>AI и игровые движки</h3>
-            <div class="chips"><span>Ollama/local LLM</span><span>Unity</span><span>Unreal Engine</span><span>Blueprints</span><span>игровые прототипы</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
+      <section class="section wide" id="projects">
         <div class="section-head">
           <div>
             <p class="kicker">Главные проекты</p>
-            <h2>Кейсы, где важен рабочий результат, а не только код</h2>
+            <h2>Кейсы, которые показывают коммерческую пользу и личный вклад</h2>
           </div>
         </div>
         <div class="project-list">
           <article class="project">
-            <div class="shot-main"><img src="screenshots/servicedesk-dashboard.png" alt="Office ServiceDesk dashboard" /></div>
+            <div class="shot-main"><img src="screenshots/servicedesk-dashboard.png" alt="Office ServiceDesk dashboard" width="1274" height="1433" /></div>
             <div class="project-body">
               <div class="meta"><span>внутренний сервис</span><span>используется 3 компаниями</span></div>
               <h3>Office ServiceDesk</h3>
-              <p>
-                Портал для заявок сотрудников, очередей исполнителей, базы знаний,
-                вложений, комментариев, email intake/reply, ролей доступа и
-                администрирования. Заменяет хаотичный поток обращений в
-                мессенджерах и Freshdesk.
-              </p>
-              <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/office-servicedesk">Открыть GitHub</a></p>
-              <details open>
-                <summary>Скриншоты проекта</summary>
-                <div class="strip">
-                  <a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" /><span>Главная панель</span></a>
-                  <a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" /><span>Список заявок</span></a>
-                  <a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" /><span>Очередь исполнителей</span></a>
-                  <a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" /><span>Настройки и роли</span></a>
-                </div>
-              </details>
+              <p class="headline">Внутренняя система управления заявками, которую используют три компании.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Обращения сотрудников поступали через мессенджеры, почту и внешние helpdesk-сервисы. Заявки было сложно распределять, отслеживать и контролировать.</p></div>
+                <div><span>Решение</span><p>Разработал единый портал с очередями исполнителей, базой знаний, комментариями, вложениями, email-интеграцией, ролями доступа и административной панелью.</p></div>
+                <div><span>Моя роль</span><p>Анализ процессов, архитектура, база данных, frontend/backend, интеграции, тестирование, развертывание и сопровождение.</p></div>
+                <div><span>Результат</span><p>Система помогает централизованно регистрировать, распределять и обрабатывать внутренние обращения вместо разрозненных чатов.</p></div>
+              </div>
+              <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span><span>Playwright</span></div>
+              <div class="project-actions">
+                <a class="button" href="https://github.com/ncatofthe/office-servicedesk">Исходный код</a>
+                <details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" width="1274" height="1433" loading="lazy" /><span>Главная панель</span></a><a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" width="1274" height="1874" loading="lazy" /><span>Список заявок</span></a><a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" width="1274" height="3124" loading="lazy" /><span>Очередь исполнителей</span></a><a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" width="1274" height="1583" loading="lazy" /><span>Настройки и роли</span></a></div></details>
+              </div>
             </div>
           </article>
 
           <article class="project">
-            <div class="shot-main"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" /></div>
+            <div class="shot-main"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /></div>
             <div class="project-body">
-              <div class="meta"><span>AI-инструмент</span><span>используют друзья-фрилансеры</span></div>
-              <h3>AI Workbench</h3>
-              <p>
-                Локальная offline-first платформа для многоагентной разработки:
-                планирование задачи, распределение ролей, сохранение запусков и
-                контроль действий. AI использую практично, как ускоритель разработки.
-              </p>
-              <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>SQLite</span><span>Ollama</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/ai-workbench">Открыть GitHub</a></p>
-              <details>
-                <summary>Скриншоты проекта</summary>
-                <div class="strip">
-                  <a href="screenshots/ai-workbench.jpg"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" /><span>Dashboard</span></a>
-                  <a href="screenshots/ai-workbench-new-task.png"><img src="screenshots/ai-workbench-new-task.png" alt="New task" /><span>Создание задачи</span></a>
-                </div>
-              </details>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="shot-main"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" /></div>
-            <div class="project-body">
-              <div class="meta"><span>автоматизация маркетплейсов</span><span>сократил ручную работу 3 сотрудникам</span></div>
+              <div class="meta"><span>автоматизация маркетплейсов</span><span>меньше ручной работы для 3 сотрудников</span></div>
               <h3>MarketplaceBot</h3>
-              <p>
-                Desktop-приложение и боты для автоматических ответов на отзывы
-                Ozon и Wildberries: GUI, шаблоны по рейтингу, расписание,
-                настройки, логирование и Windows-сборка.
-              </p>
-              <div class="chips"><span>Python</span><span>Tkinter</span><span>Ozon API</span><span>Wildberries API</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/MarketplaceBot">Открыть GitHub</a></p>
+              <p class="headline">Desktop-приложение и боты для автоматической обработки отзывов Ozon и Wildberries.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия.</p></div>
+                <div><span>Решение</span><p>Собрал приложение с GUI, шаблонами по рейтингу, расписанием обработки, хранением настроек, логированием и Windows-сборкой.</p></div>
+                <div><span>Моя роль</span><p>Проектирование сценариев, Python-разработка, интеграции с API маркетплейсов, настройка сборки и проверка модулей.</p></div>
+                <div><span>Результат</span><p>Автоматизация маркетплейсов сократила объем ручной работы для трех сотрудников и ускорила обработку повторяющихся отзывов.</p></div>
+              </div>
+              <div class="chips"><span>Python</span><span>Tkinter</span><span>Ozon API</span><span>Wildberries API</span><span>PyInstaller</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/MarketplaceBot">Исходный код</a></div>
             </div>
           </article>
 
           <article class="project">
-            <div class="shot-main"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot typecheck" /></div>
+            <div class="shot-main"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" width="1280" height="720" /></div>
             <div class="project-body">
-              <div class="meta"><span>бот и обработка текста</span><span>demo-ready архитектура</span></div>
-              <h3>MAX Summary Bot</h3>
-              <p>
-                Бот для кратких выжимок из текста, ссылок и файлов. Messenger
-                gateway нормализует payload, обращается к внутреннему API и
-                возвращает структурированный ответ.
-              </p>
-              <div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Открыть GitHub</a></p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="shot-main"><img src="screenshots/systeminfo-proof.png" alt="SystemInfo preview" /></div>
-            <div class="project-body">
-              <div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div>
-              <h3>SystemInfo</h3>
-              <p>
-                PowerShell-скрипт для сбора ключевой информации о Windows 10/11
-                без прав администратора. Полезен для диагностики, поддержки
-                пользователей и инвентаризации рабочих станций.
-              </p>
-              <div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/SystemInfo">Открыть GitHub</a></p>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="shot-main"><img src="screenshots/inventory-compile.png" alt="Inventory App verification" /></div>
-            <div class="project-body">
-              <div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div>
-              <h3>Inventory App</h3>
-              <p>
-                Приложение для инвентаризации IT-оборудования: локальный учет
-                техники, быстрый доступ к информации и простой инструмент под
-                внутреннюю задачу.
-              </p>
-              <div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div>
-              <p><a class="button" href="https://github.com/ncatofthe/inventory_app">Открыть GitHub</a></p>
+              <div class="meta"><span>AI-инструмент</span><span>используется в реальных фриланс-задачах</span></div>
+              <h3>AI Workbench</h3>
+              <p class="headline">Локальная offline-first платформа для многоагентной разработки.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Нужно было ускорить проектную разработку: сохранять контекст, формировать план, распределять работу между агентами и проверять результат.</p></div>
+                <div><span>Решение</span><p>Собрал платформу с локальным LLM-контуром, REST API, сохранением запусков, approval-механизмом и интерфейсом управления задачами.</p></div>
+                <div><span>Моя роль</span><p>Архитектура, backend, frontend, сценарии агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.</p></div>
+                <div><span>Результат</span><p>Инструмент помогает быстрее разбирать задачи, фиксировать план действий и проводить разработку в управляемом режиме.</p></div>
+              </div>
+              <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>SQLite</span><span>Ollama</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/ai-workbench">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/ai-workbench.jpg"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" width="1280" height="720" loading="lazy" /><span>Dashboard</span></a><a href="screenshots/ai-workbench-new-task.png"><img src="screenshots/ai-workbench-new-task.png" alt="Создание задачи" width="1600" height="1173" loading="lazy" /><span>Создание задачи</span></a></div></details></div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="stack">
-        <div class="section-head">
-          <div>
-            <p class="kicker">Технологии</p>
-            <h2>Стек, с которым уже работал на практике</h2>
-          </div>
+      <section class="section" id="services">
+        <div class="section-head"><div><p class="kicker">Чем могу быть полезен</p><h2>Разрабатываю инструменты, которые закрывают конкретные рабочие задачи</h2></div></div>
+        <div class="service-grid">
+          <article class="card"><h3>Внутренние сервисы</h3><p>Service Desk, CRM, таск-трекеры, административные панели, роли доступа, отчеты и рабочие кабинеты.</p></article>
+          <article class="card"><h3>Автоматизация процессов</h3><p>Скрипты, обработка файлов, регламентные задачи, сбор данных, отчеты и утилиты под конкретный рабочий процесс.</p></article>
+          <article class="card"><h3>Боты и API-интеграции</h3><p>Telegram/API-боты, интеграции с маркетплейсами, внутренние API, обработчики сообщений и фоновые очереди.</p></article>
+          <article class="card"><h3>Frontend и backend</h3><p>React-интерфейсы, REST API, базы данных, авторизация, серверная логика, проверки и подготовка к внедрению.</p></article>
         </div>
-        <div class="chips">
-          <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C#</span><span>React</span><span>HTML/CSS</span>
-          <span>PHP 8</span><span>REST API</span><span>JWT/RBAC</span><span>MySQL</span><span>PostgreSQL</span>
-          <span>SQLite</span><span>Prisma</span><span>Express</span><span>Fastify</span><span>Telegram/API bots</span>
-          <span>Ozon/WB API</span><span>PowerShell</span><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span>
-          <span>Linux/Windows</span><span>сборка ПК</span><span>подбор комплектующих</span><span>Unity</span><span>Unreal Engine</span>
-          <span>Git</span><span>Ollama/local LLM</span>
+      </section>
+
+      <section class="section wide" id="experience">
+        <div class="section-head"><div><p class="kicker">Опыт и база</p><h2>Разработка плюс понимание IT-инфраструктуры</h2></div></div>
+        <div class="experience-grid">
+          <article class="experience-card"><span>текущий практический опыт</span><h3>Системный администратор-программист</h3><p>Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.</p></article>
+          <article class="experience-card"><span>проектная работа</span><h3>Независимый разработчик</h3><p>Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.</p></article>
+          <article class="experience-card"><span>образование</span><h3>Среднее профессиональное образование</h3><p>Специальность: «Программирование компьютерных систем». Средний балл диплома: 4,75 из 5.</p></article>
+        </div>
+      </section>
+
+      <section class="section wide" id="other-projects">
+        <div class="section-head"><div><p class="kicker">Дополнительные проекты</p><h2>Утилиты, боты и инструменты для прикладных задач</h2></div></div>
+        <div class="project-list">
+          <article class="project"><div class="shot-main"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /></div><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
+          <article class="project"><div class="shot-main"><img src="screenshots/systeminfo-proof.png" alt="SystemInfo report" width="1600" height="1963" loading="lazy" /></div><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
+          <article class="project"><div class="shot-main"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /></div><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
+        </div>
+      </section>
+
+      <section class="section wide" id="stack">
+        <div class="section-head"><div><p class="kicker">Стек</p><h2>Основные технологии и дополнительные компетенции</h2></div></div>
+        <div class="stack-groups">
+          <article class="stack-group"><h3>Основной стек</h3><div class="chips"><span>Python</span><span>TypeScript</span><span>React</span><span>Node.js</span><span>FastAPI</span><span>Express/Fastify</span><span>PostgreSQL</span><span>SQLite</span><span>REST API</span><span>Prisma</span><span>Docker</span><span>Playwright</span><span>Ollama</span></div></article>
+          <article class="stack-group"><h3>Дополнительные компетенции</h3><p>Не выношу это в основное позиционирование, но могу подключаться к задачам, где помогает опыт администрирования, анализа трафика, игровых движков и понимания железа.</p><div class="chips"><span>PHP</span><span>MySQL</span><span>PowerShell</span><span>Windows/Linux</span><span>WMI</span><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span><span>Unity</span><span>Unreal Engine</span><span>C#</span><span>подбор комплектующих ПК</span></div></article>
         </div>
       </section>
 
       <section class="section" id="contacts">
         <div class="contact">
-          <div>
-            <p class="kicker">Контакты</p>
-            <h2>Открыт к найму, проектной работе и фрилансу</h2>
-            <p>
-              Можно писать по задачам: сайт, бот, скрипт, небольшое приложение,
-              автоматизация, внутренняя CRM/ServiceDesk, системное
-              администрирование, диагностика ПК, подбор комплектующих, OSINT,
-              Wireshark, простые игровые прототипы на Unity/C# или доработка
-              существующего проекта.
-            </p>
-          </div>
+          <div><p class="kicker">Контакты</p><h2>Открыт к работе и проектным задачам</h2><p>Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу - помогу определить подход и оценить реализацию.</p></div>
           <div class="links">
-            <a href="https://t.me/karameliew">Telegram: @karameliew</a>
-            <a href="mailto:zhikharev@sfuk.ru">Email: zhikharev@sfuk.ru</a>
-            <a href="tel:+79950048477">Телефон: +7 995 004-84-77</a>
+            <a href="https://t.me/karameliew">Обсудить задачу в Telegram: @karameliew</a>
+            <a href="mailto:zhikharev@sfuk.ru">Написать на email: zhikharev@sfuk.ru</a>
+            <a href="resume-developer.pdf" download>Скачать резюме разработчика</a>
+            <a href="resume-admin.pdf" download>Скачать резюме сисадмина-программиста</a>
             <a href="https://github.com/ncatofthe">GitHub: ncatofthe</a>
           </div>
         </div>
@@ -958,45 +362,27 @@
     <script>
       (() => {
         const root = document.documentElement;
-        const selectors = [
-          ".section",
-          ".panel",
-          ".metric",
-          ".card",
-          ".admin-item",
-          ".tool-group",
-          ".project",
-          ".chips span",
-          ".contact",
-        ].join(",");
+        const selectors = [".section", ".panel", ".result", ".card", ".project", ".experience-card", ".stack-group", ".chips span", ".contact", ".links"].join(",");
         const items = Array.from(document.querySelectorAll(selectors));
-
         root.classList.add("scroll-ready");
         items.forEach((item, index) => {
           item.classList.add("reveal-on-scroll");
           item.style.setProperty("--reveal-delay", `${Math.min((index % 8) * 55, 385)}ms`);
         });
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
-        );
-
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
         items.forEach((item) => observer.observe(item));
-
         const updateProgress = () => {
           const scrollable = document.documentElement.scrollHeight - window.innerHeight;
           const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
           root.style.setProperty("--scroll-progress", Math.min(Math.max(progress, 0), 1));
         };
-
         updateProgress();
         window.addEventListener("scroll", updateProgress, { passive: true });
         window.addEventListener("resize", updateProgress);

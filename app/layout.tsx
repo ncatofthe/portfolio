@@ -13,19 +13,60 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Жихарев Глеб - портфолио разработчика",
+  metadataBase: new URL("https://ncatofthe.github.io"),
+  title: "Жихарев Глеб - разработчик внутренних сервисов",
   description:
-    "Портфолио разработчика внутренних сервисов, сайтов, скриптов, ботов и автоматизации.",
+    "Портфолио разработчика внутренних сервисов, автоматизации, API-интеграций, ботов и служебных приложений.",
+  alternates: {
+    canonical: "/portfolio/",
+  },
+  themeColor: "#f6f7f4",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Жихарев Глеб - разработчик внутренних сервисов",
+    title: "Жихарев Глеб - разработчик внутренних сервисов и автоматизации",
     description:
-      "Сайты, скрипты, боты, внутренние сервисы, автоматизация и прикладные AI-инструменты.",
+      "Service Desk, боты, интеграции, административные панели и служебные приложения для компаний.",
+    url: "https://ncatofthe.github.io/portfolio/",
+    siteName: "Портфолио Жихарева Глеба",
+    images: [
+      {
+        url: "/portfolio/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Жихарев Глеб - разработчик внутренних сервисов и автоматизации",
+      },
+    ],
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Жихарев Глеб - разработчик внутренних сервисов",
+    description: "Внутренние сервисы, автоматизация, API-интеграции и боты.",
+    images: ["/portfolio/og.png"],
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Жихарев Глеб",
+  jobTitle: "Разработчик внутренних сервисов и автоматизации",
+  email: "mailto:zhikharev@sfuk.ru",
+  url: "https://ncatofthe.github.io/portfolio/",
+  sameAs: ["https://github.com/ncatofthe", "https://t.me/karameliew"],
+  knowsAbout: [
+    "Internal tools",
+    "Business automation",
+    "Service Desk",
+    "API integrations",
+    "React",
+    "TypeScript",
+    "Python",
+    "PostgreSQL",
+  ],
 };
 
 export default function RootLayout({
@@ -38,6 +79,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
       </body>
     </html>
