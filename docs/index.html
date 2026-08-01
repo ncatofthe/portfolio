@@ -215,10 +215,12 @@
       .project { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr); align-items: start; }
       .project::before { content: ""; position: absolute; z-index: 2; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--accent), var(--cool), var(--warm), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 420ms ease; }
       .project:hover::before { transform: scaleX(1); }
-      .shot-main { position: relative; overflow: hidden; min-height: 0; height: auto; padding: 18px; display: flex; align-items: flex-start; justify-content: center; background: #17201b; }
+      .shot-main { position: relative; overflow: hidden; min-height: 0; width: 100%; aspect-ratio: 16 / 10; padding: 18px; display: flex; align-items: center; justify-content: center; background: #17201b; cursor: zoom-in; }
       .shot-main::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 34%), radial-gradient(circle at 78% 18%, rgba(201, 150, 46, 0.14), transparent 18rem); opacity: 0.7; pointer-events: none; }
       .shot-main::after { content: ""; position: absolute; inset: 18px; border-radius: 8px; background: linear-gradient(180deg, transparent 62%, rgba(16, 22, 20, 0.16)); pointer-events: none; }
-      .shot-main img { position: relative; z-index: 1; width: 100%; height: auto; min-height: 0; max-height: none; aspect-ratio: 16 / 10; display: block; object-fit: cover; object-position: left top; border-radius: 8px; background: #f5f7f4; box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28); transition: transform 420ms ease, filter 420ms ease; }
+      .shot-main-open { position: absolute; z-index: 2; right: 30px; bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 999px; padding: 8px 11px; color: #fff; background: rgba(16, 22, 20, 0.72); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); font-size: 12px; font-weight: 800; opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity 180ms ease, transform 180ms ease; pointer-events: none; }
+      .shot-main:hover .shot-main-open, .shot-main:focus-visible .shot-main-open { opacity: 1; transform: translate3d(0, 0, 0); }
+      .shot-main img { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 0; max-height: none; aspect-ratio: 16 / 10; display: block; object-fit: contain; object-position: center center; border-radius: 8px; background: #f5f7f4; box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28); transition: transform 420ms ease, filter 420ms ease; }
       .project:hover .shot-main img { transform: scale(1.018); filter: saturate(1.08) contrast(1.03); }
       .project-body { padding: clamp(22px, 4vw, 38px); }
       .meta, .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -282,9 +284,10 @@
         .actions a { width: 100%; }
         .service-grid, .details { grid-template-columns: 1fr; }
         .section, .section.wide { width: min(100% - 28px, 1180px); padding: 58px 0; }
-        .shot-main { min-height: 0; height: auto; padding: 14px; }
+        .shot-main { min-height: 0; padding: 14px; }
         .shot-main img { min-height: 0; max-height: none; }
         .shot-main::after { inset: 14px; }
+        .shot-main-open { right: 22px; bottom: 22px; opacity: 1; }
       }
     </style>
     <script type="application/ld+json">
@@ -337,7 +340,7 @@
         </div>
         <div class="project-list">
           <article class="project">
-            <div class="shot-main"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1274" height="796" /></div>
+            <a class="shot-main" href="screenshots/servicedesk-dashboard-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Office ServiceDesk"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1274" height="796" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>внутренний сервис</span><span>используется 3 компаниями</span></div>
               <h3>Office ServiceDesk</h3>
@@ -357,7 +360,7 @@
           </article>
 
           <article class="project">
-            <div class="shot-main"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /></div>
+            <a class="shot-main" href="screenshots/marketplacebot-compile.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта MarketplaceBot"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>автоматизация маркетплейсов</span><span>меньше ручной работы для 3 сотрудников</span></div>
               <h3>MarketplaceBot</h3>
@@ -374,7 +377,7 @@
           </article>
 
           <article class="project">
-            <div class="shot-main"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" width="1280" height="720" /></div>
+            <a class="shot-main" href="screenshots/ai-workbench.jpg" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта AI Workbench"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" width="1280" height="720" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>AI-инструмент</span><span>используется в реальных фриланс-задачах</span></div>
               <h3>AI Workbench</h3>
@@ -414,9 +417,9 @@
       <section class="section wide" id="other-projects">
         <div class="section-head"><div><p class="kicker">Дополнительные проекты</p><h2>Утилиты, боты и инструменты для прикладных задач</h2></div></div>
         <div class="project-list">
-          <article class="project"><div class="shot-main"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /></div><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
-          <article class="project"><div class="shot-main"><img src="screenshots/systeminfo-cover.png" alt="SystemInfo report" width="1600" height="1000" loading="lazy" /></div><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
-          <article class="project"><div class="shot-main"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /></div><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/max-summary-typecheck.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта MAX Summary Bot"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/systeminfo-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта SystemInfo"><img src="screenshots/systeminfo-cover.png" alt="SystemInfo report" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/inventory-compile.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Inventory App"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
         </div>
       </section>
 

@@ -287,7 +287,13 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
 
   return (
     <article className={`project-card ${compact ? "project-card-compact" : "project-card-featured"}`}>
-      <div className="project-shot">
+      <a
+        className="project-shot"
+        href={mainShot.src}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Открыть полный скриншот проекта ${project.title}`}
+      >
         <img
           src={mainShot.src}
           alt={`Скриншот проекта ${project.title}: ${mainShot.caption}`}
@@ -295,7 +301,8 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
           height={mainShot.height}
           loading={compact ? "lazy" : "eager"}
         />
-      </div>
+        <span className="project-shot-open">Открыть полный скрин</span>
+      </a>
       <div className="project-content">
         <div className="project-meta">
           <span>{project.tag}</span>
