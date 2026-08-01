@@ -27,7 +27,7 @@ export function ScrollReveal() {
 
     items.forEach((item, index) => {
       item.classList.add("reveal-on-scroll");
-      item.style.setProperty("--reveal-delay", `${Math.min((index % 8) * 55, 385)}ms`);
+      item.style.setProperty("--reveal-delay", `${Math.min((index % 6) * 42, 252)}ms`);
     });
 
     const revealObserver = new IntersectionObserver(
@@ -47,20 +47,34 @@ export function ScrollReveal() {
 
     items.forEach((item) => revealObserver.observe(item));
 
+    let progressFrame = 0;
+
     const updateProgress = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
       root.style.setProperty("--scroll-progress", `${Math.min(Math.max(progress, 0), 1)}`);
+      progressFrame = 0;
+    };
+
+    const scheduleProgress = () => {
+      if (progressFrame) {
+        return;
+      }
+
+      progressFrame = window.requestAnimationFrame(updateProgress);
     };
 
     updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
+    window.addEventListener("scroll", scheduleProgress, { passive: true });
+    window.addEventListener("resize", scheduleProgress);
 
     return () => {
       revealObserver.disconnect();
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
+      if (progressFrame) {
+        window.cancelAnimationFrame(progressFrame);
+      }
+      window.removeEventListener("scroll", scheduleProgress);
+      window.removeEventListener("resize", scheduleProgress);
       root.classList.remove("scroll-ready");
       root.style.removeProperty("--scroll-progress");
       items.forEach((item) => {
