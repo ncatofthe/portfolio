@@ -1,3 +1,5 @@
+import { ScrollReveal } from "./ScrollReveal";
+
 const contacts = {
   name: "Жихарев Глеб",
   role: "Системный администратор-программист, разработчик сервисов, сайтов, скриптов, ботов и игровых прототипов",
@@ -335,6 +337,7 @@ function ProjectVisual({ type }: { type: string }) {
 export default function Home() {
   return (
     <main>
+      <ScrollReveal />
       <section className="hero">
         <nav className="topbar" aria-label="Главная навигация">
           <a href="#projects">Проекты</a>
