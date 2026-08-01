@@ -19,6 +19,8 @@
         --accent: #1f6f63;
         --strong: #123f46;
         --warm: #b45f3c;
+        --cool: #286f9e;
+        --gold: #c9962e;
       }
 
       * {
@@ -31,7 +33,11 @@
 
       body {
         margin: 0;
-        background: var(--bg);
+        background:
+          linear-gradient(90deg, rgba(18, 63, 70, 0.025) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(18, 63, 70, 0.025) 1px, transparent 1px),
+          var(--bg);
+        background-size: 44px 44px;
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
@@ -48,9 +54,12 @@
         padding: 22px clamp(18px, 4vw, 56px) 42px;
         border-bottom: 1px solid var(--line);
         background:
-          linear-gradient(120deg, rgba(31, 111, 99, 0.08), transparent 38%),
-          linear-gradient(0deg, rgba(180, 95, 60, 0.08), transparent 32%),
+          linear-gradient(120deg, rgba(31, 111, 99, 0.12), transparent 38%),
+          linear-gradient(260deg, rgba(40, 111, 158, 0.1), transparent 34%),
+          linear-gradient(0deg, rgba(201, 150, 46, 0.1), transparent 34%),
           var(--bg);
+        background-size: 140% 140%, 150% 150%, 130% 130%, auto;
+        animation: hero-wash 14s ease-in-out infinite alternate;
       }
 
       .topbar {
@@ -74,6 +83,18 @@
         padding: 9px 13px;
         color: var(--muted);
         font-size: 14px;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .topbar a:hover {
+        transform: translateY(-2px);
+        border-color: rgba(31, 111, 99, 0.35);
+        color: var(--strong);
+        background: rgba(255, 255, 255, 0.9);
       }
 
       .hero-grid {
@@ -141,17 +162,37 @@
       .panel,
       .card,
       .project,
-      .contact {
+      .contact,
+      .admin-item,
+      .tool-group {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.84);
         box-shadow: 0 16px 42px rgba(24, 39, 32, 0.08);
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease,
+          background 220ms ease;
+      }
+
+      .panel:hover,
+      .card:hover,
+      .project:hover,
+      .contact:hover,
+      .metric:hover,
+      .admin-item:hover,
+      .tool-group:hover {
+        transform: translateY(-4px);
+        border-color: rgba(31, 111, 99, 0.28);
+        box-shadow: 0 22px 56px rgba(24, 39, 32, 0.12);
       }
 
       .panel {
         display: grid;
         gap: 14px;
         padding: 22px;
+        animation: fade-up 760ms ease 120ms both;
       }
 
       .panel strong {
@@ -183,12 +224,33 @@
         border-radius: 8px;
         background: #fff;
         font-weight: 800;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .metric::before {
+        content: "";
+        position: absolute;
+        inset: auto 16px 14px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold));
+        transform: scaleX(0.34);
+        transform-origin: left;
+        transition: transform 280ms ease;
+      }
+
+      .metric:hover::before {
+        transform: scaleX(1);
       }
 
       .section {
         width: min(1180px, calc(100% - 36px));
         margin: 0 auto;
         padding: 76px 0;
+        animation: fade-up 700ms ease both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 24%;
       }
 
       .intro {
@@ -214,13 +276,30 @@
 
       .service-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
       }
 
       .card {
         min-height: 210px;
         padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: auto 20px 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--cool), var(--warm));
+        transform: translateX(-110%);
+        transition: transform 260ms ease;
+      }
+
+      .card:hover::after {
+        transform: translateX(0);
       }
 
       .project-list {
@@ -251,6 +330,14 @@
         object-position: left top;
         border-radius: 8px;
         box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+        transition:
+          transform 420ms ease,
+          filter 420ms ease;
+      }
+
+      .project:hover .shot-main img {
+        transform: scale(1.025);
+        filter: saturate(1.08) contrast(1.03);
       }
 
       .project-body {
@@ -306,6 +393,11 @@
         display: grid;
         gap: 8px;
         scroll-snap-align: start;
+        transition: transform 200ms ease;
+      }
+
+      .strip a:hover {
+        transform: translateY(-3px);
       }
 
       .strip img {
@@ -316,12 +408,69 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #111;
+        transition:
+          border-color 180ms ease,
+          filter 180ms ease;
+      }
+
+      .strip a:hover img {
+        border-color: rgba(31, 111, 99, 0.35);
+        filter: saturate(1.08);
       }
 
       .strip span {
         color: var(--muted);
         font-size: 13px;
         font-weight: 700;
+      }
+
+      .tools-section {
+        width: min(1260px, calc(100% - 36px));
+      }
+
+      .admin-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .admin-item {
+        min-height: 104px;
+        display: flex;
+        align-items: flex-end;
+        padding: 16px;
+        color: #26352f;
+        font-weight: 800;
+        line-height: 1.28;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .admin-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-top: 3px solid transparent;
+        background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold)) top / 100% 3px no-repeat;
+        opacity: 0.72;
+      }
+
+      .tool-groups {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .tool-group {
+        min-height: 220px;
+        padding: 20px;
+      }
+
+      .tool-group h3 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.14;
       }
 
       .contact {
@@ -342,6 +491,47 @@
         background: var(--soft);
         color: var(--strong);
         font-weight: 800;
+        transition:
+          transform 180ms ease,
+          background 180ms ease;
+      }
+
+      .links a:hover {
+        transform: translateX(3px);
+        background: #e4eff4;
+      }
+
+      @keyframes hero-wash {
+        from {
+          background-position: 0% 0%, 100% 0%, 50% 100%, 0 0;
+        }
+
+        to {
+          background-position: 18% 10%, 82% 18%, 44% 76%, 0 0;
+        }
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 1ms !important;
+        }
       }
 
       @media (max-width: 920px) {
@@ -371,6 +561,11 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .admin-grid,
+        .tool-groups {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .section-head {
           display: block;
         }
@@ -395,7 +590,9 @@
         }
 
         .metrics,
-        .service-grid {
+        .service-grid,
+        .admin-grid,
+        .tool-groups {
           grid-template-columns: 1fr;
         }
 
@@ -411,6 +608,7 @@
       <nav class="topbar" aria-label="Навигация">
         <a href="#projects">Проекты</a>
         <a href="#services">Услуги</a>
+        <a href="#tools">Инструменты</a>
         <a href="#stack">Стек</a>
         <a href="#contacts">Контакты</a>
       </nav>
@@ -419,9 +617,9 @@
           <p class="kicker">Портфолио для найма и фриланса</p>
           <h1>Жихарев Глеб</h1>
           <p class="lead">
-            Разработчик внутренних сервисов, сайтов, скриптов и ботов. Беру
-            прикладные задачи, разбираюсь в процессе и довожу решение до рабочего
-            состояния.
+            Системный администратор-программист, разработчик сервисов, сайтов,
+            скриптов, ботов и игровых прототипов. Беру прикладные задачи,
+            разбираюсь в процессе и довожу решение до рабочего состояния.
           </p>
           <div class="actions">
             <a class="button primary" href="#projects">Смотреть проекты</a>
@@ -434,12 +632,16 @@
           <p>
             Подхожу для задач, где нужно быстро собрать полезный инструмент:
             сайт, скрипт, простое приложение, интеграцию или внутреннюю панель.
+            Также могу подключаться к администрированию, диагностике ПК,
+            Unity/Unreal Engine и C#.
           </p>
           <div class="metrics">
             <div class="metric">ServiceDesk используют 3 компании</div>
             <div class="metric">боты сократили ручную работу 3 сотрудникам</div>
             <div class="metric">AI Workbench используют друзья-фрилансеры</div>
             <div class="metric">проекты довожу от идеи до внедрения</div>
+            <div class="metric">работаю с Unity, Unreal Engine и C#</div>
+            <div class="metric">понимаю поддержку, железо и сборку ПК</div>
           </div>
         </aside>
       </div>
@@ -456,7 +658,10 @@
           разрабатываю собственные и коммерческие проекты. Умею разговаривать с
           заказчиком без подробного ТЗ, переводить проблему в техническую
           структуру, делать frontend/backend, подключать API, работать с базами
-          данных и проверять результат.
+          данных и проверять результат. Как системный администратор понимаю
+          рабочие места, сети, права доступа, железо, комплектующие и реальные
+          проблемы пользователей. Есть опыт OSINT, анализа сетевого трафика в
+          Wireshark и практики на Hack The Box.
         </p>
       </section>
 
@@ -483,6 +688,59 @@
           <article class="card">
             <h3>Внутренние сервисы</h3>
             <p>Service Desk, CRM, таск-трекеры, роли доступа, REST API, базы данных, отчеты и панели.</p>
+          </article>
+          <article class="card">
+            <h3>Системное администрирование</h3>
+            <p>Поддержка пользователей, диагностика Windows/Linux, настройка рабочих мест, скрипты и инвентаризация.</p>
+          </article>
+          <article class="card">
+            <h3>Игровые движки</h3>
+            <p>Unity, Unreal Engine, C#, прототипы механик, простые игровые системы и инструменты.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section tools-section" id="tools">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Инструментарий</p>
+            <h2>Разработка плюс системное администрирование</h2>
+          </div>
+        </div>
+        <div class="admin-grid">
+          <div class="admin-item">поддержка пользователей и рабочих мест</div>
+          <div class="admin-item">диагностика Windows 10/11 и базовая работа с Linux</div>
+          <div class="admin-item">PowerShell-автоматизация и сбор информации через WMI</div>
+          <div class="admin-item">понимание сетей, доступов и типовых офисных проблем</div>
+          <div class="admin-item">OSINT-поиск открытой информации и проверка цифровых следов</div>
+          <div class="admin-item">анализ трафика в Wireshark и практика на Hack The Box</div>
+          <div class="admin-item">сборка, апгрейд и подбор комплектующих ПК</div>
+          <div class="admin-item">BIOS/UEFI, драйверы, периферия и диагностика железа</div>
+        </div>
+        <div class="tool-groups">
+          <article class="tool-group">
+            <h3>Разработка</h3>
+            <div class="chips"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C#</span><span>React</span><span>Node.js</span><span>FastAPI</span><span>Express</span><span>Fastify</span><span>PHP 8</span><span>REST API</span></div>
+          </article>
+          <article class="tool-group">
+            <h3>Базы и backend</h3>
+            <div class="chips"><span>PostgreSQL</span><span>MySQL</span><span>SQLite</span><span>Prisma</span><span>JWT/RBAC</span><span>BullMQ</span><span>Docker Compose</span><span>npm/pnpm</span></div>
+          </article>
+          <article class="tool-group">
+            <h3>Автоматизация и боты</h3>
+            <div class="chips"><span>Telegram/API bots</span><span>Ozon API</span><span>Wildberries API</span><span>PowerShell</span><span>WMI</span><span>парсинг</span><span>макросы</span></div>
+          </article>
+          <article class="tool-group">
+            <h3>Системное администрирование</h3>
+            <div class="chips"><span>Windows 10/11</span><span>Linux</span><span>RDP/SSH</span><span>сетевые настройки</span><span>диагностика ПК</span><span>сборка компьютеров</span><span>подбор комплектующих</span><span>инвентаризация</span></div>
+          </article>
+          <article class="tool-group">
+            <h3>Безопасность и анализ</h3>
+            <div class="chips"><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span><span>анализ сетевого трафика</span><span>поиск открытой информации</span><span>типовые уязвимости</span></div>
+          </article>
+          <article class="tool-group">
+            <h3>AI и игровые движки</h3>
+            <div class="chips"><span>Ollama/local LLM</span><span>Unity</span><span>Unreal Engine</span><span>Blueprints</span><span>игровые прототипы</span></div>
           </article>
         </div>
       </section>
@@ -612,10 +870,12 @@
           </div>
         </div>
         <div class="chips">
-          <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>HTML/CSS</span>
+          <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C#</span><span>React</span><span>HTML/CSS</span>
           <span>PHP 8</span><span>REST API</span><span>JWT/RBAC</span><span>MySQL</span><span>PostgreSQL</span>
           <span>SQLite</span><span>Prisma</span><span>Express</span><span>Fastify</span><span>Telegram/API bots</span>
-          <span>Ozon/WB API</span><span>PowerShell</span><span>Linux/Windows</span><span>Git</span><span>Ollama/local LLM</span>
+          <span>Ozon/WB API</span><span>PowerShell</span><span>OSINT</span><span>Wireshark</span><span>Hack The Box</span>
+          <span>Linux/Windows</span><span>сборка ПК</span><span>подбор комплектующих</span><span>Unity</span><span>Unreal Engine</span>
+          <span>Git</span><span>Ollama/local LLM</span>
         </div>
       </section>
 
@@ -626,7 +886,10 @@
             <h2>Открыт к найму, проектной работе и фрилансу</h2>
             <p>
               Можно писать по задачам: сайт, бот, скрипт, небольшое приложение,
-              автоматизация, внутренняя CRM/ServiceDesk или доработка существующего проекта.
+              автоматизация, внутренняя CRM/ServiceDesk, системное
+              администрирование, диагностика ПК, подбор комплектующих, OSINT,
+              Wireshark, простые игровые прототипы на Unity/C# или доработка
+              существующего проекта.
             </p>
           </div>
           <div class="links">

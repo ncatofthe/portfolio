@@ -1,6 +1,6 @@
 const contacts = {
   name: "Жихарев Глеб",
-  role: "Разработчик внутренних сервисов, сайтов, скриптов и ботов",
+  role: "Системный администратор-программист, разработчик сервисов, сайтов, скриптов, ботов и игровых прототипов",
   telegram: "@karameliew",
   email: "zhikharev@sfuk.ru",
   phone: "+7 995 004-84-77",
@@ -13,6 +13,8 @@ const highlights = [
   "боты сократили ручную работу 3 сотрудникам",
   "AI Workbench используют друзья-фрилансеры",
   "проекты довожу от идеи до внедрения",
+  "работаю с Unity, Unreal Engine и C#",
+  "понимаю администрирование, поддержку и сборку ПК",
 ];
 
 const services = [
@@ -31,6 +33,118 @@ const services = [
   {
     title: "Внутренние сервисы",
     text: "Service Desk, CRM, таск-трекеры, роли доступа, REST API, базы данных, отчеты, вложения и рабочие панели.",
+  },
+  {
+    title: "Системное администрирование",
+    text: "Поддержка пользователей, диагностика Windows/Linux, настройка рабочих мест, скрипты для администрирования и инвентаризация.",
+  },
+  {
+    title: "Игровые движки",
+    text: "Понимаю разработку в Unity и Unreal Engine, работаю с C#, прототипами механик, простыми игровыми системами и инструментами.",
+  },
+];
+
+const adminAreas = [
+  "поддержка пользователей и рабочих мест",
+  "диагностика Windows 10/11 и базовая работа с Linux",
+  "PowerShell-автоматизация и сбор информации через WMI",
+  "понимание сетей, доступов, учетных записей и типовых офисных проблем",
+  "OSINT-подход к поиску открытой информации и проверке цифровых следов",
+  "анализ сетевого трафика в Wireshark и практика на Hack The Box",
+  "сборка, апгрейд и подбор комплектующих ПК",
+  "настройка драйверов, периферии, BIOS/UEFI и базовая диагностика железа",
+];
+
+const toolGroups = [
+  {
+    title: "Разработка",
+    items: [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "C#",
+      "React",
+      "HTML/CSS",
+      "Node.js",
+      "FastAPI",
+      "Express",
+      "Fastify",
+      "PHP 8",
+      "REST API",
+    ],
+  },
+  {
+    title: "Базы и backend",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "Prisma",
+      "JWT/RBAC",
+      "BullMQ",
+      "Docker Compose",
+      "npm/pnpm",
+    ],
+  },
+  {
+    title: "Автоматизация и боты",
+    items: [
+      "Telegram/API bots",
+      "Ozon API",
+      "Wildberries API",
+      "PowerShell",
+      "WMI",
+      "парсинг и обработка файлов",
+      "макросы и утилиты",
+    ],
+  },
+  {
+    title: "Системное администрирование",
+    items: [
+      "Windows 10/11",
+      "Linux",
+      "RDP/SSH",
+      "сетевые настройки",
+      "диагностика ПК",
+      "сборка компьютеров",
+      "подбор комплектующих",
+      "инвентаризация оборудования",
+    ],
+  },
+  {
+    title: "Безопасность и анализ",
+    items: [
+      "OSINT",
+      "Wireshark",
+      "Hack The Box",
+      "анализ сетевого трафика",
+      "поиск открытой информации",
+      "базовая проверка цифровых следов",
+      "понимание типовых уязвимостей",
+    ],
+  },
+  {
+    title: "AI и игровые движки",
+    items: [
+      "Ollama/local LLM",
+      "AI-assisted development",
+      "Unity",
+      "Unreal Engine",
+      "Blueprints",
+      "игровые прототипы",
+    ],
+  },
+  {
+    title: "Рабочий процесс",
+    items: [
+      "Git",
+      "GitHub",
+      "Playwright",
+      "Figma",
+      "документация",
+      "демо-сценарии",
+      "проверка результата",
+    ],
   },
 ];
 
@@ -153,6 +267,7 @@ const skills = [
   "Python",
   "JavaScript",
   "TypeScript",
+  "C#",
   "React",
   "HTML/CSS",
   "PHP 8",
@@ -167,9 +282,17 @@ const skills = [
   "Telegram/API bots",
   "Ozon/WB API",
   "PowerShell",
+  "OSINT",
+  "Wireshark",
+  "Hack The Box",
   "Linux/Windows",
+  "сборка ПК",
+  "подбор комплектующих",
   "Git",
   "Ollama/local LLM",
+  "Unity",
+  "Unreal Engine",
+  "Blueprints",
   "Playwright",
   "Figma",
 ];
@@ -216,6 +339,7 @@ export default function Home() {
         <nav className="topbar" aria-label="Главная навигация">
           <a href="#projects">Проекты</a>
           <a href="#services">Услуги</a>
+          <a href="#tools">Инструменты</a>
           <a href="#stack">Стек</a>
           <a href="#contacts">Контакты</a>
         </nav>
@@ -245,7 +369,8 @@ export default function Home() {
               <p>
                 Подхожу для задач, где нужно быстро собрать полезный инструмент:
                 сайт, скрипт, простое приложение, интеграцию или внутреннюю
-                панель.
+                панель. Отдельно могу подключаться к задачам на Unity, Unreal
+                Engine и C#, а также к администрированию, диагностике и сборке ПК.
               </p>
             </div>
             <div className="metric-grid">
@@ -271,6 +396,10 @@ export default function Home() {
           структуру, делать frontend/backend, подключать API, работать с базами
           данных и проверять результат. AI-инструменты использую как практичный
           способ ускорять разработку и автоматизацию, без завышенных обещаний.
+          Также знаком с игровыми движками Unity и Unreal Engine, умею работать
+          с C# и простыми игровыми прототипами. Как системный администратор
+          понимаю рабочие места, сети, права доступа, железо, комплектующие и
+          реальные проблемы пользователей.
         </p>
       </section>
 
@@ -284,6 +413,32 @@ export default function Home() {
             <article className="service-card" key={service.title}>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section tools-section" id="tools">
+        <div className="section-heading">
+          <p className="section-kicker">Инструментарий</p>
+          <h2>Разработка плюс системное администрирование</h2>
+        </div>
+        <div className="admin-grid">
+          {adminAreas.map((area) => (
+            <div className="admin-item" key={area}>
+              {area}
+            </div>
+          ))}
+        </div>
+        <div className="tool-groups">
+          {toolGroups.map((group) => (
+            <article className="tool-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <div className="stack-list">
+                {group.items.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
             </article>
           ))}
         </div>
@@ -363,8 +518,9 @@ export default function Home() {
           <h2>Открыт к найму, проектной работе и фрилансу</h2>
           <p>
             Можно писать по задачам: сайт, бот, скрипт, небольшое приложение,
-            автоматизация, внутренняя CRM/ServiceDesk или доработка существующего
-            проекта.
+            автоматизация, внутренняя CRM/ServiceDesk, простые игровые прототипы
+            на Unity/C#, системное администрирование, диагностика ПК, подбор
+            комплектующих или доработка существующего проекта.
           </p>
         </div>
         <div className="contact-card">
