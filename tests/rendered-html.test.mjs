@@ -35,13 +35,21 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /AI Workbench/);
   assert.match(html, /MarketplaceBot/);
   assert.match(html, /Системный администратор-программист/);
+  assert.match(html, /Москва · удаленно \/ гибридно · открыт к проектной работе/);
   assert.match(html, /Системное администрирование/);
-  assert.match(html, /PowerShell и WMI/);
-  assert.match(html, /Железо и сборка ПК/);
-  assert.match(html, /Виртуальные машины/);
-  assert.match(html, /Windows Server и Bitrix/);
-  assert.match(html, /Диски и данные/);
+  assert.match(html, /Для 3 сотрудников/);
+  assert.match(html, /Полный цикл/);
+  assert.match(html, /PowerShell и автоматизация/);
+  assert.match(html, /Windows Server и виртуализация/);
+  assert.match(html, /Инвентаризация и оборудование/);
+  assert.match(html, /Диагностика и безопасность/);
+  assert.match(html, /marketplacebot-product\.png/);
+  assert.match(html, /ai-workbench-workflow\.png/);
+  assert.match(html, /max-summary-architecture\.png/);
+  assert.match(html, /inventory-dashboard\.png/);
+  assert.match(html, /Портфолио обновлено в августе 2026 года/);
   assert.match(html, /используют разработанный мной ServiceDesk/);
+  assert.doesNotMatch(html, /видео|video/i);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|codex-preview/i);
 });
 
@@ -55,6 +63,10 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /servicedesk-dashboard-cover\.png/);
   assert.match(docsHtml, /servicedesk-dashboard-cover\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /servicedesk-queue\.png"[^>]+width="1920" height="1080"/);
+  assert.match(docsHtml, /marketplacebot-product\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /ai-workbench-workflow\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /max-summary-architecture\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /requestAnimationFrame/);
   assert.match(docsHtml, /premium-shadow/);
   assert.match(docsHtml, /orbit-frame/);
@@ -65,7 +77,9 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /DNS\/DHCP/);
   assert.match(docsHtml, /VMware/);
   assert.match(docsHtml, /восстановление данных/);
+  assert.match(docsHtml, /Портфолио обновлено в августе 2026 года/);
   assert.match(docsHtml, /object-fit:\s*contain/);
+  assert.doesNotMatch(docsHtml, /видео|video/i);
   assert.doesNotMatch(docsHtml, /class="shot-main"[^>]+target="_blank"/);
   assert.doesNotMatch(docsHtml, /object-fit:\s*cover/);
   assert.doesNotMatch(docsHtml, /filter:\s*blur\(8px\)/);
@@ -79,6 +93,10 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
 
   await Promise.all([
     access(new URL("../docs/screenshots/servicedesk-dashboard-cover.png", import.meta.url)),
+    access(new URL("../docs/screenshots/marketplacebot-product.png", import.meta.url)),
+    access(new URL("../docs/screenshots/ai-workbench-workflow.png", import.meta.url)),
+    access(new URL("../docs/screenshots/max-summary-architecture.png", import.meta.url)),
+    access(new URL("../docs/screenshots/inventory-dashboard.png", import.meta.url)),
     access(new URL("../docs/screenshots/systeminfo-cover.png", import.meta.url)),
     access(new URL("../docs/resume-developer.pdf", import.meta.url)),
     access(new URL("../docs/resume-admin.pdf", import.meta.url)),

@@ -158,6 +158,7 @@
       h2 { margin: 0; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.05; color: #101614; }
       h3 { margin: 0; font-size: 22px; line-height: 1.14; color: #101614; }
       .hero-role { margin: 16px 0 0; color: var(--strong); font-size: clamp(24px, 3vw, 38px); line-height: 1.12; font-weight: 800; }
+      .hero-meta { margin: 14px 0 0; color: var(--muted); font-size: 16px; font-weight: 800; }
       .lead { margin: 24px 0 0; max-width: 760px; color: #314039; font-size: clamp(20px, 2.5vw, 30px); line-height: 1.3; }
       .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
       .button {
@@ -256,17 +257,22 @@
       .card:hover::after { transform: translateX(0); }
       .experience-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
       .experience-card > span { display: block; margin-bottom: 12px; color: var(--accent); font-size: 12px; font-weight: 900; text-transform: uppercase; }
-      .admin-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .admin-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
       .admin-item { min-height: 184px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; padding: 20px; position: relative; overflow: hidden; }
       .admin-item::before { content: ""; position: absolute; inset: 0; border-top: 3px solid transparent; background: linear-gradient(90deg, var(--accent), var(--cool), var(--gold)) top / 100% 3px no-repeat; opacity: 0.72; }
       .admin-item h3 { position: relative; margin: 0; color: #101614; font-size: 21px; line-height: 1.15; }
       .admin-item p { position: relative; margin: 0; color: var(--muted); line-height: 1.5; }
+      .admin-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+      .admin-tags span { border: 1px solid rgba(215, 222, 212, 0.9); border-radius: 999px; padding: 9px 12px; color: var(--strong); background: rgba(255, 255, 255, 0.78); box-shadow: inset 0 -1px 0 rgba(18, 63, 70, 0.08); font-size: 13px; font-weight: 800; }
       .stack-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
       .chips { margin-top: 16px; }
       .contact { display: grid; grid-template-columns: 1fr minmax(300px, 420px); gap: 34px; align-items: start; padding-bottom: 0; border: 0; background: transparent; box-shadow: none; }
       .links { display: grid; gap: 10px; padding: 20px; }
       .links a { border-radius: 8px; padding: 13px 14px; background: var(--soft); color: var(--strong); font-weight: 800; transition: transform 180ms ease, background 180ms ease; }
       .links a:hover { transform: translateX(3px); background: #e4eff4; }
+      .site-footer { width: min(1180px, calc(100% - 36px)); display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; margin: -42px auto 0; padding: 24px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; font-weight: 800; }
+      .site-footer a { color: var(--strong); }
+      .site-footer a:hover { color: var(--warm); }
 
       .scroll-ready .reveal-on-scroll { transition: opacity 680ms cubic-bezier(0.21, 0.74, 0.23, 1), transform 680ms cubic-bezier(0.21, 0.74, 0.23, 1), clip-path 680ms cubic-bezier(0.21, 0.74, 0.23, 1), box-shadow 220ms ease, border-color 220ms ease, background 220ms ease; transition-delay: var(--reveal-delay, 0ms); will-change: opacity, transform; }
       .scroll-ready .reveal-on-scroll:not(.is-visible) { opacity: 0; transform: translate3d(0, 24px, 0) scale(0.99); clip-path: inset(0 0 8% 0 round 8px); }
@@ -332,7 +338,8 @@
           <p class="kicker">Внутренние сервисы, автоматизация и интеграции</p>
           <h1>Жихарев Глеб</h1>
           <p class="hero-role">Разработчик внутренних сервисов и автоматизации</p>
-          <p class="lead">Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний. Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend и backend и довожу продукт до внедрения.</p>
+          <p class="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
+          <p class="lead">Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний. Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend- и backend-часть и довожу продукт до внедрения.</p>
           <div class="actions">
             <a class="button primary" href="#projects">Посмотреть проекты</a>
             <a class="button" href="https://t.me/karameliew">Обсудить задачу в Telegram</a>
@@ -342,7 +349,7 @@
         <aside class="panel">
           <p class="kicker">Фокус</p>
           <strong>прикладные инструменты под рабочие процессы</strong>
-          <p>Основной профиль - внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения бизнеса.</p>
+          <p>Основной профиль — внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения бизнеса.</p>
         </aside>
       </div>
     </header>
@@ -350,8 +357,8 @@
     <main>
       <section class="section proof" aria-label="Ключевые результаты">
         <article class="result"><strong>3 компании</strong><span>используют разработанный мной ServiceDesk</span></article>
-        <article class="result"><strong>3 сотрудника</strong><span>получили меньше ручной работы за счет автоматизации отзывов</span></article>
-        <article class="result"><strong>от анализа до запуска</strong><span>самостоятельно веду прикладные проекты и проверяю результат</span></article>
+        <article class="result"><strong>Для 3 сотрудников</strong><span>сокращен объем повторяющейся работы с отзывами</span></article>
+        <article class="result"><strong>Полный цикл</strong><span>от анализа процесса и архитектуры до разработки, тестирования и внедрения</span></article>
       </section>
 
       <section class="section wide" id="projects">
@@ -370,8 +377,8 @@
               <p class="headline">Внутренняя система управления заявками, которую используют три компании.</p>
               <div class="details">
                 <div><span>Задача</span><p>Обращения сотрудников поступали через мессенджеры, почту и внешние helpdesk-сервисы. Заявки было сложно распределять, отслеживать и контролировать.</p></div>
-                <div><span>Решение</span><p>Разработал единый портал с очередями исполнителей, базой знаний, комментариями, вложениями, email-интеграцией, ролями доступа и административной панелью.</p></div>
-                <div><span>Моя роль</span><p>Анализ процессов, архитектура, база данных, frontend/backend, интеграции, тестирование, развертывание и сопровождение.</p></div>
+                <div><span>Решение</span><p>Разработал единый портал с очередями исполнителей, базой знаний, комментариями, вложениями, email-интеграцией, ролями доступа, уведомлениями и административной панелью.</p></div>
+                <div><span>Моя роль</span><p>Анализ рабочих процессов, проектирование архитектуры и базы данных, frontend- и backend-разработка, интеграции, тестирование, развёртывание и сопровождение.</p></div>
                 <div><span>Результат</span><p>Система помогает централизованно регистрировать, распределять и обрабатывать внутренние обращения вместо разрозненных чатов.</p></div>
               </div>
               <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span><span>Playwright</span></div>
@@ -383,19 +390,19 @@
           </article>
 
           <article class="project">
-            <a class="shot-main" href="screenshots/marketplacebot-compile.png" data-lightbox-src="screenshots/marketplacebot-compile.png" data-lightbox-title="MarketplaceBot - Техническая проверка модулей" aria-label="Открыть полный скриншот проекта MarketplaceBot"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <a class="shot-main" href="screenshots/marketplacebot-product.png" data-lightbox-src="screenshots/marketplacebot-product.png" data-lightbox-title="MarketplaceBot - Наглядный экран логики MarketplaceBot" aria-label="Открыть полный скриншот проекта MarketplaceBot"><img src="screenshots/marketplacebot-product.png" alt="MarketplaceBot product screen" width="1600" height="1000" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>автоматизация маркетплейсов</span><span>меньше ручной работы для 3 сотрудников</span></div>
               <h3>MarketplaceBot</h3>
               <p class="headline">Desktop-приложение и боты для автоматической обработки отзывов Ozon и Wildberries.</p>
               <div class="details">
-                <div><span>Задача</span><p>Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия.</p></div>
-                <div><span>Решение</span><p>Собрал приложение с GUI, шаблонами по рейтингу, расписанием обработки, хранением настроек, логированием и Windows-сборкой.</p></div>
-                <div><span>Моя роль</span><p>Проектирование сценариев, Python-разработка, интеграции с API маркетплейсов, настройка сборки и проверка модулей.</p></div>
-                <div><span>Результат</span><p>Автоматизация маркетплейсов сократила объем ручной работы для трех сотрудников и ускорила обработку повторяющихся отзывов.</p></div>
+                <div><span>Задача</span><p>Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия в маркетплейсах.</p></div>
+                <div><span>Решение</span><p>Собрал приложение с GUI, шаблонами ответов по рейтингу, расписанием обработки, хранением настроек, логированием и подготовкой Windows-сборки.</p></div>
+                <div><span>Моя роль</span><p>Проектирование сценариев, разработка Python-приложения, интеграции с API маркетплейсов, настройка сборки и проверка рабочих модулей.</p></div>
+                <div><span>Результат</span><p>Автоматизация маркетплейсов сократила объём ручной работы для трёх сотрудников и ускорила обработку повторяющихся отзывов.</p></div>
               </div>
               <div class="chips"><span>Python</span><span>Tkinter</span><span>Ozon API</span><span>Wildberries API</span><span>PyInstaller</span></div>
-              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/MarketplaceBot">Исходный код</a></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/MarketplaceBot">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/marketplacebot-product.png" data-lightbox-src="screenshots/marketplacebot-product.png" data-lightbox-title="MarketplaceBot - Настройки API, шаблоны и журнал обработки"><img src="screenshots/marketplacebot-product.png" alt="Настройки API, шаблоны и журнал обработки" width="1600" height="1000" loading="lazy" /><span>Настройки API, шаблоны и журнал обработки</span></a><a href="screenshots/marketplacebot-compile.png" data-lightbox-src="screenshots/marketplacebot-compile.png" data-lightbox-title="MarketplaceBot - Техническая проверка модулей"><img src="screenshots/marketplacebot-compile.png" alt="Техническая проверка модулей" width="1600" height="1000" loading="lazy" /><span>Техническая проверка модулей без API-ключей</span></a></div></details></div>
             </div>
           </article>
 
@@ -406,13 +413,13 @@
               <h3>AI Workbench</h3>
               <p class="headline">Локальная offline-first платформа для многоагентной разработки.</p>
               <div class="details">
-                <div><span>Задача</span><p>Нужно было ускорить проектную разработку: сохранять контекст, формировать план, распределять работу между агентами и проверять результат.</p></div>
-                <div><span>Решение</span><p>Собрал платформу с локальным LLM-контуром, REST API, сохранением запусков, approval-механизмом и интерфейсом управления задачами.</p></div>
-                <div><span>Моя роль</span><p>Архитектура, backend, frontend, сценарии агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.</p></div>
-                <div><span>Результат</span><p>Инструмент помогает быстрее разбирать задачи, фиксировать план действий и проводить разработку в управляемом режиме.</p></div>
+                <div><span>Задача</span><p>Нужно было ускорить проектную разработку: сохранять контекст задачи, формировать план, распределять работу между агентами и проверять результат.</p></div>
+                <div><span>Решение</span><p>Собрал платформу с локальным LLM-контуром, REST API, сохранением запусков, approval-механизмом и интерфейсом для управления задачами.</p></div>
+                <div><span>Моя роль</span><p>Архитектура продукта, backend, frontend, сценарии работы агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.</p></div>
+                <div><span>Результат</span><p>Платформа принимает задачу, формирует план, распределяет этапы между агентными ролями, сохраняет историю выполнения и проверяет созданные приложения через API- и браузерные сценарии.</p></div>
               </div>
               <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>SQLite</span><span>Ollama</span></div>
-              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/ai-workbench">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/ai-workbench.jpg" data-lightbox-src="screenshots/ai-workbench.jpg" data-lightbox-title="AI Workbench - Dashboard"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" width="1280" height="720" loading="lazy" /><span>Dashboard</span></a><a href="screenshots/ai-workbench-new-task.png" data-lightbox-src="screenshots/ai-workbench-new-task.png" data-lightbox-title="AI Workbench - Создание задачи"><img src="screenshots/ai-workbench-new-task.png" alt="Создание задачи" width="1600" height="1173" loading="lazy" /><span>Создание задачи</span></a></div></details></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/ai-workbench">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/ai-workbench.jpg" data-lightbox-src="screenshots/ai-workbench.jpg" data-lightbox-title="AI Workbench - Dashboard"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" width="1280" height="720" loading="lazy" /><span>Dashboard</span></a><a href="screenshots/ai-workbench-new-task.png" data-lightbox-src="screenshots/ai-workbench-new-task.png" data-lightbox-title="AI Workbench - Создание задачи"><img src="screenshots/ai-workbench-new-task.png" alt="Создание задачи" width="1600" height="1173" loading="lazy" /><span>Создание задачи</span></a><a href="screenshots/ai-workbench-workflow.png" data-lightbox-src="screenshots/ai-workbench-workflow.png" data-lightbox-title="AI Workbench - План, агентные роли и проверки"><img src="screenshots/ai-workbench-workflow.png" alt="План, агентные роли и проверки" width="1600" height="1000" loading="lazy" /><span>План, агентные роли, шаги выполнения и проверки</span></a></div></details></div>
             </div>
           </article>
         </div>
@@ -431,9 +438,9 @@
       <section class="section wide" id="experience">
         <div class="section-head"><div><p class="kicker">Опыт и база</p><h2>Разработка плюс понимание IT-инфраструктуры</h2></div></div>
         <div class="experience-grid">
-          <article class="experience-card"><span>текущий практический опыт</span><h3>Системный администратор-программист</h3><p>Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.</p></article>
-          <article class="experience-card"><span>проектная работа</span><h3>Независимый разработчик</h3><p>Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.</p></article>
-          <article class="experience-card"><span>образование</span><h3>Среднее профессиональное образование</h3><p>Специальность: «Программирование компьютерных систем». Средний балл диплома: 4,75 из 5.</p></article>
+          <article class="experience-card"><span>2024 - настоящее время</span><h3>Системный администратор-программист</h3><p>Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.</p></article>
+          <article class="experience-card"><span>2022 - настоящее время</span><h3>Независимый разработчик</h3><p>Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.</p></article>
+          <article class="experience-card"><span>образование</span><h3>Среднее профессиональное образование</h3><p>СПО по специальности «Программирование компьютерных систем». Средний балл диплома: 4,75 из 5.</p></article>
         </div>
       </section>
 
@@ -442,23 +449,20 @@
         <div class="admin-grid">
           <article class="admin-item"><h3>Поддержка рабочих мест</h3><p>Помощь пользователям, первичная диагностика, настройка окружения, разбор типовых проблем Windows/Linux и рабочих приложений.</p></article>
           <article class="admin-item"><h3>Сети и доступность</h3><p>Понимание TCP/IP, DNS/DHCP, базовой маршрутизации, проверки доступности сервисов и поиска причин сетевых сбоев.</p></article>
-          <article class="admin-item"><h3>PowerShell и WMI</h3><p>Скрипты для сбора информации о системе, диагностики, инвентаризации и сокращения повторяющихся админских действий.</p></article>
-          <article class="admin-item"><h3>Виртуальные машины</h3><p>Работа с VMware и VirtualBox: тестовые стенды, изолированные окружения, проверка конфигураций и запуск сервисов в безопасной среде.</p></article>
-          <article class="admin-item"><h3>Windows Server и Bitrix</h3><p>Практическая работа с Windows Server и Bitrix-средой: сопровождение, разбор проблем, настройка окружения и помощь пользователям.</p></article>
-          <article class="admin-item"><h3>Инвентаризация и учет</h3><p>Структурирование данных по оборудованию, локальные утилиты учета, быстрый сбор характеристик рабочих станций.</p></article>
-          <article class="admin-item"><h3>Железо и сборка ПК</h3><p>Подбор комплектующих под задачу и бюджет, совместимость, диагностика узких мест, понимание апгрейдов и обслуживания.</p></article>
-          <article class="admin-item"><h3>Диски и данные</h3><p>Работа с HDD/SSD, первичная диагностика накопителей, проверка состояния, перенос данных и восстановление там, где это технически возможно.</p></article>
-          <article class="admin-item"><h3>Серверное оборудование</h3><p>Понимание серверного железа, накопителей, базового обслуживания, диагностики неисправностей и подбора компонентов под нагрузку.</p></article>
-          <article class="admin-item"><h3>Анализ и безопасность</h3><p>OSINT-подход, Wireshark, Hack The Box как практика внимательного анализа, проверки гипотез и аккуратной работы с данными.</p></article>
+          <article class="admin-item"><h3>PowerShell и автоматизация</h3><p>Скрипты для сбора информации о системе, диагностики, инвентаризации и сокращения повторяющихся админских действий.</p></article>
+          <article class="admin-item"><h3>Windows Server и виртуализация</h3><p>Работа с Windows Server, VMware, VirtualBox и Bitrix-средой: тестовые стенды, окружения, сопровождение и разбор проблем.</p></article>
+          <article class="admin-item"><h3>Инвентаризация и оборудование</h3><p>Учет IT-активов, подбор комплектующих, понимание серверного железа, накопителей, апгрейдов и базового обслуживания.</p></article>
+          <article class="admin-item"><h3>Диагностика и безопасность</h3><p>HDD/SSD, SMART, перенос и первичное восстановление данных, Wireshark, OSINT-подход и аккуратная проверка гипотез.</p></article>
         </div>
+        <div class="admin-tags" aria-label="Инструменты системного администрирования"><span>Windows Server</span><span>Bitrix</span><span>VMware</span><span>VirtualBox</span><span>PowerShell</span><span>WMI</span><span>TCP/IP</span><span>DNS/DHCP</span><span>HDD/SSD</span><span>SMART</span><span>серверное оборудование</span><span>восстановление данных</span></div>
       </section>
 
       <section class="section wide" id="other-projects">
         <div class="section-head"><div><p class="kicker">Дополнительные проекты</p><h2>Утилиты, боты и инструменты для прикладных задач</h2></div></div>
         <div class="project-list">
-          <article class="project"><a class="shot-main" href="screenshots/max-summary-typecheck.png" data-lightbox-src="screenshots/max-summary-typecheck.png" data-lightbox-title="MAX Summary Bot - Техническая проверка gateway" aria-label="Открыть полный скриншот проекта MAX Summary Bot"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/max-summary-architecture.png" data-lightbox-src="screenshots/max-summary-architecture.png" data-lightbox-title="MAX Summary Bot - Архитектура gateway и processing pipeline" aria-label="Открыть полный скриншот проекта MAX Summary Bot"><img src="screenshots/max-summary-architecture.png" alt="MAX Summary Bot architecture" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Нужен был сервис, который принимает материалы из мессенджера, нормализует входные данные и возвращает структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing: gateway принимает payload, обращается к внутреннему API и возвращает единый формат ответа.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span><span>Python extractor</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/max-summary-architecture.png" data-lightbox-src="screenshots/max-summary-architecture.png" data-lightbox-title="MAX Summary Bot - Поток обработки текста, ссылок и файлов"><img src="screenshots/max-summary-architecture.png" alt="Поток обработки текста, ссылок и файлов" width="1600" height="1000" loading="lazy" /><span>Поток обработки текста, ссылок и файлов</span></a><a href="screenshots/max-summary-typecheck.png" data-lightbox-src="screenshots/max-summary-typecheck.png" data-lightbox-title="MAX Summary Bot - Техническая проверка gateway"><img src="screenshots/max-summary-typecheck.png" alt="Техническая проверка gateway" width="1600" height="1000" loading="lazy" /><span>Техническая проверка gateway и интеграций</span></a></div></details></div></div></article>
           <article class="project"><a class="shot-main" href="screenshots/systeminfo-cover.png" data-lightbox-src="screenshots/systeminfo-cover.png" data-lightbox-title="SystemInfo - Пример отчета" aria-label="Открыть полный скриншот проекта SystemInfo"><img src="screenshots/systeminfo-cover.png" alt="SystemInfo report" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
-          <article class="project"><a class="shot-main" href="screenshots/inventory-compile.png" data-lightbox-src="screenshots/inventory-compile.png" data-lightbox-title="Inventory App - Техническая проверка" aria-label="Открыть полный скриншот проекта Inventory App"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/inventory-dashboard.png" data-lightbox-src="screenshots/inventory-dashboard.png" data-lightbox-title="Inventory App - Наглядный экран учета оборудования" aria-label="Открыть полный скриншот проекта Inventory App"><img src="screenshots/inventory-dashboard.png" alt="Inventory App dashboard" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Нужен был понятный инструмент для фиксации оборудования, поиска записей и поддержки порядка в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием для IT-поддержки.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/inventory-dashboard.png" data-lightbox-src="screenshots/inventory-dashboard.png" data-lightbox-title="Inventory App - Дашборд, фильтры и таблица инвентаризации"><img src="screenshots/inventory-dashboard.png" alt="Дашборд, фильтры и таблица инвентаризации" width="1600" height="1000" loading="lazy" /><span>Дашборд, фильтры и таблица инвентаризации</span></a><a href="screenshots/inventory-compile.png" data-lightbox-src="screenshots/inventory-compile.png" data-lightbox-title="Inventory App - Техническая проверка entrypoint"><img src="screenshots/inventory-compile.png" alt="Техническая проверка entrypoint" width="1600" height="1000" loading="lazy" /><span>Техническая проверка entrypoint приложения</span></a></div></details></div></div></article>
         </div>
       </section>
 
@@ -472,17 +476,25 @@
 
       <section class="section" id="contacts">
         <div class="contact">
-          <div><p class="kicker">Контакты</p><h2>Открыт к работе и проектным задачам</h2><p>Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу - помогу определить подход и оценить реализацию.</p></div>
+          <div><p class="kicker">Контакты</p><h2>Открыт к работе и проектным задачам</h2><p>Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу — помогу определить подход и оценить реализацию.</p></div>
           <div class="links">
             <a href="https://t.me/karameliew">Обсудить задачу в Telegram: @karameliew</a>
             <a href="mailto:zhikharev@sfuk.ru">Написать на email: zhikharev@sfuk.ru</a>
             <a href="resume-developer.pdf" download>Скачать резюме разработчика</a>
             <a href="resume-admin.pdf" download>Скачать резюме сисадмина-программиста</a>
             <a href="https://github.com/ncatofthe">GitHub: ncatofthe</a>
+            <a href="https://ncatofthe.github.io/portfolio/">GitHub Pages: portfolio</a>
           </div>
         </div>
       </section>
     </main>
+    <footer class="site-footer">
+      <span>© 2026 Глеб Жихарев</span>
+      <span>Портфолио обновлено в августе 2026 года</span>
+      <a href="https://github.com/ncatofthe">GitHub</a>
+      <a href="https://t.me/karameliew">Telegram</a>
+      <a href="resume-developer.pdf" download>Резюме</a>
+    </footer>
     <div class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" hidden>
       <button class="lightbox-close" type="button" aria-label="Закрыть скриншот">×</button>
       <figure class="lightbox-frame">

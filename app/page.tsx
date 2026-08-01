@@ -15,12 +15,12 @@ const proofPoints = [
     label: "используют разработанный мной ServiceDesk",
   },
   {
-    value: "3 сотрудника",
-    label: "получили меньше ручной работы за счет автоматизации отзывов",
+    value: "Для 3 сотрудников",
+    label: "сокращен объем повторяющейся работы с отзывами",
   },
   {
-    value: "от анализа до запуска",
-    label: "самостоятельно веду прикладные проекты и проверяю результат",
+    value: "Полный цикл",
+    label: "от анализа процесса и архитектуры до разработки, тестирования и внедрения",
   },
 ];
 
@@ -89,12 +89,12 @@ const additionalStack = [
 const experience = [
   {
     title: "Системный администратор-программист",
-    place: "текущий практический опыт",
+    place: "2024 - настоящее время",
     text: "Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.",
   },
   {
     title: "Независимый разработчик",
-    place: "проектная работа и собственные продукты",
+    place: "2022 - настоящее время",
     text: "Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.",
   },
 ];
@@ -109,42 +109,41 @@ const sysadminSkills = [
     text: "Понимание TCP/IP, DNS/DHCP, базовой маршрутизации, проверки доступности сервисов и поиска причин сетевых сбоев.",
   },
   {
-    title: "PowerShell и WMI",
+    title: "PowerShell и автоматизация",
     text: "Скрипты для сбора информации о системе, диагностики, инвентаризации и сокращения повторяющихся админских действий.",
   },
   {
-    title: "Виртуальные машины",
-    text: "Работа с VMware и VirtualBox: тестовые стенды, изолированные окружения, проверка конфигураций и запуск сервисов в безопасной среде.",
+    title: "Windows Server и виртуализация",
+    text: "Работа с Windows Server, VMware, VirtualBox и Bitrix-средой: тестовые стенды, окружения, сопровождение и разбор проблем.",
   },
   {
-    title: "Windows Server и Bitrix",
-    text: "Практическая работа с Windows Server и Bitrix-средой: сопровождение, разбор проблем, настройка окружения и помощь пользователям.",
+    title: "Инвентаризация и оборудование",
+    text: "Учет IT-активов, подбор комплектующих, понимание серверного железа, накопителей, апгрейдов и базового обслуживания.",
   },
   {
-    title: "Инвентаризация и учет",
-    text: "Структурирование данных по оборудованию, локальные утилиты учета, быстрый сбор характеристик рабочих станций.",
+    title: "Диагностика и безопасность",
+    text: "HDD/SSD, SMART, перенос и первичное восстановление данных, Wireshark, OSINT-подход и аккуратная проверка гипотез.",
   },
-  {
-    title: "Железо и сборка ПК",
-    text: "Подбор комплектующих под задачу и бюджет, совместимость, диагностика узких мест, понимание апгрейдов и обслуживания.",
-  },
-  {
-    title: "Диски и данные",
-    text: "Работа с HDD/SSD, первичная диагностика накопителей, проверка состояния, перенос данных и восстановление там, где это технически возможно.",
-  },
-  {
-    title: "Серверное оборудование",
-    text: "Понимание серверного железа, накопителей, базового обслуживания, диагностики неисправностей и подбора компонентов под нагрузку.",
-  },
-  {
-    title: "Анализ и безопасность",
-    text: "OSINT-подход, Wireshark, Hack The Box как практика внимательного анализа, проверки гипотез и аккуратной работы с данными.",
-  },
+];
+
+const adminTags = [
+  "Windows Server",
+  "Bitrix",
+  "VMware",
+  "VirtualBox",
+  "PowerShell",
+  "WMI",
+  "TCP/IP",
+  "DNS/DHCP",
+  "HDD/SSD",
+  "SMART",
+  "серверное оборудование",
+  "восстановление данных",
 ];
 
 const education = {
   title: "Среднее профессиональное образование",
-  text: "Специальность: «Программирование компьютерных систем». Средний балл диплома: 4,75 из 5.",
+  text: "СПО по специальности «Программирование компьютерных систем». Средний балл диплома: 4,75 из 5.",
 };
 
 const projects = [
@@ -213,7 +212,19 @@ const projects = [
       "Автоматизация маркетплейсов сократила объём ручной работы для трёх сотрудников и ускорила обработку повторяющихся отзывов.",
     stack: ["Python", "Tkinter", "Ozon API", "Wildberries API", "PyInstaller"],
     link: "https://github.com/ncatofthe/MarketplaceBot",
+    cover: {
+      src: "/screenshots/marketplacebot-product.png",
+      caption: "Наглядный экран логики MarketplaceBot",
+      width: 1600,
+      height: 1000,
+    },
     screenshots: [
+      {
+        src: "/screenshots/marketplacebot-product.png",
+        caption: "Настройки API, шаблоны и журнал обработки",
+        width: 1600,
+        height: 1000,
+      },
       {
         src: "/screenshots/marketplacebot-compile.png",
         caption: "Техническая проверка модулей без API-ключей",
@@ -235,7 +246,7 @@ const projects = [
     role:
       "Архитектура продукта, backend, frontend, сценарии работы агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.",
     outcome:
-      "Инструмент помогает быстрее разбирать задачи, фиксировать план действий и проводить разработку в более управляемом режиме.",
+      "Платформа принимает задачу, формирует план, распределяет этапы между агентными ролями, сохраняет историю выполнения и проверяет созданные приложения через API- и браузерные сценарии.",
     stack: ["Python", "FastAPI", "React", "TypeScript", "SQLite", "Ollama"],
     link: "https://github.com/ncatofthe/ai-workbench",
     screenshots: [
@@ -250,6 +261,12 @@ const projects = [
         caption: "Создание новой задачи",
         width: 1600,
         height: 1173,
+      },
+      {
+        src: "/screenshots/ai-workbench-workflow.png",
+        caption: "План, агентные роли, шаги выполнения и проверки",
+        width: 1600,
+        height: 1000,
       },
     ],
   },
@@ -269,7 +286,19 @@ const projects = [
       "Получилась понятная основа для бота, которую можно расширять под файлы, ссылки, фоновые задачи и разные каналы доставки.",
     stack: ["TypeScript", "Fastify", "pnpm workspaces", "BullMQ", "Python extractor"],
     link: "https://github.com/ncatofthe/max_summary_bot",
+    cover: {
+      src: "/screenshots/max-summary-architecture.png",
+      caption: "Архитектура gateway и processing pipeline",
+      width: 1600,
+      height: 1000,
+    },
     screenshots: [
+      {
+        src: "/screenshots/max-summary-architecture.png",
+        caption: "Поток обработки текста, ссылок и файлов",
+        width: 1600,
+        height: 1000,
+      },
       {
         src: "/screenshots/max-summary-typecheck.png",
         caption: "Техническая проверка gateway и интеграций",
@@ -323,7 +352,19 @@ const projects = [
       "Проект показывает умение закрывать прикладные задачи без лишнего усложнения архитектуры.",
     stack: ["Python", "SQLite", "Tkinter", "IT support"],
     link: "https://github.com/ncatofthe/inventory_app",
+    cover: {
+      src: "/screenshots/inventory-dashboard.png",
+      caption: "Наглядный экран учета оборудования",
+      width: 1600,
+      height: 1000,
+    },
     screenshots: [
+      {
+        src: "/screenshots/inventory-dashboard.png",
+        caption: "Дашборд, фильтры и таблица инвентаризации",
+        width: 1600,
+        height: 1000,
+      },
       {
         src: "/screenshots/inventory-compile.png",
         caption: "Техническая проверка entrypoint приложения",
@@ -428,9 +469,10 @@ export default function Home() {
             <p className="eyebrow">Внутренние сервисы, автоматизация и интеграции</p>
             <h1>{contacts.name}</h1>
             <p className="hero-role">{contacts.role}</p>
+            <p className="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
             <p className="lead">
               Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний.
-              Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend и backend и довожу продукт до
+              Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend- и backend-часть и довожу продукт до
               внедрения.
             </p>
             <div className="hero-actions">
@@ -451,7 +493,7 @@ export default function Home() {
               <span className="status-label">Фокус</span>
               <strong>прикладные инструменты под рабочие процессы</strong>
               <p>
-                Основной профиль - внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт
+                Основной профиль — внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт
                 системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения
                 бизнеса.
               </p>
@@ -530,6 +572,11 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <div className="admin-tag-cloud" aria-label="Инструменты системного администрирования">
+          {adminTags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
       </section>
 
       <section className="section projects other-projects" id="other-projects">
@@ -579,7 +626,7 @@ export default function Home() {
           <h2>Открыт к работе и проектным задачам</h2>
           <p>
             Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений.
-            Опишите задачу - помогу определить подход и оценить реализацию.
+            Опишите задачу — помогу определить подход и оценить реализацию.
           </p>
         </div>
         <div className="contact-card">
@@ -597,6 +644,17 @@ export default function Home() {
           <a href={contacts.githubPages}>GitHub Pages: portfolio</a>
         </div>
       </section>
+      <footer className="site-footer">
+        <span>© 2026 Глеб Жихарев</span>
+        <span>Портфолио обновлено в августе 2026 года</span>
+        <a href={contacts.github} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <a href="https://t.me/karameliew">Telegram</a>
+        <a href="/resume-developer.pdf" download>
+          Резюме
+        </a>
+      </footer>
     </main>
   );
 }
