@@ -50,6 +50,7 @@
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
+      body.lightbox-open { overflow: hidden; }
       a { color: inherit; text-decoration: none; }
       a:focus-visible, summary:focus-visible { outline: 3px solid rgba(40, 111, 158, 0.42); outline-offset: 3px; }
       h1, h2, h3, p { overflow-wrap: anywhere; }
@@ -234,11 +235,19 @@
       .project-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 14px; margin-top: 22px; }
       details { margin-top: 0; }
       summary { cursor: pointer; width: fit-content; border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; color: var(--strong); background: #fff; font-weight: 800; }
-      .strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(190px, 240px); gap: 12px; margin-top: 14px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x mandatory; }
-      .strip a { display: grid; gap: 8px; scroll-snap-align: start; transition: transform 200ms ease; }
+      .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(176px, 1fr)); gap: 12px; margin-top: 14px; }
+      .strip a { display: grid; gap: 8px; min-width: 0; transition: transform 200ms ease; }
       .strip a:hover { transform: translateY(-3px); }
-      .strip img { width: 100%; height: 150px; aspect-ratio: 16 / 9; object-fit: contain; object-position: left top; border: 1px solid var(--line); border-radius: 8px; background: #f5f7f4; }
+      .strip img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; object-position: center center; border: 1px solid var(--line); border-radius: 8px; background: #f5f7f4; }
       .strip span { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+      .lightbox { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: clamp(14px, 3vw, 34px); background: rgba(16, 22, 20, 0.82); backdrop-filter: blur(10px); animation: lightbox-fade 180ms ease both; }
+      .lightbox[hidden] { display: none; }
+      .lightbox-frame { width: min(96vw, 1500px); max-height: calc(100vh - 82px); display: grid; gap: 12px; margin: 0; animation: lightbox-zoom 220ms cubic-bezier(0.21, 0.74, 0.23, 1) both; }
+      .lightbox-image { display: block; width: 100%; max-height: calc(100vh - 130px); object-fit: contain; border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 8px; background: #101614; box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48); }
+      .lightbox-caption { color: rgba(255, 255, 255, 0.92); font-size: 14px; font-weight: 800; text-align: center; }
+      .lightbox-close { position: fixed; z-index: 101; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 999px; color: #fff; background: rgba(16, 22, 20, 0.78); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26); cursor: pointer; font-size: 18px; font-weight: 900; line-height: 1; transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }
+      .lightbox-close:hover, .lightbox-close:focus-visible { transform: scale(1.06); border-color: rgba(255, 255, 255, 0.48); background: rgba(31, 111, 99, 0.9); outline: none; }
 
       .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
       .card, .experience-card, .stack-group { padding: 20px; }
@@ -260,6 +269,8 @@
 
       @keyframes hero-wash { from { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; } to { background-position: 18% 10%, 82% 18%, 44% 76%, 0 0; } }
       @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes lightbox-fade { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes lightbox-zoom { from { opacity: 0; transform: translate3d(0, 10px, 0) scale(0.985); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
       @keyframes orbit-frame { from { transform: translate3d(0, 0, 0) rotate(0deg); } to { transform: translate3d(0, 0, 0) rotate(360deg); } }
 
       @media (prefers-reduced-motion: reduce) {
@@ -288,6 +299,10 @@
         .shot-main img { min-height: 0; max-height: none; }
         .shot-main::after { inset: 14px; }
         .shot-main-open { right: 22px; bottom: 22px; opacity: 1; }
+        .lightbox { padding: 10px; }
+        .lightbox-frame { width: 100%; max-height: calc(100vh - 70px); gap: 8px; }
+        .lightbox-image { max-height: calc(100vh - 116px); }
+        .lightbox-caption { font-size: 13px; }
       }
     </style>
     <script type="application/ld+json">
@@ -340,7 +355,7 @@
         </div>
         <div class="project-list">
           <article class="project">
-            <a class="shot-main" href="screenshots/servicedesk-dashboard-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Office ServiceDesk"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1920" height="1080" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <a class="shot-main" href="screenshots/servicedesk-dashboard-cover.png" data-lightbox-src="screenshots/servicedesk-dashboard-cover.png" data-lightbox-title="Office ServiceDesk - Главная панель ServiceDesk" aria-label="Открыть полный скриншот проекта Office ServiceDesk"><img src="screenshots/servicedesk-dashboard-cover.png" alt="Office ServiceDesk dashboard" width="1920" height="1080" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>внутренний сервис</span><span>используется 3 компаниями</span></div>
               <h3>Office ServiceDesk</h3>
@@ -354,13 +369,13 @@
               <div class="chips"><span>React</span><span>TypeScript</span><span>Express</span><span>Prisma</span><span>PostgreSQL</span><span>Playwright</span></div>
               <div class="project-actions">
                 <a class="button" href="https://github.com/ncatofthe/office-servicedesk">Исходный код</a>
-                <details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/servicedesk-dashboard.png"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" width="1920" height="1080" loading="lazy" /><span>Главная панель</span></a><a href="screenshots/servicedesk-tickets.png"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" width="1920" height="1080" loading="lazy" /><span>Список заявок</span></a><a href="screenshots/servicedesk-queue.png"><img src="screenshots/servicedesk-queue.png" alt="Очередь" width="1920" height="1080" loading="lazy" /><span>Очередь исполнителей</span></a><a href="screenshots/servicedesk-admin.png"><img src="screenshots/servicedesk-admin.png" alt="Настройки" width="1920" height="1080" loading="lazy" /><span>Настройки и роли</span></a></div></details>
+                <details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/servicedesk-dashboard.png" data-lightbox-src="screenshots/servicedesk-dashboard.png" data-lightbox-title="Office ServiceDesk - Главная панель"><img src="screenshots/servicedesk-dashboard.png" alt="Главная панель" width="1920" height="1080" loading="lazy" /><span>Главная панель</span></a><a href="screenshots/servicedesk-tickets.png" data-lightbox-src="screenshots/servicedesk-tickets.png" data-lightbox-title="Office ServiceDesk - Список заявок"><img src="screenshots/servicedesk-tickets.png" alt="Заявки" width="1920" height="1080" loading="lazy" /><span>Список заявок</span></a><a href="screenshots/servicedesk-queue.png" data-lightbox-src="screenshots/servicedesk-queue.png" data-lightbox-title="Office ServiceDesk - Очередь исполнителей"><img src="screenshots/servicedesk-queue.png" alt="Очередь" width="1920" height="1080" loading="lazy" /><span>Очередь исполнителей</span></a><a href="screenshots/servicedesk-admin.png" data-lightbox-src="screenshots/servicedesk-admin.png" data-lightbox-title="Office ServiceDesk - Настройки и роли"><img src="screenshots/servicedesk-admin.png" alt="Настройки" width="1920" height="1080" loading="lazy" /><span>Настройки и роли</span></a></div></details>
               </div>
             </div>
           </article>
 
           <article class="project">
-            <a class="shot-main" href="screenshots/marketplacebot-compile.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта MarketplaceBot"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <a class="shot-main" href="screenshots/marketplacebot-compile.png" data-lightbox-src="screenshots/marketplacebot-compile.png" data-lightbox-title="MarketplaceBot - Техническая проверка модулей" aria-label="Открыть полный скриншот проекта MarketplaceBot"><img src="screenshots/marketplacebot-compile.png" alt="MarketplaceBot verification" width="1600" height="1000" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>автоматизация маркетплейсов</span><span>меньше ручной работы для 3 сотрудников</span></div>
               <h3>MarketplaceBot</h3>
@@ -377,7 +392,7 @@
           </article>
 
           <article class="project">
-            <a class="shot-main" href="screenshots/ai-workbench.jpg" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта AI Workbench"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" width="1280" height="720" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <a class="shot-main" href="screenshots/ai-workbench.jpg" data-lightbox-src="screenshots/ai-workbench.jpg" data-lightbox-title="AI Workbench - Dashboard локальной платформы" aria-label="Открыть полный скриншот проекта AI Workbench"><img src="screenshots/ai-workbench.jpg" alt="AI Workbench dashboard" width="1280" height="720" /><span class="shot-main-open">Открыть полный скрин</span></a>
             <div class="project-body">
               <div class="meta"><span>AI-инструмент</span><span>используется в реальных фриланс-задачах</span></div>
               <h3>AI Workbench</h3>
@@ -389,7 +404,7 @@
                 <div><span>Результат</span><p>Инструмент помогает быстрее разбирать задачи, фиксировать план действий и проводить разработку в управляемом режиме.</p></div>
               </div>
               <div class="chips"><span>Python</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>SQLite</span><span>Ollama</span></div>
-              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/ai-workbench">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/ai-workbench.jpg"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" width="1280" height="720" loading="lazy" /><span>Dashboard</span></a><a href="screenshots/ai-workbench-new-task.png"><img src="screenshots/ai-workbench-new-task.png" alt="Создание задачи" width="1600" height="1173" loading="lazy" /><span>Создание задачи</span></a></div></details></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/ai-workbench">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/ai-workbench.jpg" data-lightbox-src="screenshots/ai-workbench.jpg" data-lightbox-title="AI Workbench - Dashboard"><img src="screenshots/ai-workbench.jpg" alt="Dashboard" width="1280" height="720" loading="lazy" /><span>Dashboard</span></a><a href="screenshots/ai-workbench-new-task.png" data-lightbox-src="screenshots/ai-workbench-new-task.png" data-lightbox-title="AI Workbench - Создание задачи"><img src="screenshots/ai-workbench-new-task.png" alt="Создание задачи" width="1600" height="1173" loading="lazy" /><span>Создание задачи</span></a></div></details></div>
             </div>
           </article>
         </div>
@@ -417,9 +432,9 @@
       <section class="section wide" id="other-projects">
         <div class="section-head"><div><p class="kicker">Дополнительные проекты</p><h2>Утилиты, боты и инструменты для прикладных задач</h2></div></div>
         <div class="project-list">
-          <article class="project"><a class="shot-main" href="screenshots/max-summary-typecheck.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта MAX Summary Bot"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
-          <article class="project"><a class="shot-main" href="screenshots/systeminfo-cover.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта SystemInfo"><img src="screenshots/systeminfo-cover.png" alt="SystemInfo report" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
-          <article class="project"><a class="shot-main" href="screenshots/inventory-compile.png" target="_blank" rel="noreferrer" aria-label="Открыть полный скриншот проекта Inventory App"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/max-summary-typecheck.png" data-lightbox-src="screenshots/max-summary-typecheck.png" data-lightbox-title="MAX Summary Bot - Техническая проверка gateway" aria-label="Открыть полный скриншот проекта MAX Summary Bot"><img src="screenshots/max-summary-typecheck.png" alt="MAX Summary Bot" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>бот и обработка текста</span><span>архитектура готова к демонстрации</span></div><h3>MAX Summary Bot</h3><p class="headline">Бот для создания кратких выжимок из текста, ссылок и файлов.</p><div class="details"><div><span>Задача</span><p>Принимать материалы из мессенджера, нормализовать входные данные и возвращать структурированную выжимку.</p></div><div><span>Решение</span><p>Разделил messenger gateway и core-processing, добавил API-слой, очереди, типизацию и технические проверки.</p></div></div><div class="chips"><span>TypeScript</span><span>Fastify</span><span>pnpm workspaces</span><span>BullMQ</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/max_summary_bot">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/systeminfo-cover.png" data-lightbox-src="screenshots/systeminfo-cover.png" data-lightbox-title="SystemInfo - Пример отчета" aria-label="Открыть полный скриншот проекта SystemInfo"><img src="screenshots/systeminfo-cover.png" alt="SystemInfo report" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>администрирование</span><span>быстрый сбор данных о ПК</span></div><h3>SystemInfo</h3><p class="headline">PowerShell-утилита для диагностики и инвентаризации Windows-рабочих станций.</p><div class="details"><div><span>Задача</span><p>Быстро получать сведения о системе без установки дополнительных программ и без прав администратора.</p></div><div><span>Решение</span><p>Собрал PowerShell-скрипт с WMI-запросами и понятным сценарием применения для IT-поддержки.</p></div></div><div class="chips"><span>PowerShell</span><span>WMI</span><span>Windows</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/SystemInfo">Исходный код</a></div></div></article>
+          <article class="project"><a class="shot-main" href="screenshots/inventory-compile.png" data-lightbox-src="screenshots/inventory-compile.png" data-lightbox-title="Inventory App - Техническая проверка" aria-label="Открыть полный скриншот проекта Inventory App"><img src="screenshots/inventory-compile.png" alt="Inventory App" width="1600" height="1000" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a><div class="project-body"><div class="meta"><span>учет оборудования</span><span>прикладная IT-утилита</span></div><h3>Inventory App</h3><p class="headline">Приложение для учета IT-оборудования и быстрых инвентаризационных задач.</p><div class="details"><div><span>Задача</span><p>Фиксировать оборудование, искать записи и поддерживать порядок в IT-активах.</p></div><div><span>Решение</span><p>Собрал приложение для локального учета техники с понятной структурой данных и рабочим сценарием.</p></div></div><div class="chips"><span>Python</span><span>SQLite</span><span>Tkinter</span><span>IT support</span></div><div class="project-actions"><a class="button" href="https://github.com/ncatofthe/inventory_app">Исходный код</a></div></div></article>
         </div>
       </section>
 
@@ -444,6 +459,13 @@
         </div>
       </section>
     </main>
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" hidden>
+      <button class="lightbox-close" type="button" aria-label="Закрыть скриншот">×</button>
+      <figure class="lightbox-frame">
+        <img class="lightbox-image" alt="" />
+        <figcaption class="lightbox-caption"></figcaption>
+      </figure>
+    </div>
     <script>
       (() => {
         const root = document.documentElement;
@@ -477,6 +499,57 @@
         updateProgress();
         window.addEventListener("scroll", scheduleProgress, { passive: true });
         window.addEventListener("resize", scheduleProgress);
+
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = lightbox?.querySelector(".lightbox-image");
+        const lightboxCaption = lightbox?.querySelector(".lightbox-caption");
+        const lightboxClose = lightbox?.querySelector(".lightbox-close");
+        let activeLightboxTrigger = null;
+
+        const closeLightbox = () => {
+          if (!lightbox || !lightboxImage || !lightboxCaption) return;
+          lightbox.hidden = true;
+          lightboxImage.removeAttribute("src");
+          lightboxImage.alt = "";
+          lightboxCaption.textContent = "";
+          document.body.classList.remove("lightbox-open");
+          activeLightboxTrigger?.focus();
+        };
+
+        const openLightbox = (trigger) => {
+          if (!lightbox || !lightboxImage || !lightboxCaption) return;
+          const src = trigger.dataset.lightboxSrc;
+          if (!src) return;
+          activeLightboxTrigger = trigger;
+          const title = trigger.dataset.lightboxTitle || trigger.getAttribute("aria-label") || "Скриншот проекта";
+          lightboxImage.src = src;
+          lightboxImage.alt = title;
+          lightboxCaption.textContent = title;
+          lightbox.hidden = false;
+          document.body.classList.add("lightbox-open");
+          lightboxClose?.focus();
+        };
+
+        document.addEventListener("click", (event) => {
+          const target = event.target instanceof Element ? event.target : null;
+          const trigger = target?.closest("[data-lightbox-src]");
+          if (!trigger) return;
+          event.preventDefault();
+          openLightbox(trigger);
+        });
+
+        lightbox?.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        lightboxClose?.addEventListener("click", closeLightbox);
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+            closeLightbox();
+          }
+        });
       })();
     </script>
   </body>

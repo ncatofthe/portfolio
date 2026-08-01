@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const revealSelector = [
   ".section",
@@ -18,7 +18,15 @@ const revealSelector = [
   ".contact-card",
 ].join(",");
 
+type LightboxState = {
+  src: string;
+  title: string;
+};
+
 export function ScrollReveal() {
+  const [lightbox, setLightbox] = useState<LightboxState | null>(null);
+  const activeTriggerRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     const root = document.documentElement;
     const items = Array.from(document.querySelectorAll<HTMLElement>(revealSelector));
@@ -84,5 +92,79 @@ export function ScrollReveal() {
     };
   }, []);
 
-  return <div className="scroll-progress" aria-hidden="true" />;
+  useEffect(() => {
+    const openLightbox = (trigger: HTMLElement) => {
+      const src = trigger.dataset.lightboxSrc;
+      if (!src) {
+        return;
+      }
+
+      activeTriggerRef.current = trigger;
+      setLightbox({
+        src,
+        title: trigger.dataset.lightboxTitle ?? trigger.getAttribute("aria-label") ?? "Скриншот проекта",
+      });
+    };
+
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const trigger = target?.closest<HTMLElement>("[data-lightbox-src]");
+      if (!trigger) {
+        return;
+      }
+
+      event.preventDefault();
+      openLightbox(trigger);
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+      activeTriggerRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!lightbox) {
+      return;
+    }
+
+    const closeButton = document.querySelector<HTMLButtonElement>(".lightbox-close");
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightbox(null);
+      }
+    };
+
+    document.body.classList.add("lightbox-open");
+    closeButton?.focus();
+    document.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.body.classList.remove("lightbox-open");
+      document.removeEventListener("keydown", handleKeydown);
+      activeTriggerRef.current?.focus();
+    };
+  }, [lightbox]);
+
+  const closeLightbox = () => setLightbox(null);
+
+  return (
+    <>
+      <div className="scroll-progress" aria-hidden="true" />
+      {lightbox ? (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" onClick={closeLightbox}>
+          <button className="lightbox-close" type="button" aria-label="Закрыть скриншот" onClick={closeLightbox}>
+            ×
+          </button>
+          <figure className="lightbox-frame" onClick={(event) => event.stopPropagation()}>
+            <img className="lightbox-image" src={lightbox.src} alt={lightbox.title} />
+            <figcaption className="lightbox-caption">{lightbox.title}</figcaption>
+          </figure>
+        </div>
+      ) : null}
+    </>
+  );
 }

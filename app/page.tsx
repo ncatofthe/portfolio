@@ -290,8 +290,8 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
       <a
         className="project-shot"
         href={mainShot.src}
-        target="_blank"
-        rel="noreferrer"
+        data-lightbox-src={mainShot.src}
+        data-lightbox-title={`${project.title} - ${mainShot.caption}`}
         aria-label={`Открыть полный скриншот проекта ${project.title}`}
       >
         <img
@@ -341,7 +341,7 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
             <summary>Скриншоты</summary>
             <div className="shot-strip">
               {project.screenshots.map((shot) => (
-                <a href={shot.src} key={shot.src} target="_blank" rel="noreferrer">
+                <a href={shot.src} key={shot.src} data-lightbox-src={shot.src} data-lightbox-title={`${project.title} - ${shot.caption}`}>
                   <img src={shot.src} alt={shot.caption} width={shot.width} height={shot.height} loading="lazy" />
                   <span>{shot.caption}</span>
                 </a>

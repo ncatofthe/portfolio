@@ -52,12 +52,17 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /requestAnimationFrame/);
   assert.match(docsHtml, /premium-shadow/);
   assert.match(docsHtml, /orbit-frame/);
+  assert.match(docsHtml, /class="lightbox"/);
+  assert.match(docsHtml, /data-lightbox-src="screenshots\/servicedesk-dashboard-cover\.png"/);
+  assert.match(docsHtml, /body\.lightbox-open/);
   assert.match(docsHtml, /object-fit:\s*contain/);
-  assert.match(docsHtml, /class="shot-main" href="screenshots\/servicedesk-dashboard-cover\.png" target="_blank"/);
+  assert.doesNotMatch(docsHtml, /class="shot-main"[^>]+target="_blank"/);
   assert.doesNotMatch(docsHtml, /object-fit:\s*cover/);
   assert.doesNotMatch(docsHtml, /filter:\s*blur\(8px\)/);
   assert.match(scrollReveal, /requestAnimationFrame/);
+  assert.match(scrollReveal, /data-lightbox-src/);
   assert.match(globals, /clip-path:\s*inset\(0 0 8% 0 round 8px\)/);
+  assert.match(globals, /lightbox-frame/);
   assert.match(globals, /object-fit:\s*contain/);
   assert.doesNotMatch(globals, /object-fit:\s*cover/);
   assert.doesNotMatch(globals, /filter:\s*blur\(8px\)/);
