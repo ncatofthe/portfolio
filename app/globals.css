@@ -214,8 +214,8 @@ main {
   width: min(1180px, 100%);
   margin: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.72fr);
-  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.72fr);
+  gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
 
@@ -231,7 +231,13 @@ main {
 
 h1,
 h2,
-h3,
+h3 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
 p {
   overflow-wrap: anywhere;
 }
@@ -240,9 +246,15 @@ h1 {
   margin: 0;
   max-width: 860px;
   color: var(--ink);
-  font-size: clamp(52px, 8vw, 112px);
+  font-size: 96px;
   line-height: 0.94;
   letter-spacing: 0;
+}
+
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 72px;
+  }
 }
 
 .hero-copy {
@@ -1399,6 +1411,10 @@ summary:focus-visible {
     min-height: auto;
   }
 
+  h1 {
+    font-size: 60px;
+  }
+
   .topbar {
     width: 100%;
     margin-left: 0;
@@ -1457,7 +1473,7 @@ summary:focus-visible {
   }
 
   h1 {
-    font-size: 52px;
+    font-size: 48px;
   }
 
   .lead {

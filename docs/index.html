@@ -53,7 +53,8 @@
       body.lightbox-open { overflow: hidden; }
       a { color: inherit; text-decoration: none; }
       a:focus-visible, summary:focus-visible { outline: 3px solid rgba(40, 111, 158, 0.42); outline-offset: 3px; }
-      h1, h2, h3, p { overflow-wrap: anywhere; }
+      h1, h2, h3 { overflow-wrap: normal; word-break: normal; hyphens: none; text-wrap: balance; }
+      p { overflow-wrap: anywhere; }
 
       .scroll-progress { position: fixed; z-index: 30; top: 0; left: 0; width: 100%; height: 3px; pointer-events: none; }
       .scroll-progress::before {
@@ -152,12 +153,12 @@
         width: min(1180px, 100%);
         margin: auto;
         display: grid;
-        grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.72fr);
-        gap: clamp(28px, 5vw, 72px);
+        grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.72fr);
+        gap: clamp(28px, 4vw, 56px);
         align-items: center;
       }
       .kicker { margin: 0 0 12px; color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 12px; }
-      h1 { margin: 0; max-width: 860px; font-size: clamp(52px, 8vw, 112px); line-height: 0.94; color: #101614; }
+      h1 { margin: 0; max-width: 860px; font-size: 96px; line-height: 0.94; color: #101614; }
       h2 { margin: 0; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.05; color: #101614; }
       h3 { margin: 0; font-size: 22px; line-height: 1.14; color: #101614; }
       .hero-role { margin: 16px 0 0; color: var(--strong); font-size: clamp(24px, 3vw, 38px); line-height: 1.12; font-weight: 800; }
@@ -292,8 +293,12 @@
         .scroll-ready .reveal-on-scroll { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
         .scroll-progress { display: none; }
       }
+      @media (max-width: 1200px) {
+        h1 { font-size: 72px; }
+      }
       @media (max-width: 920px) {
         .hero { min-height: auto; }
+        h1 { font-size: 60px; }
         .topbar { width: 100%; margin-left: 0; justify-content: flex-start; overflow-x: auto; padding: 8px; margin-bottom: 44px; }
         .topbar a { white-space: nowrap; }
         .language-switch { flex: 0 0 auto; }
@@ -306,7 +311,7 @@
         .hero { padding-inline: 16px; }
         .topbar { gap: 4px; padding: 6px; }
         .topbar a { padding: 8px 9px; font-size: 13px; }
-        h1 { font-size: 52px; }
+        h1 { font-size: 48px; }
         .lead { font-size: 20px; }
         .actions a { width: 100%; }
         .service-grid, .details { grid-template-columns: 1fr; }

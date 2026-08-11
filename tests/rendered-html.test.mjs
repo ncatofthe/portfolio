@@ -96,6 +96,7 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /восстановление данных/);
   assert.match(docsHtml, /Портфолио обновлено в августе 2026 года/);
   assert.match(docsHtml, /object-fit:\s*contain/);
+  assert.match(docsHtml, /h1, h2, h3 \{ overflow-wrap: normal; word-break: normal;/);
   assert.doesNotMatch(docsHtml, /Жихарев Глеб/);
   assert.doesNotMatch(docsHtml, /Task Manager|task_bogdan/i);
   assert.doesNotMatch(docsHtml, /видео|video/i);
@@ -107,6 +108,7 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(globals, /clip-path:\s*inset\(0 0 8% 0 round 8px\)/);
   assert.match(globals, /lightbox-frame/);
   assert.match(globals, /object-fit:\s*contain/);
+  assert.match(globals, /h1,\s*h2,\s*h3\s*\{\s*overflow-wrap:\s*normal;/);
   assert.doesNotMatch(globals, /object-fit:\s*cover/);
   assert.doesNotMatch(globals, /filter:\s*blur\(8px\)/);
 
