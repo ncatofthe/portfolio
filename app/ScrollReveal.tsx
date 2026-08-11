@@ -26,7 +26,9 @@ type LightboxState = {
 
 export function ScrollReveal() {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
+  const [orderOpen, setOrderOpen] = useState(false);
   const activeTriggerRef = useRef<HTMLElement | null>(null);
+  const activeOrderTriggerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const originalText = new WeakMap<Text, string>();
@@ -175,6 +177,68 @@ export function ScrollReveal() {
   }, []);
 
   useEffect(() => {
+    const handleOrderClick = (event: MouseEvent) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const trigger = target?.closest<HTMLElement>("[data-order-trigger]");
+      if (!trigger) {
+        return;
+      }
+
+      event.preventDefault();
+      activeOrderTriggerRef.current = trigger;
+      setOrderOpen(true);
+    };
+
+    document.addEventListener("click", handleOrderClick);
+
+    return () => {
+      document.removeEventListener("click", handleOrderClick);
+      activeOrderTriggerRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!orderOpen) {
+      return;
+    }
+
+    const closeButton = document.querySelector<HTMLButtonElement>(".order-modal-close");
+    const modal = document.querySelector<HTMLElement>(".order-modal");
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOrderOpen(false);
+        return;
+      }
+
+      if (event.key === "Tab" && modal) {
+        const focusable = Array.from(modal.querySelectorAll<HTMLElement>("button, a[href]"));
+        const first = focusable[0];
+        const last = focusable.at(-1);
+        if (!first || !last) {
+          return;
+        }
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.body.classList.add("dialog-open");
+    closeButton?.focus();
+    document.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.body.classList.remove("dialog-open");
+      document.removeEventListener("keydown", handleKeydown);
+      activeOrderTriggerRef.current?.focus();
+    };
+  }, [orderOpen]);
+
+  useEffect(() => {
     const openLightbox = (trigger: HTMLElement) => {
       const src = trigger.dataset.lightboxSrc;
       if (!src) {
@@ -232,10 +296,63 @@ export function ScrollReveal() {
   }, [lightbox]);
 
   const closeLightbox = () => setLightbox(null);
+  const closeOrder = () => setOrderOpen(false);
 
   return (
     <>
       <div className="scroll-progress" aria-hidden="true" />
+      <div
+        className="order-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Что можно заказать"
+        hidden={!orderOpen}
+        onClick={closeOrder}
+      >
+        <section className="order-modal-panel" onClick={(event) => event.stopPropagation()}>
+          <button className="order-modal-close" type="button" aria-label="Закрыть окно заказа" onClick={closeOrder}>
+            ×
+          </button>
+          <header className="order-modal-header">
+            <span>Сайты и автоматизация</span>
+            <h2>Что можно заказать</h2>
+            <p>Выберите направление — я помогу уточнить задачу, предложу подход и оценю реализацию.</p>
+          </header>
+          <div className="order-options">
+            <article className="order-option order-option-automation">
+              <span className="order-option-number">01</span>
+              <h3>Автоматизация</h3>
+              <p>Для процессов, где ручную работу можно заменить понятным инструментом.</p>
+              <ul>
+                <li>Telegram- и API-боты</li>
+                <li>Интеграции с маркетплейсами и сервисами</li>
+                <li>Обработка файлов, отчетов и данных</li>
+                <li>Внутренние сервисы и административные панели</li>
+              </ul>
+              <a className="order-option-action" href="https://t.me/vivesupport">
+                Заказать автоматизацию <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+            <article className="order-option order-option-site">
+              <span className="order-option-number">02</span>
+              <h3>Разработка сайта</h3>
+              <p>От лаконичного лендинга до интерактивной продуктовой презентации.</p>
+              <ul>
+                <li>Лендинги для услуг и продуктов</li>
+                <li>Корпоративные сайты и портфолио</li>
+                <li>Каталоги и продуктовые страницы</li>
+                <li>Анимационные промо-сайты</li>
+              </ul>
+              <a className="order-option-action" href="https://t.me/vivesupport">
+                Заказать сайт <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+          <a className="order-direct-link" href="https://t.me/vivesupport">
+            Написать напрямую: @vivesupport
+          </a>
+        </section>
+      </div>
       {lightbox ? (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" onClick={closeLightbox}>
           <button className="lightbox-close" type="button" aria-label="Закрыть скриншот" onClick={closeLightbox}>

@@ -55,7 +55,7 @@ const portfolioJsonLd = {
   name: "Портфолио разработчика",
   about: "Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов",
   url: "https://ncatofthe.github.io/portfolio/",
-  sameAs: ["https://github.com/ncatofthe", "https://t.me/karameliew"],
+  sameAs: ["https://github.com/ncatofthe", "https://t.me/vivesupport"],
 };
 
 export default function RootLayout({

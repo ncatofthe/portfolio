@@ -41,6 +41,11 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /ESSE Sense Himalaya/);
   assert.match(html, /Cold Black Element/);
   assert.match(html, /data-lang-option="en"/);
+  assert.match(html, /data-order-trigger="true"/);
+  assert.match(html, /Что можно заказать/);
+  assert.match(html, /Заказать автоматизацию/);
+  assert.match(html, /Заказать сайт/);
+  assert.match(html, /https:\/\/t\.me\/vivesupport/);
   assert.match(html, /Системный администратор-программист/);
   assert.match(html, /Москва · удаленно \/ гибридно · открыт к проектной работе/);
   assert.match(html, /Системное администрирование/);
@@ -57,6 +62,7 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /Портфолио обновлено в августе 2026 года/);
   assert.match(html, /используют разработанный мной ServiceDesk/);
   assert.doesNotMatch(html, /Жихарев Глеб/);
+  assert.doesNotMatch(html, /karameliew/i);
   assert.doesNotMatch(html, /Task Manager|task_bogdan/i);
   assert.doesNotMatch(html, /видео|video/i);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|codex-preview/i);
@@ -79,6 +85,11 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /i18n\.js/);
   assert.match(docsHtml, /data-lang-option="ru"/);
   assert.match(docsHtml, /data-lang-option="en"/);
+  assert.match(docsHtml, /data-order-trigger/);
+  assert.match(docsHtml, /class="order-modal"/);
+  assert.match(docsHtml, /Заказать автоматизацию/);
+  assert.match(docsHtml, /Заказать сайт/);
+  assert.ok((docsHtml.match(/https:\/\/t\.me\/vivesupport/g) ?? []).length >= 6);
   assert.match(docsHtml, /Veld Co template/);
   assert.match(docsHtml, /veldco-cover\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /esse-original-cover\.png"[^>]+width="1920" height="1080"/);
@@ -98,6 +109,7 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /object-fit:\s*contain/);
   assert.match(docsHtml, /h1, h2, h3 \{ overflow-wrap: normal; word-break: normal;/);
   assert.doesNotMatch(docsHtml, /Жихарев Глеб/);
+  assert.doesNotMatch(docsHtml, /karameliew/i);
   assert.doesNotMatch(docsHtml, /Task Manager|task_bogdan/i);
   assert.doesNotMatch(docsHtml, /видео|video/i);
   assert.doesNotMatch(docsHtml, /class="shot-main"[^>]+target="_blank"/);
@@ -105,6 +117,8 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.doesNotMatch(docsHtml, /filter:\s*blur\(8px\)/);
   assert.match(scrollReveal, /requestAnimationFrame/);
   assert.match(scrollReveal, /data-lightbox-src/);
+  assert.match(scrollReveal, /data-order-trigger/);
+  assert.match(scrollReveal, /order-modal-close/);
   assert.match(globals, /clip-path:\s*inset\(0 0 8% 0 round 8px\)/);
   assert.match(globals, /lightbox-frame/);
   assert.match(globals, /object-fit:\s*contain/);

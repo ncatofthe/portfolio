@@ -95,7 +95,7 @@ def make_resume(filename, role, summary, focus_items, project_items, stack_items
     flow = [
         p("Жихарев Глеб", s["title"]),
         p(role, s["role"]),
-        p("Telegram: @karameliew | Email: zhikharev@sfuk.ru | GitHub: github.com/ncatofthe | Portfolio: ncatofthe.github.io/portfolio", s["small"]),
+        p("Telegram: @vivesupport | Email: zhikharev@sfuk.ru | GitHub: github.com/ncatofthe | Portfolio: ncatofthe.github.io/portfolio", s["small"]),
         Spacer(1, 4 * mm),
         p(summary, s["body"]),
     ]

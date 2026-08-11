@@ -50,9 +50,9 @@
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
-      body.lightbox-open { overflow: hidden; }
+      body.lightbox-open, body.dialog-open { overflow: hidden; }
       a { color: inherit; text-decoration: none; }
-      a:focus-visible, summary:focus-visible { outline: 3px solid rgba(40, 111, 158, 0.42); outline-offset: 3px; }
+      a:focus-visible, summary:focus-visible, button:focus-visible { outline: 3px solid rgba(40, 111, 158, 0.42); outline-offset: 3px; }
       h1, h2, h3 { overflow-wrap: normal; word-break: normal; hyphens: none; text-wrap: balance; }
       p { overflow-wrap: anywhere; }
 
@@ -131,16 +131,20 @@
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
       }
-      .topbar a {
+      .topbar a, .topbar-order {
         border: 1px solid transparent;
         border-radius: 8px;
         padding: 9px 13px;
         color: var(--muted);
         font-size: 14px;
         background: transparent;
+        font-family: inherit;
+        cursor: pointer;
         transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
       }
-      .topbar a:hover, .language-switch button:hover { transform: translateY(-2px); border-color: rgba(31, 111, 99, 0.35); color: var(--strong); background: rgba(255, 255, 255, 0.9); }
+      .topbar a:hover, .topbar-order:hover, .language-switch button:hover { transform: translateY(-2px); border-color: rgba(31, 111, 99, 0.35); color: var(--strong); background: rgba(255, 255, 255, 0.9); }
+      .topbar-order { color: #fff; border-color: var(--strong); background: var(--strong); font-weight: 800; white-space: nowrap; }
+      .topbar-order:hover, .topbar-order:focus-visible { color: #fff; border-color: var(--accent); background: var(--accent); }
       .language-switch { display: inline-flex; gap: 4px; padding-left: 4px; border-left: 1px solid rgba(18, 63, 70, 0.12); }
       .language-switch button { min-height: 34px; border: 1px solid transparent; border-radius: 8px; padding: 7px 10px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: 13px; font-weight: 800; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease; }
       .language-switch button.is-active { color: #fff; background: var(--strong); border-color: var(--strong); }
@@ -177,9 +181,13 @@
         color: var(--strong);
         border: 1px solid var(--strong);
         font-weight: 800;
+        font-family: inherit;
+        cursor: pointer;
         transition: transform 190ms ease, box-shadow 190ms ease, border-color 190ms ease, background 190ms ease;
       }
       .button.primary { color: #fff; background: var(--strong); box-shadow: 0 14px 34px rgba(18, 63, 70, 0.18); }
+      .button.order { color: #fff; border-color: var(--warm); background: var(--warm); box-shadow: 0 14px 32px rgba(180, 95, 60, 0.2); }
+      .button.order:hover, .button.order:focus-visible { border-color: #91472b; background: #91472b; }
       .button::after {
         content: "";
         position: absolute;
@@ -253,6 +261,29 @@
       .lightbox-caption { color: rgba(255, 255, 255, 0.92); font-size: 14px; font-weight: 800; text-align: center; }
       .lightbox-close { position: fixed; z-index: 101; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 999px; color: #fff; background: rgba(16, 22, 20, 0.78); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26); cursor: pointer; font-size: 18px; font-weight: 900; line-height: 1; transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }
       .lightbox-close:hover, .lightbox-close:focus-visible { transform: scale(1.06); border-color: rgba(255, 255, 255, 0.48); background: rgba(31, 111, 99, 0.9); outline: none; }
+      .order-modal { position: fixed; z-index: 120; inset: 0; display: grid; place-items: center; padding: clamp(14px, 3vw, 34px); background: rgba(16, 22, 20, 0.78); backdrop-filter: blur(12px); animation: lightbox-fade 180ms ease both; }
+      .order-modal[hidden] { display: none; }
+      .order-modal-panel { position: relative; width: min(100%, 1040px); max-height: calc(100vh - 48px); overflow: auto; padding: clamp(24px, 4vw, 46px); border: 1px solid rgba(255, 255, 255, 0.46); border-radius: 8px; background: #f7f8f5; box-shadow: 0 32px 100px rgba(0, 0, 0, 0.38); animation: lightbox-zoom 240ms cubic-bezier(0.21, 0.74, 0.23, 1) both; }
+      .order-modal-close { position: absolute; top: 16px; right: 16px; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--strong); background: #fff; cursor: pointer; font-size: 21px; font-weight: 800; line-height: 1; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
+      .order-modal-close:hover, .order-modal-close:focus-visible { transform: rotate(7deg) scale(1.05); border-color: var(--accent); background: var(--soft); outline: none; }
+      .order-modal-header { max-width: 720px; padding-right: 48px; }
+      .order-modal-header > span { color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+      .order-modal-header h2 { margin: 10px 0 0; font-size: 44px; }
+      .order-modal-header p { margin: 14px 0 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
+      .order-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+      .order-option { min-height: 390px; display: flex; flex-direction: column; padding: 26px; border: 1px solid var(--line); border-radius: 8px; }
+      .order-option.automation { background: #eaf3f1; border-color: rgba(31, 111, 99, 0.24); }
+      .order-option.site { background: #fff5ee; border-color: rgba(180, 95, 60, 0.24); }
+      .order-option-number { color: var(--muted); font-size: 12px; font-weight: 800; }
+      .order-option h3 { margin-top: 18px; font-size: 29px; }
+      .order-option > p { min-height: 50px; margin: 12px 0 0; color: var(--muted); line-height: 1.45; }
+      .order-option ul { display: grid; gap: 9px; margin: 22px 0 26px; padding: 0; list-style: none; }
+      .order-option li { position: relative; padding-left: 18px; line-height: 1.4; }
+      .order-option li::before { content: ""; position: absolute; top: 0.58em; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+      .order-option.site li::before { background: var(--warm); }
+      .order-option-action { display: flex; justify-content: space-between; gap: 16px; margin-top: auto; padding: 14px 16px; border-radius: 8px; color: #fff; background: var(--strong); font-weight: 800; transition: transform 180ms ease, background 180ms ease; }
+      .order-option-action:hover, .order-option-action:focus-visible { transform: translateY(-2px); background: var(--accent); }
+      .order-direct-link { display: block; width: max-content; max-width: 100%; margin: 20px auto 0; color: var(--strong); font-weight: 800; text-align: center; }
 
       .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
       .card, .experience-card, .stack-group { padding: 20px; }
@@ -274,6 +305,8 @@
       .links { display: grid; gap: 10px; padding: 20px; }
       .links a { border-radius: 8px; padding: 13px 14px; background: var(--soft); color: var(--strong); font-weight: 800; transition: transform 180ms ease, background 180ms ease; }
       .links a:hover { transform: translateX(3px); background: #e4eff4; }
+      .contact-order-trigger { border: 1px solid var(--warm); border-radius: 8px; padding: 13px 14px; color: #fff; background: var(--warm); cursor: pointer; font: inherit; font-weight: 800; text-align: left; transition: transform 180ms ease, background 180ms ease; }
+      .contact-order-trigger:hover, .contact-order-trigger:focus-visible { transform: translateX(3px); background: #91472b; outline: none; }
       .site-footer { width: min(1180px, calc(100% - 36px)); display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; margin: -42px auto 0; padding: 24px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; font-weight: 800; }
       .site-footer a { color: var(--strong); }
       .site-footer a:hover { color: var(--warm); }
@@ -310,10 +343,10 @@
       @media (max-width: 620px) {
         .hero { padding-inline: 16px; }
         .topbar { gap: 4px; padding: 6px; }
-        .topbar a { padding: 8px 9px; font-size: 13px; }
+        .topbar a, .topbar-order { padding: 8px 9px; font-size: 13px; }
         h1 { font-size: 48px; }
         .lead { font-size: 20px; }
-        .actions a { width: 100%; }
+        .actions a, .actions button { width: 100%; }
         .service-grid, .details { grid-template-columns: 1fr; }
         .admin-grid { grid-template-columns: 1fr; }
         .section, .section.wide { width: min(100% - 28px, 1180px); padding: 58px 0; }
@@ -325,10 +358,17 @@
         .lightbox-frame { width: 100%; max-height: calc(100vh - 70px); gap: 8px; }
         .lightbox-image { max-height: calc(100vh - 116px); }
         .lightbox-caption { font-size: 13px; }
+        .order-modal { padding: 10px; }
+        .order-modal-panel { max-height: calc(100vh - 20px); padding: 24px 16px 20px; }
+        .order-modal-header { padding-right: 44px; }
+        .order-modal-header h2 { font-size: 32px; }
+        .order-options { grid-template-columns: 1fr; }
+        .order-option { min-height: 0; padding: 20px; }
+        .order-option > p { min-height: 0; }
       }
     </style>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"ProfilePage","name":"Портфолио разработчика","about":"Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"]}
+      {"@context":"https://schema.org","@type":"ProfilePage","name":"Портфолио разработчика","about":"Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/vivesupport"]}
     </script>
   </head>
   <body>
@@ -342,6 +382,7 @@
         <a href="#admin-skills">Администрирование</a>
         <a href="#stack">Стек</a>
         <a href="#contacts">Контакты</a>
+        <button class="topbar-order" type="button" data-order-trigger>Заказать</button>
         <div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang-option="ru" aria-pressed="true">RU</button><button type="button" data-lang-option="en" aria-pressed="false">EN</button></div>
       </nav>
       <div class="hero-grid">
@@ -352,8 +393,9 @@
           <p class="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
           <p class="lead">Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний. Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend- и backend-часть и довожу продукт до внедрения.</p>
           <div class="actions">
+            <button class="button order" type="button" data-order-trigger>Заказать автоматизацию или сайт</button>
             <a class="button primary" href="#projects">Посмотреть проекты</a>
-            <a class="button" href="https://t.me/karameliew">Обсудить задачу в Telegram</a>
+            <a class="button" href="https://t.me/vivesupport">Обсудить задачу в Telegram</a>
             <a class="button" href="resume-developer.pdf" download>Скачать резюме</a>
           </div>
         </div>
@@ -567,7 +609,8 @@
         <div class="contact">
           <div><p class="kicker">Контакты</p><h2>Открыт к работе и проектным задачам</h2><p>Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу — помогу определить подход и оценить реализацию.</p></div>
           <div class="links">
-            <a href="https://t.me/karameliew">Обсудить задачу в Telegram: @karameliew</a>
+            <button class="contact-order-trigger" type="button" data-order-trigger>Заказать автоматизацию или сайт</button>
+            <a href="https://t.me/vivesupport">Обсудить задачу в Telegram: @vivesupport</a>
             <a href="mailto:zhikharev@sfuk.ru">Написать на email: zhikharev@sfuk.ru</a>
             <a href="resume-developer.pdf" download>Скачать резюме разработчика</a>
             <a href="resume-admin.pdf" download>Скачать резюме сисадмина-программиста</a>
@@ -581,9 +624,36 @@
       <span>© 2026 Портфолио разработчика</span>
       <span>Портфолио обновлено в августе 2026 года</span>
       <a href="https://github.com/ncatofthe">GitHub</a>
-      <a href="https://t.me/karameliew">Telegram</a>
+      <a href="https://t.me/vivesupport">Telegram: @vivesupport</a>
       <a href="resume-developer.pdf" download>Резюме</a>
     </footer>
+    <div class="order-modal" role="dialog" aria-modal="true" aria-label="Что можно заказать" hidden>
+      <section class="order-modal-panel">
+        <button class="order-modal-close" type="button" aria-label="Закрыть окно заказа">×</button>
+        <header class="order-modal-header">
+          <span>Сайты и автоматизация</span>
+          <h2>Что можно заказать</h2>
+          <p>Выберите направление — я помогу уточнить задачу, предложу подход и оценю реализацию.</p>
+        </header>
+        <div class="order-options">
+          <article class="order-option automation">
+            <span class="order-option-number">01</span>
+            <h3>Автоматизация</h3>
+            <p>Для процессов, где ручную работу можно заменить понятным инструментом.</p>
+            <ul><li>Telegram- и API-боты</li><li>Интеграции с маркетплейсами и сервисами</li><li>Обработка файлов, отчетов и данных</li><li>Внутренние сервисы и административные панели</li></ul>
+            <a class="order-option-action" href="https://t.me/vivesupport">Заказать автоматизацию <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="order-option site">
+            <span class="order-option-number">02</span>
+            <h3>Разработка сайта</h3>
+            <p>От лаконичного лендинга до интерактивной продуктовой презентации.</p>
+            <ul><li>Лендинги для услуг и продуктов</li><li>Корпоративные сайты и портфолио</li><li>Каталоги и продуктовые страницы</li><li>Анимационные промо-сайты</li></ul>
+            <a class="order-option-action" href="https://t.me/vivesupport">Заказать сайт <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <a class="order-direct-link" href="https://t.me/vivesupport">Написать напрямую: @vivesupport</a>
+      </section>
+    </div>
     <div class="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" hidden>
       <button class="lightbox-close" type="button" aria-label="Закрыть скриншот">×</button>
       <figure class="lightbox-frame">
@@ -685,6 +755,38 @@
         window.addEventListener("scroll", scheduleProgress, { passive: true });
         window.addEventListener("resize", scheduleProgress);
 
+        const orderModal = document.querySelector(".order-modal");
+        const orderModalClose = orderModal?.querySelector(".order-modal-close");
+        let activeOrderTrigger = null;
+
+        const closeOrderModal = () => {
+          if (!orderModal) return;
+          orderModal.hidden = true;
+          document.body.classList.remove("dialog-open");
+          activeOrderTrigger?.focus();
+        };
+
+        const openOrderModal = (trigger) => {
+          if (!orderModal) return;
+          activeOrderTrigger = trigger;
+          orderModal.hidden = false;
+          document.body.classList.add("dialog-open");
+          orderModalClose?.focus();
+        };
+
+        document.addEventListener("click", (event) => {
+          const target = event.target instanceof Element ? event.target : null;
+          const trigger = target?.closest("[data-order-trigger]");
+          if (!trigger) return;
+          event.preventDefault();
+          openOrderModal(trigger);
+        });
+
+        orderModal?.addEventListener("click", (event) => {
+          if (event.target === orderModal) closeOrderModal();
+        });
+        orderModalClose?.addEventListener("click", closeOrderModal);
+
         const lightbox = document.querySelector(".lightbox");
         const lightboxImage = lightbox?.querySelector(".lightbox-image");
         const lightboxCaption = lightbox?.querySelector(".lightbox-caption");
@@ -731,6 +833,22 @@
 
         lightboxClose?.addEventListener("click", closeLightbox);
         document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && orderModal && !orderModal.hidden) {
+            closeOrderModal();
+            return;
+          }
+          if (event.key === "Tab" && orderModal && !orderModal.hidden) {
+            const focusable = Array.from(orderModal.querySelectorAll("button, a[href]"));
+            const first = focusable[0];
+            const last = focusable.at(-1);
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first?.focus();
+            }
+          }
           if (event.key === "Escape" && lightbox && !lightbox.hidden) {
             closeLightbox();
           }

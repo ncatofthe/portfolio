@@ -3,7 +3,7 @@ import { ScrollReveal } from "./ScrollReveal";
 const contacts = {
   displayTitle: "Внутренние сервисы и автоматизация",
   role: "Разработчик внутренних сервисов и автоматизации",
-  telegram: "@karameliew",
+  telegram: "@vivesupport",
   email: "zhikharev@sfuk.ru",
   github: "https://github.com/ncatofthe",
   githubPages: "https://ncatofthe.github.io/portfolio/",
@@ -607,6 +607,9 @@ export default function Home() {
           <a href="#admin-skills">Администрирование</a>
           <a href="#stack">Стек</a>
           <a href="#contacts">Контакты</a>
+          <button className="topbar-order" type="button" data-order-trigger>
+            Заказать
+          </button>
           <div className="language-switch" role="group" aria-label="Language">
             <button type="button" data-lang-option="ru" aria-pressed="true">
               RU
@@ -629,10 +632,13 @@ export default function Home() {
               внедрения.
             </p>
             <div className="hero-actions">
+              <button className="primary-action order-action" type="button" data-order-trigger>
+                Заказать автоматизацию или сайт
+              </button>
               <a className="primary-action" href="#projects">
                 Посмотреть проекты
               </a>
-              <a className="secondary-action" href="https://t.me/karameliew">
+              <a className="secondary-action" href="https://t.me/vivesupport">
                 Обсудить задачу в Telegram
               </a>
               <a className="secondary-action" href="/resume-developer.pdf" download>
@@ -797,7 +803,10 @@ export default function Home() {
           </p>
         </div>
         <div className="contact-card">
-          <a href="https://t.me/karameliew">Обсудить задачу в Telegram: {contacts.telegram}</a>
+          <button className="contact-order-trigger" type="button" data-order-trigger>
+            Заказать автоматизацию или сайт
+          </button>
+          <a href="https://t.me/vivesupport">Обсудить задачу в Telegram: {contacts.telegram}</a>
           <a href={`mailto:${contacts.email}`}>Написать на email: {contacts.email}</a>
           <a href="/resume-developer.pdf" download>
             Скачать резюме разработчика
@@ -817,7 +826,7 @@ export default function Home() {
         <a href={contacts.github} target="_blank" rel="noreferrer">
           GitHub
         </a>
-        <a href="https://t.me/karameliew">Telegram</a>
+        <a href="https://t.me/vivesupport">Telegram: @vivesupport</a>
         <a href="/resume-developer.pdf" download>
           Резюме
         </a>

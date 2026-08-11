@@ -28,7 +28,7 @@ GitHub:
 https://github.com/ncatofthe
 
 Telegram:
-@karameliew
+@vivesupport
 
 Email:
 zhikharev@sfuk.ru

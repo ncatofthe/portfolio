@@ -106,7 +106,7 @@ PowerShell-утилита для сбора информации о Windows-ПК
 
 ## Контакты
 
-- Telegram: @karameliew
+- Telegram: @vivesupport
 - Email: zhikharev@sfuk.ru
 - GitHub: https://github.com/ncatofthe
 - Портфолио: https://ncatofthe.github.io/portfolio/

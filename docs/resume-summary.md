@@ -6,7 +6,7 @@
 
 Москва / удаленная работа / готов к проектной занятости, найму и фрилансу.
 
-- Telegram: @karameliew
+- Telegram: @vivesupport
 - Email: zhikharev@sfuk.ru
 - GitHub: https://github.com/ncatofthe
 
