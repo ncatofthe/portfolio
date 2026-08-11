@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ncatofthe.github.io"),
@@ -20,7 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/portfolio/",
   },
-  themeColor: "#f6f7f4",
+  themeColor: "#f1efe6",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -65,9 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioJsonLd) }}

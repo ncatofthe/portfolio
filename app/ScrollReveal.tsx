@@ -4,19 +4,19 @@ import { useEffect, useRef, useState } from "react";
 import { languageStorageKey, pageTitles, translations } from "./i18n";
 
 const revealSelector = [
-  ".section",
-  ".status-card",
-  ".result-card",
-  ".metric",
-  ".service-card",
-  ".experience-card",
-  ".admin-item",
-  ".tool-group",
-  ".stack-group",
-  ".other-project-card",
-  ".project-card",
-  ".skill-cloud span",
-  ".contact-card",
+  "[data-reveal]",
+  ".intro-heading",
+  ".work-heading",
+  ".fit-section > h2",
+  ".process > h2",
+  ".process-grid article",
+  ".experience-section > h2",
+  ".experience-row",
+  ".admin-list details",
+  ".stack-section > h2",
+  ".stack-lines > div",
+  ".contact h2",
+  ".contact-links a",
 ].join(",");
 
 type LightboxState = {
@@ -109,6 +109,49 @@ export function ScrollReveal() {
     return () => {
       buttons.forEach((button) => button.removeEventListener("click", handleLanguageClick));
     };
+  }, []);
+
+  useEffect(() => {
+    const menuButton = document.querySelector<HTMLButtonElement>(".menu-toggle");
+    const nav = document.querySelector<HTMLElement>(".main-nav");
+    if (!menuButton || !nav) return;
+
+    const closeMenu = () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = document.documentElement.lang === "en" ? "MENU" : "МЕНЮ";
+    };
+    const toggleMenu = () => {
+      const open = !nav.classList.contains("open");
+      nav.classList.toggle("open", open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? (document.documentElement.lang === "en" ? "CLOSE" : "ЗАКРЫТЬ") : (document.documentElement.lang === "en" ? "MENU" : "МЕНЮ");
+    };
+
+    menuButton.addEventListener("click", toggleMenu);
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    return () => {
+      menuButton.removeEventListener("click", toggleMenu);
+      nav.querySelectorAll("a").forEach((link) => link.removeEventListener("click", closeMenu));
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-tilt]"));
+    const cleanups = targets.map((target) => {
+      const move = (event: PointerEvent) => {
+        const rect = target.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        target.style.transform = `perspective(900px) rotateX(${y * -2.5}deg) rotateY(${x * 3.5}deg)`;
+      };
+      const leave = () => { target.style.transform = ""; };
+      target.addEventListener("pointermove", move);
+      target.addEventListener("pointerleave", leave);
+      return () => { target.removeEventListener("pointermove", move); target.removeEventListener("pointerleave", leave); };
+    });
+    return () => cleanups.forEach((cleanup) => cleanup());
   }, []);
 
   useEffect(() => {
@@ -227,12 +270,12 @@ export function ScrollReveal() {
       }
     };
 
-    document.body.classList.add("dialog-open");
+    document.body.classList.add("modal-open");
     closeButton?.focus();
     document.addEventListener("keydown", handleKeydown);
 
     return () => {
-      document.body.classList.remove("dialog-open");
+      document.body.classList.remove("modal-open");
       document.removeEventListener("keydown", handleKeydown);
       activeOrderTriggerRef.current?.focus();
     };
@@ -284,12 +327,12 @@ export function ScrollReveal() {
       }
     };
 
-    document.body.classList.add("lightbox-open");
+    document.body.classList.add("modal-open");
     closeButton?.focus();
     document.addEventListener("keydown", handleKeydown);
 
     return () => {
-      document.body.classList.remove("lightbox-open");
+      document.body.classList.remove("modal-open");
       document.removeEventListener("keydown", handleKeydown);
       activeTriggerRef.current?.focus();
     };
@@ -302,7 +345,7 @@ export function ScrollReveal() {
     <>
       <div className="scroll-progress" aria-hidden="true" />
       <div
-        className="order-modal"
+        className={`order-modal ${orderOpen ? "is-open" : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label="Что можно заказать"
@@ -354,7 +397,7 @@ export function ScrollReveal() {
         </section>
       </div>
       {lightbox ? (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" onClick={closeLightbox}>
+        <div className="lightbox is-open" role="dialog" aria-modal="true" aria-label="Просмотр скриншота" onClick={closeLightbox}>
           <button className="lightbox-close" type="button" aria-label="Закрыть скриншот" onClick={closeLightbox}>
             ×
           </button>

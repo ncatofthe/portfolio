@@ -594,7 +594,7 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
   );
 }
 
-export default function Home() {
+function LegacyHome() {
   return (
     <main>
       <ScrollReveal />
@@ -831,6 +831,193 @@ export default function Home() {
           Резюме
         </a>
       </footer>
+    </main>
+  );
+}
+
+type PortfolioProject = (typeof projects)[number] | (typeof websiteProjects)[number];
+
+function ViveProjectCard({ project, index }: { project: PortfolioProject; index: number }) {
+  const mainShot = project.cover ?? project.screenshots[0];
+
+  return (
+    <article className={`project ${index % 3 === 0 ? "project-wide" : ""}`} data-reveal>
+      <a
+        className="project-visual"
+        href={mainShot.src}
+        data-lightbox-src={mainShot.src}
+        data-lightbox-title={`${project.title} - ${mainShot.caption}`}
+        data-tilt
+        aria-label={`Открыть полный скриншот проекта ${project.title}`}
+      >
+        <img
+          src={mainShot.src}
+          alt={`Скриншот проекта ${project.title}: ${mainShot.caption}`}
+          width={mainShot.width}
+          height={mainShot.height}
+          loading={index < 2 ? "eager" : "lazy"}
+        />
+        <span className="visual-code mono">PROJECT / {String(index + 1).padStart(2, "0")}</span>
+        <span className="project-shot-open">Открыть</span>
+      </a>
+      <div className="project-meta-line mono">
+        <span>{project.tag}</span>
+        <span>{project.result}</span>
+      </div>
+      <div className="project-title-row">
+        <h3>{project.title}</h3>
+        <span aria-hidden="true">↗</span>
+      </div>
+      <p className="project-headline">{project.headline}</p>
+      <div className="project-links mono">
+        <a href={project.link} target="_blank" rel="noreferrer">КОД ↗</a>
+        {"live" in project && project.live ? <a href={project.live} target="_blank" rel="noreferrer">САЙТ ↗</a> : null}
+      </div>
+      <details className="project-details">
+        <summary className="mono">ПОДРОБНЕЕ +</summary>
+        <div className="project-detail-grid">
+          <div><span>Задача</span><p>{project.task}</p></div>
+          <div><span>Решение</span><p>{project.solution}</p></div>
+          <div><span>Моя роль</span><p>{project.role}</p></div>
+          <div><span>Результат</span><p>{project.outcome}</p></div>
+        </div>
+        <div className="stack-list mono">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+        <div className="shot-strip">
+          {project.screenshots.map((shot) => (
+            <a href={shot.src} key={shot.src} data-lightbox-src={shot.src} data-lightbox-title={`${project.title} - ${shot.caption}`}>
+              <img src={shot.src} alt={shot.caption} width={shot.width} height={shot.height} loading="lazy" />
+              <span>{shot.caption}</span>
+            </a>
+          ))}
+        </div>
+      </details>
+    </article>
+  );
+}
+
+export default function Home() {
+  const selectedProjects: PortfolioProject[] = [...featuredProjects, ...websiteProjects, ...otherProjects];
+
+  return (
+    <main className="site-shell">
+      <ScrollReveal />
+      <header className="topbar" id="top">
+        <a className="brand" href="#top" aria-label="На главную">
+          <strong>NCAT</strong><span className="mono">DEV / AUTOMATION</span>
+        </a>
+        <button className="menu-toggle mono" type="button" aria-expanded="false" aria-controls="main-nav">МЕНЮ</button>
+        <nav className="main-nav mono" id="main-nav" aria-label="Главная навигация">
+          <a href="#projects">Проекты</a><a href="#services">Услуги</a><a href="#experience">Опыт</a><a href="#stack">Стек</a>
+        </nav>
+        <div className="topbar-actions">
+          <div className="language-switch mono" role="group" aria-label="Language">
+            <button type="button" data-lang-option="ru" aria-pressed="true">RU</button>
+            <button type="button" data-lang-option="en" aria-pressed="false">EN</button>
+          </div>
+          <button className="topbar-cta mono" type="button" data-order-trigger>ОБСУДИТЬ ПРОЕКТ ↗</button>
+        </div>
+      </header>
+
+      <section className="hero">
+        <div className="hero-kicker mono">NCAT / DEVELOPMENT / 2026</div>
+        <div className="hero-status mono"><i /> ОТКРЫТ К ПРОЕКТНОЙ РАБОТЕ</div>
+        <h1 className="hero-title"><span>СЕРВИСЫ</span><span>И САЙТЫ.</span></h1>
+        <p className="hero-copy">Внутренние сервисы, сайты, боты и автоматизация под реальные рабочие процессы.</p>
+        <div className="hero-metrics">
+          <div><strong>3</strong><span className="mono">КОМПАНИИ<br />ИСПОЛЬЗУЮТ SERVICE DESK</span></div>
+          <div><strong>01</strong><span className="mono">ИСПОЛНИТЕЛЬ<br />ПОЛНЫЙ ЦИКЛ</span></div>
+        </div>
+        <button className="hero-cta mono" type="button" data-order-trigger>ЗАКАЗАТЬ РЕШЕНИЕ <span>↗</span></button>
+        <aside className="hero-aside">
+          <span className="mono">ФОКУС / 2026</span>
+          <strong>РЕЗУЛЬТАТ<br />ВМЕСТО<br />ЛИШНЕГО.</strong>
+          <p>Разбираюсь в задаче, проектирую решение, пишу frontend и backend, интегрирую и довожу до внедрения.</p>
+        </aside>
+      </section>
+
+      <div className="ticker" aria-hidden="true"><div>
+        <span>ВНУТРЕННИЕ СЕРВИСЫ ✦ САЙТЫ ✦ АВТОМАТИЗАЦИЯ ✦ API ✦ БОТЫ ✦</span>
+        <span>ВНУТРЕННИЕ СЕРВИСЫ ✦ САЙТЫ ✦ АВТОМАТИЗАЦИЯ ✦ API ✦ БОТЫ ✦</span>
+      </div></div>
+
+      <section className="intro" id="services">
+        <div className="section-label mono">01 / ЧТО ДЕЛАЮ</div>
+        <div className="intro-heading"><h2>ОДИН ПОДХОД.<br /><em>РЕШЕНИЕ</em> ПОД ЗАДАЧУ.</h2></div>
+        <div className="scope-list">
+          {services.map((service, index) => (
+            <article className="scope-row" key={service.title} data-reveal>
+              <span className="mono">{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.text}</p><b>↗</b>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="work" id="projects">
+        <div className="section-label mono">02 / ВЫБРАННЫЕ ПРОЕКТЫ</div>
+        <div className="work-heading"><h2>РАБОТЫ,<br />КОТОРЫЕ <em>РАБОТАЮТ.</em></h2><p>Полные кейсы: задача, решение, роль, результат и живые скриншоты.</p></div>
+        <div className="project-grid">{selectedProjects.map((project, index) => <ViveProjectCard project={project} index={index} key={project.title} />)}</div>
+      </section>
+
+      <section className="fit-section">
+        <div className="section-label mono">03 / РЕЗУЛЬТАТЫ</div>
+        <h2>ПОЛЬЗА,<br /><em>КОТОРУЮ ВИДНО.</em></h2>
+        <div className="fit-grid">
+          {proofPoints.map((point, index) => <article key={point.value}><span className="mono">0{index + 1}</span><strong>{point.value}</strong><p>{point.label}</p></article>)}
+          <aside><span className="mono">ПОДХОД</span><p>Не обещаю магию. Уточняю задачу, показываю работающий результат и честно обозначаю ограничения.</p></aside>
+        </div>
+      </section>
+
+      <section className="process">
+        <div className="section-label mono">04 / ПРОЦЕСС</div>
+        <h2>ОТ ЗАДАЧИ<br />ДО <em>ЗАПУСКА.</em></h2>
+        <div className="process-grid">
+          <article><span className="mono">01</span><h3>РАЗБОР</h3><p>Фиксирую цель, пользователей, ограничения и ожидаемый результат.</p></article>
+          <article><span className="mono">02</span><h3>ПРОТОТИП</h3><p>Проектирую сценарии, интерфейс и техническую архитектуру.</p></article>
+          <article><span className="mono">03</span><h3>РАЗРАБОТКА</h3><p>Собираю продукт, интеграции и проверяю критические сценарии.</p></article>
+          <article><span className="mono">04</span><h3>ВНЕДРЕНИЕ</h3><p>Разворачиваю, документирую и сопровождаю после запуска.</p></article>
+        </div>
+      </section>
+
+      <section className="offer-section" id="order">
+        <div className="offer-dark"><span className="mono">05 / ЗАКАЗАТЬ</span><h2>НУЖЕН САЙТ<br />ИЛИ <em>АВТОМАТИЗАЦИЯ?</em></h2><p>Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.</p></div>
+        <div className="offer-paper"><span className="mono">СТАРТ ПРОЕКТА</span><strong>ОБСУДИМ<br />ЗАДАЧУ</strong><p>Сайты, боты, интеграции, скрипты, внутренние сервисы и небольшие приложения.</p><button type="button" data-order-trigger className="offer-button mono">ВЫБРАТЬ РЕШЕНИЕ ↗</button><a href="https://t.me/vivesupport" className="mono">TELEGRAM / @VIVESUPPORT ↗</a></div>
+      </section>
+
+      <section className="experience-section" id="experience">
+        <div className="section-label mono">06 / ОПЫТ</div>
+        <h2>РАЗРАБОТКА<br />И <em>ИНФРАСТРУКТУРА.</em></h2>
+        <div className="experience-list">
+          {experience.map((item, index) => <article className="experience-row" key={item.title}><span className="mono">0{index + 1}</span><div><small>{item.place}</small><h3>{item.title}</h3></div><p>{item.text}</p></article>)}
+          <article className="experience-row"><span className="mono">03</span><div><small>ОБРАЗОВАНИЕ</small><h3>{education.title}</h3></div><p>{education.text}</p></article>
+        </div>
+        <p className="admin-kicker mono">СИСТЕМНОЕ АДМИНИСТРИРОВАНИЕ / ПОДРОБНО</p>
+        <div className="admin-list">
+          {sysadminSkills.map((skill) => <details key={skill.title}><summary><span>{skill.title}</span><b>+</b></summary><p>{skill.text}</p></details>)}
+        </div>
+      </section>
+
+      <section className="stack-section" id="stack">
+        <div className="section-label mono">07 / СТЕК</div>
+        <h2>ИНСТРУМЕНТЫ<br /><em>ДЛЯ РЕЗУЛЬТАТА.</em></h2>
+        <div className="stack-lines">
+          <div><span className="mono">ОСНОВНОЙ</span><p>{coreStack.join(" / ")}</p></div>
+          <div><span className="mono">ДОПОЛНИТЕЛЬНО</span><p>{additionalStack.join(" / ")}</p></div>
+          <div><span className="mono">АДМИНИСТРИРОВАНИЕ</span><p>{adminTags.join(" / ")}</p></div>
+        </div>
+      </section>
+
+      <section className="contact" id="contacts">
+        <div className="section-label mono">08 / КОНТАКТ</div>
+        <p className="mono">ЕСТЬ ЗАДАЧА?</p><h2>ДАВАЙТЕ<br /><em>ОБСУДИМ.</em></h2>
+        <div className="contact-links">
+          <a href="https://t.me/vivesupport"><span>TELEGRAM</span><strong>@VIVESUPPORT</strong><b>↗</b></a>
+          <a href={`mailto:${contacts.email}`}><span>EMAIL</span><strong>{contacts.email}</strong><b>↗</b></a>
+          <a href={contacts.github} target="_blank" rel="noreferrer"><span>GITHUB</span><strong>NCATOFTHE</strong><b>↗</b></a>
+          <a href="/resume-developer.pdf" download><span>РЕЗЮМЕ</span><strong>СКАЧАТЬ PDF</strong><b>↓</b></a>
+        </div>
+      </section>
+
+      <footer className="site-footer"><strong>NCAT</strong><div className="mono"><span>DEVELOPMENT / AUTOMATION / 2026</span><a href="#top">НАВЕРХ ↑</a></div></footer>
     </main>
   );
 }
