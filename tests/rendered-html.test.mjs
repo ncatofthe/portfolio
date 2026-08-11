@@ -84,7 +84,8 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /ai-workbench-workflow\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /max-summary-architecture\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
-  assert.match(docsHtml, /ScrollReveal-[A-Za-z0-9_-]+\.js/);
+  assert.match(docsHtml, /site\.js/);
+  assert.match(docsHtml, /i18n\.js/);
   assert.match(docsHtml, /data-lang-option="ru"/);
   assert.match(docsHtml, /data-lang-option="en"/);
   assert.match(docsHtml, /data-order-trigger/);

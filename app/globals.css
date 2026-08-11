@@ -162,6 +162,7 @@ summary::-webkit-details-marker { display: none; }
 .site-footer a { color: var(--paper); }
 
 .order-modal, .lightbox { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 24px; background: rgba(17,17,15,.82); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s ease; }
+.order-modal[hidden], .lightbox[hidden] { display: none; }
 .order-modal.is-open, .lightbox.is-open { opacity: 1; visibility: visible; }
 .order-modal-panel { width: min(980px,100%); max-height: calc(100svh - 48px); overflow: auto; display: grid; grid-template-columns: 1fr 1.35fr; border: 1px solid var(--ink); background: var(--paper); box-shadow: 16px 16px 0 var(--signal); }
 .order-modal-header { padding: 28px; background: var(--ink); color: var(--paper); }
