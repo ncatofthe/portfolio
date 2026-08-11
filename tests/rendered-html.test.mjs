@@ -29,11 +29,18 @@ test("server-renders the portfolio page", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Жихарев Глеб - разработчик внутренних сервисов<\/title>/i);
+  assert.match(html, /<title>Портфолио разработчика внутренних сервисов<\/title>/i);
   assert.match(html, /Разработчик внутренних сервисов и автоматизации/);
+  assert.match(html, /Внутренние сервисы и автоматизация/);
   assert.match(html, /Office ServiceDesk/);
   assert.match(html, /AI Workbench/);
   assert.match(html, /MarketplaceBot/);
+  assert.match(html, /Недавно разработанные сайты/);
+  assert.match(html, /Veld Co template/);
+  assert.match(html, /ESSE — 30 лет качества и инноваций/);
+  assert.match(html, /ESSE Sense Himalaya/);
+  assert.match(html, /Cold Black Element/);
+  assert.match(html, /data-lang-option="en"/);
   assert.match(html, /Системный администратор-программист/);
   assert.match(html, /Москва · удаленно \/ гибридно · открыт к проектной работе/);
   assert.match(html, /Системное администрирование/);
@@ -49,6 +56,8 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /inventory-dashboard\.png/);
   assert.match(html, /Портфолио обновлено в августе 2026 года/);
   assert.match(html, /используют разработанный мной ServiceDesk/);
+  assert.doesNotMatch(html, /Жихарев Глеб/);
+  assert.doesNotMatch(html, /Task Manager|task_bogdan/i);
   assert.doesNotMatch(html, /видео|video/i);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|codex-preview/i);
 });
@@ -67,6 +76,14 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /ai-workbench-workflow\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /max-summary-architecture\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /i18n\.js/);
+  assert.match(docsHtml, /data-lang-option="ru"/);
+  assert.match(docsHtml, /data-lang-option="en"/);
+  assert.match(docsHtml, /Veld Co template/);
+  assert.match(docsHtml, /veldco-cover\.png"[^>]+width="1920" height="1080"/);
+  assert.match(docsHtml, /esse-original-cover\.png"[^>]+width="1920" height="1080"/);
+  assert.match(docsHtml, /esse-himalaya-cover\.png"[^>]+width="1920" height="1080"/);
+  assert.match(docsHtml, /esse-kinetic-cover\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /requestAnimationFrame/);
   assert.match(docsHtml, /premium-shadow/);
   assert.match(docsHtml, /orbit-frame/);
@@ -79,6 +96,8 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /восстановление данных/);
   assert.match(docsHtml, /Портфолио обновлено в августе 2026 года/);
   assert.match(docsHtml, /object-fit:\s*contain/);
+  assert.doesNotMatch(docsHtml, /Жихарев Глеб/);
+  assert.doesNotMatch(docsHtml, /Task Manager|task_bogdan/i);
   assert.doesNotMatch(docsHtml, /видео|video/i);
   assert.doesNotMatch(docsHtml, /class="shot-main"[^>]+target="_blank"/);
   assert.doesNotMatch(docsHtml, /object-fit:\s*cover/);
@@ -97,6 +116,15 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
     access(new URL("../docs/screenshots/ai-workbench-workflow.png", import.meta.url)),
     access(new URL("../docs/screenshots/max-summary-architecture.png", import.meta.url)),
     access(new URL("../docs/screenshots/inventory-dashboard.png", import.meta.url)),
+    access(new URL("../docs/screenshots/veldco-cover.png", import.meta.url)),
+    access(new URL("../docs/screenshots/veldco-full.png", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-original-cover.png", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-himalaya-cover.png", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-kinetic-cover.png", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-original-full.jpg", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-himalaya-full.jpg", import.meta.url)),
+    access(new URL("../docs/screenshots/esse-kinetic-full.jpg", import.meta.url)),
+    access(new URL("../docs/i18n.js", import.meta.url)),
     access(new URL("../docs/screenshots/systeminfo-cover.png", import.meta.url)),
     access(new URL("../docs/resume-developer.pdf", import.meta.url)),
     access(new URL("../docs/resume-admin.pdf", import.meta.url)),

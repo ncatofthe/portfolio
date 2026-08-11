@@ -163,11 +163,43 @@ main {
     color 180ms ease;
 }
 
-.topbar a:hover {
+.topbar a:hover,
+.language-switch button:hover {
   transform: translateY(-2px);
   border-color: rgba(31, 111, 99, 0.35);
   color: var(--accent-strong);
   background: rgba(255, 255, 255, 0.9);
+}
+
+.language-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding-left: 4px;
+  border-left: 1px solid rgba(18, 63, 70, 0.12);
+}
+
+.language-switch button {
+  min-height: 34px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.language-switch button.is-active {
+  color: #fff;
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
 }
 
 @supports not (backdrop-filter: blur(1px)) {
@@ -1378,6 +1410,10 @@ summary:focus-visible {
 
   .topbar a {
     white-space: nowrap;
+  }
+
+  .language-switch {
+    flex: 0 0 auto;
   }
 
   .hero-grid,

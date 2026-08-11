@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ncatofthe.github.io"),
-  title: "Жихарев Глеб - разработчик внутренних сервисов",
+  title: "Портфолио разработчика внутренних сервисов",
   description:
     "Портфолио разработчика внутренних сервисов, автоматизации, API-интеграций, ботов и служебных приложений.",
   alternates: {
@@ -26,47 +26,36 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Жихарев Глеб - разработчик внутренних сервисов и автоматизации",
+    title: "Портфолио разработчика внутренних сервисов и автоматизации",
     description:
       "Service Desk, боты, интеграции, административные панели и служебные приложения для компаний.",
     url: "https://ncatofthe.github.io/portfolio/",
-    siteName: "Портфолио Жихарева Глеба",
+    siteName: "Портфолио разработчика",
     images: [
       {
         url: "/portfolio/og.png",
         width: 1200,
         height: 630,
-        alt: "Жихарев Глеб - разработчик внутренних сервисов и автоматизации",
+        alt: "Портфолио разработчика внутренних сервисов и автоматизации",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Жихарев Глеб - разработчик внутренних сервисов",
+    title: "Портфолио разработчика внутренних сервисов",
     description: "Внутренние сервисы, автоматизация, API-интеграции и боты.",
     images: ["/portfolio/og.png"],
   },
 };
 
-const personJsonLd = {
+const portfolioJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Жихарев Глеб",
-  jobTitle: "Разработчик внутренних сервисов и автоматизации",
-  email: "mailto:zhikharev@sfuk.ru",
+  "@type": "ProfilePage",
+  name: "Портфолио разработчика",
+  about: "Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов",
   url: "https://ncatofthe.github.io/portfolio/",
   sameAs: ["https://github.com/ncatofthe", "https://t.me/karameliew"],
-  knowsAbout: [
-    "Internal tools",
-    "Business automation",
-    "Service Desk",
-    "API integrations",
-    "React",
-    "TypeScript",
-    "Python",
-    "PostgreSQL",
-  ],
 };
 
 export default function RootLayout({
@@ -81,7 +70,7 @@ export default function RootLayout({
       >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioJsonLd) }}
         />
         {children}
       </body>

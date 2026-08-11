@@ -1,7 +1,7 @@
 import { ScrollReveal } from "./ScrollReveal";
 
 const contacts = {
-  name: "Жихарев Глеб",
+  displayTitle: "Внутренние сервисы и автоматизация",
   role: "Разработчик внутренних сервисов и автоматизации",
   telegram: "@karameliew",
   email: "zhikharev@sfuk.ru",
@@ -378,7 +378,146 @@ const projects = [
 const featuredProjects = projects.filter((project) => project.featured);
 const otherProjects = projects.filter((project) => !project.featured);
 
-function ProjectCard({ project, compact = false }: { project: (typeof projects)[number]; compact?: boolean }) {
+const websiteProjects = [
+  {
+    title: "Veld Co template",
+    tag: "коммерческий шаблон",
+    result: "каталог и публичные страницы",
+    headline:
+      "Коммерческий сайт-шаблон для каталога детских товаров с главной страницей, категориями, карточками и базовой серверной частью.",
+    task:
+      "Нужно было подготовить основу публичного сайта с каталогом, преимуществами, витриной товаров и возможностью дальнейшей настройки под бизнес.",
+    solution:
+      "Собрал адаптивные HTML/CSS-страницы, добавил структуру каталога, интерактивные элементы, Node.js server и SQL-схему для данных.",
+    role:
+      "Верстка, структура страниц, базовый backend, подготовка репозитория, безопасные примеры настроек и документация запуска.",
+    outcome:
+      "Кейс показывает умение быстро собрать коммерческий сайт под реальную нишу и оставить основу для развития проекта.",
+    stack: ["HTML", "CSS", "JavaScript", "Node.js", "SQL"],
+    link: "https://github.com/ncatofthe/veldco-template",
+    cover: {
+      src: "/screenshots/veldco-cover.png",
+      caption: "Главная страница Veld Co",
+      width: 1920,
+      height: 1080,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/veldco-cover.png",
+        caption: "Главная страница Veld Co",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        src: "/screenshots/veldco-full.png",
+        caption: "Полный скрин страницы",
+        width: 1920,
+        height: 4724,
+      },
+    ],
+  },
+  {
+    title: "ESSE — 30 лет качества и инноваций",
+    tag: "презентационный сайт",
+    result: "брендовая страница",
+    headline: "Промо-сайт бренда с крупной типографикой, продуктовой линейкой и плавной frontend-анимацией.",
+    task: "Нужно было собрать выразительную страницу, которая сразу показывает продукт и ощущается как брендовая презентация, а не обычный шаблон.",
+    solution: "Сверстал адаптивный лендинг, добавил продуктовые блоки, анимации появления, визуальные акценты и подготовил сборку на Vite.",
+    role: "Frontend-разработка, адаптив, работа с визуальными материалами, анимации, финальная сборка и проверка отображения.",
+    outcome: "Получилась аккуратная брендовая страница, которую можно показывать как пример коммерческого frontend и визуальной подачи продукта.",
+    stack: ["Vite", "JavaScript", "CSS", "Responsive", "Animation"],
+    link: "https://github.com/ncatofthe/esse-cold-black",
+    live: "https://ncatofthe.github.io/esse-cold-black/",
+    cover: {
+      src: "/screenshots/esse-original-cover.png",
+      caption: "Главная страница ESSE",
+      width: 1920,
+      height: 1080,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/esse-original-cover.png",
+        caption: "Главная страница ESSE",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        src: "/screenshots/esse-original-full.jpg",
+        caption: "Полный скрин страницы",
+        width: 1920,
+        height: 6480,
+      },
+    ],
+  },
+  {
+    title: "ESSE Sense Himalaya",
+    tag: "scroll-презентация",
+    result: "кинематографичный сценарий",
+    headline: "Иммерсивная scroll-страница с атмосферой, продуктовой линейкой и последовательными акцентами на деталях.",
+    task: "Нужно было показать продукт через последовательный визуальный сценарий с ощущением глубины и движения.",
+    solution: "Собрал отдельную страницу с pinned-секциями, staged-анимациями, продуктовой линейкой и аккуратным fallback для мобильных экранов.",
+    role: "Frontend, GSAP-сценарии, responsive states, оптимизация ассетов, проверка scroll-поведения и кадров.",
+    outcome: "Страница показывает умение делать сложные промо-сценарии, где frontend работает как интерактивная презентация.",
+    stack: ["Vite", "GSAP", "JavaScript", "CSS", "Responsive"],
+    link: "https://github.com/ncatofthe/esse-cold-black",
+    live: "https://ncatofthe.github.io/esse-cold-black/himalaya.html",
+    cover: {
+      src: "/screenshots/esse-himalaya-cover.png",
+      caption: "Himalaya scroll-сцена",
+      width: 1920,
+      height: 1080,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/esse-himalaya-cover.png",
+        caption: "Himalaya scroll-сцена",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        src: "/screenshots/esse-himalaya-full.jpg",
+        caption: "Полный скрин страницы",
+        width: 1920,
+        height: 6480,
+      },
+    ],
+  },
+  {
+    title: "Cold Black Element",
+    tag: "кинетический лендинг",
+    result: "продуктовая страница",
+    headline: "Кинетическая версия продуктовой страницы с акцентом на форму, контраст и технологичный разбор продукта.",
+    task: "Нужно было сделать более резкую и технологичную вариацию страницы, где продукт находится в центре первого экрана.",
+    solution: "Собрал отдельный visual route с темной сценой, масками, продуктовой композицией, интерактивной линейкой и scroll-анимациями.",
+    role: "Верстка, CSS-маски, работа с изображениями, анимационная логика, адаптив и финальное визуальное QA.",
+    outcome: "Кейс усиливает портфолио по сайтам: показывает не только интерфейсы, но и умение делать дорогую визуальную подачу.",
+    stack: ["Vite", "GSAP", "CSS masks", "JavaScript", "Visual QA"],
+    link: "https://github.com/ncatofthe/esse-cold-black",
+    live: "https://ncatofthe.github.io/esse-cold-black/element.html",
+    cover: {
+      src: "/screenshots/esse-kinetic-cover.png",
+      caption: "Кинетическая версия",
+      width: 1920,
+      height: 1080,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/esse-kinetic-cover.png",
+        caption: "Кинетическая версия",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        src: "/screenshots/esse-kinetic-full.jpg",
+        caption: "Полный скрин страницы",
+        width: 1920,
+        height: 6480,
+      },
+    ],
+  },
+];
+
+function ProjectCard({ project, compact = false }: { project: (typeof projects)[number] | (typeof websiteProjects)[number]; compact?: boolean }) {
   const mainShot = project.cover ?? project.screenshots[0];
 
   return (
@@ -433,6 +572,11 @@ function ProjectCard({ project, compact = false }: { project: (typeof projects)[
           <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
             Исходный код
           </a>
+          {"live" in project && project.live ? (
+            <a className="project-link" href={project.live} target="_blank" rel="noreferrer">
+              Открыть сайт
+            </a>
+          ) : null}
           <details className="screenshot-gallery">
             <summary>Скриншоты</summary>
             <div className="shot-strip">
@@ -457,17 +601,26 @@ export default function Home() {
       <section className="hero">
         <nav className="topbar" aria-label="Главная навигация">
           <a href="#projects">Кейсы</a>
+          <a href="#websites">Сайты</a>
           <a href="#services">Чем полезен</a>
           <a href="#experience">Опыт</a>
           <a href="#admin-skills">Администрирование</a>
           <a href="#stack">Стек</a>
           <a href="#contacts">Контакты</a>
+          <div className="language-switch" role="group" aria-label="Language">
+            <button type="button" data-lang-option="ru" aria-pressed="true">
+              RU
+            </button>
+            <button type="button" data-lang-option="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
         </nav>
 
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">Внутренние сервисы, автоматизация и интеграции</p>
-            <h1>{contacts.name}</h1>
+            <h1>{contacts.displayTitle}</h1>
             <p className="hero-role">{contacts.role}</p>
             <p className="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
             <p className="lead">
@@ -519,6 +672,20 @@ export default function Home() {
         <div className="project-list">
           {featuredProjects.map((project) => (
             <ProjectCard project={project} key={project.title} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section projects website-projects" id="websites">
+        <div className="section-heading">
+          <p className="section-kicker">Недавно разработанные сайты</p>
+          <h2>
+            Четыре сайта: коммерческий шаблон Veld Co и три ESSE-страницы с разным типом frontend-задач.
+          </h2>
+        </div>
+        <div className="project-list">
+          {websiteProjects.map((project) => (
+            <ProjectCard project={project} compact key={project.title} />
           ))}
         </div>
       </section>
@@ -645,7 +812,7 @@ export default function Home() {
         </div>
       </section>
       <footer className="site-footer">
-        <span>© 2026 Глеб Жихарев</span>
+        <span>© 2026 Портфолио разработчика</span>
         <span>Портфолио обновлено в августе 2026 года</span>
         <a href={contacts.github} target="_blank" rel="noreferrer">
           GitHub

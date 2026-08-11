@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Жихарев Глеб - разработчик внутренних сервисов</title>
+    <title>Портфолио разработчика внутренних сервисов</title>
     <meta name="description" content="Портфолио разработчика внутренних сервисов, автоматизации, API-интеграций, ботов и служебных приложений." />
     <link rel="canonical" href="https://ncatofthe.github.io/portfolio/" />
     <meta name="theme-color" content="#f6f7f4" />
-    <meta property="og:title" content="Жихарев Глеб - разработчик внутренних сервисов и автоматизации" />
+    <meta property="og:title" content="Портфолио разработчика внутренних сервисов и автоматизации" />
     <meta property="og:description" content="Service Desk, боты, интеграции, административные панели и служебные приложения для компаний." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ncatofthe.github.io/portfolio/" />
     <meta property="og:image" content="https://ncatofthe.github.io/portfolio/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Жихарев Глеб - разработчик внутренних сервисов" />
+    <meta name="twitter:title" content="Портфолио разработчика внутренних сервисов" />
     <meta name="twitter:description" content="Внутренние сервисы, автоматизация, API-интеграции и боты." />
     <meta name="twitter:image" content="https://ncatofthe.github.io/portfolio/og.png" />
     <link rel="icon" href="favicon.svg" />
@@ -139,7 +139,10 @@
         background: transparent;
         transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
       }
-      .topbar a:hover { transform: translateY(-2px); border-color: rgba(31, 111, 99, 0.35); color: var(--strong); background: rgba(255, 255, 255, 0.9); }
+      .topbar a:hover, .language-switch button:hover { transform: translateY(-2px); border-color: rgba(31, 111, 99, 0.35); color: var(--strong); background: rgba(255, 255, 255, 0.9); }
+      .language-switch { display: inline-flex; gap: 4px; padding-left: 4px; border-left: 1px solid rgba(18, 63, 70, 0.12); }
+      .language-switch button { min-height: 34px; border: 1px solid transparent; border-radius: 8px; padding: 7px 10px; color: var(--muted); background: transparent; cursor: pointer; font: inherit; font-size: 13px; font-weight: 800; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease; }
+      .language-switch button.is-active { color: #fff; background: var(--strong); border-color: var(--strong); }
       @supports not (backdrop-filter: blur(1px)) {
         .topbar { background: rgba(255, 255, 255, 0.94); }
       }
@@ -293,6 +296,7 @@
         .hero { min-height: auto; }
         .topbar { width: 100%; margin-left: 0; justify-content: flex-start; overflow-x: auto; padding: 8px; margin-bottom: 44px; }
         .topbar a { white-space: nowrap; }
+        .language-switch { flex: 0 0 auto; }
         .hero-grid, .project, .proof, .experience-grid, .stack-groups, .contact { grid-template-columns: 1fr; }
         .admin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -319,7 +323,7 @@
       }
     </style>
     <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"Person","name":"Жихарев Глеб","jobTitle":"Разработчик внутренних сервисов и автоматизации","email":"mailto:zhikharev@sfuk.ru","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"],"knowsAbout":["Internal tools","Business automation","Service Desk","API integrations","System administration","PowerShell","Windows/Linux","Networking","VMware","VirtualBox","Windows Server","Bitrix","Data recovery","React","TypeScript","Python","PostgreSQL"]}
+      {"@context":"https://schema.org","@type":"ProfilePage","name":"Портфолио разработчика","about":"Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов","url":"https://ncatofthe.github.io/portfolio/","sameAs":["https://github.com/ncatofthe","https://t.me/karameliew"]}
     </script>
   </head>
   <body>
@@ -327,16 +331,18 @@
     <header class="hero">
       <nav class="topbar" aria-label="Навигация">
         <a href="#projects">Кейсы</a>
+        <a href="#websites">Сайты</a>
         <a href="#services">Чем полезен</a>
         <a href="#experience">Опыт</a>
         <a href="#admin-skills">Администрирование</a>
         <a href="#stack">Стек</a>
         <a href="#contacts">Контакты</a>
+        <div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang-option="ru" aria-pressed="true">RU</button><button type="button" data-lang-option="en" aria-pressed="false">EN</button></div>
       </nav>
       <div class="hero-grid">
         <div>
           <p class="kicker">Внутренние сервисы, автоматизация и интеграции</p>
-          <h1>Жихарев Глеб</h1>
+          <h1>Внутренние сервисы и автоматизация</h1>
           <p class="hero-role">Разработчик внутренних сервисов и автоматизации</p>
           <p class="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
           <p class="lead">Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний. Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend- и backend-часть и довожу продукт до внедрения.</p>
@@ -425,6 +431,84 @@
         </div>
       </section>
 
+      <section class="section wide" id="websites">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Недавно разработанные сайты</p>
+            <h2>Четыре сайта: коммерческий шаблон Veld Co и три ESSE-страницы с разным типом frontend-задач.</h2>
+          </div>
+        </div>
+        <div class="project-list">
+          <article class="project">
+            <a class="shot-main" href="screenshots/veldco-cover.png" data-lightbox-src="screenshots/veldco-cover.png" data-lightbox-title="Veld Co template - Главная страница Veld Co" aria-label="Открыть полный скриншот проекта Veld Co template"><img src="screenshots/veldco-cover.png" alt="Veld Co homepage" width="1920" height="1080" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <div class="project-body">
+              <div class="meta"><span>коммерческий шаблон</span><span>каталог и публичные страницы</span></div>
+              <h3>Veld Co template</h3>
+              <p class="headline">Коммерческий сайт-шаблон для каталога детских товаров с главной страницей, категориями, карточками и базовой серверной частью.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Нужно было подготовить основу публичного сайта с каталогом, преимуществами, витриной товаров и возможностью дальнейшей настройки под бизнес.</p></div>
+                <div><span>Решение</span><p>Собрал адаптивные HTML/CSS-страницы, добавил структуру каталога, интерактивные элементы, Node.js server и SQL-схему для данных.</p></div>
+                <div><span>Моя роль</span><p>Верстка, структура страниц, базовый backend, подготовка репозитория, безопасные примеры настроек и документация запуска.</p></div>
+                <div><span>Результат</span><p>Кейс показывает умение быстро собрать коммерческий сайт под реальную нишу и оставить основу для развития проекта.</p></div>
+              </div>
+              <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>SQL</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/veldco-template">Исходный код</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/veldco-cover.png" data-lightbox-src="screenshots/veldco-cover.png" data-lightbox-title="Veld Co template - Главная страница Veld Co"><img src="screenshots/veldco-cover.png" alt="Главная страница Veld Co" width="1920" height="1080" loading="lazy" /><span>Главная страница Veld Co</span></a><a href="screenshots/veldco-full.png" data-lightbox-src="screenshots/veldco-full.png" data-lightbox-title="Veld Co template - Полный скрин страницы"><img src="screenshots/veldco-full.png" alt="Полный скрин страницы" width="1920" height="4724" loading="lazy" /><span>Полный скрин страницы</span></a></div></details></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <a class="shot-main" href="screenshots/esse-original-cover.png" data-lightbox-src="screenshots/esse-original-cover.png" data-lightbox-title="ESSE - Главная страница ESSE" aria-label="Открыть полный скриншот проекта ESSE"><img src="screenshots/esse-original-cover.png" alt="ESSE main page" width="1920" height="1080" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <div class="project-body">
+              <div class="meta"><span>презентационный сайт</span><span>брендовая страница</span></div>
+              <h3>ESSE — 30 лет качества и инноваций</h3>
+              <p class="headline">Промо-сайт бренда с крупной типографикой, продуктовой линейкой и плавной frontend-анимацией.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Нужно было собрать выразительную страницу, которая сразу показывает продукт и ощущается как брендовая презентация, а не обычный шаблон.</p></div>
+                <div><span>Решение</span><p>Сверстал адаптивный лендинг, добавил продуктовые блоки, анимации появления, визуальные акценты и подготовил сборку на Vite.</p></div>
+                <div><span>Моя роль</span><p>Frontend-разработка, адаптив, работа с визуальными материалами, анимации, финальная сборка и проверка отображения.</p></div>
+                <div><span>Результат</span><p>Получилась аккуратная брендовая страница, которую можно показывать как пример коммерческого frontend и визуальной подачи продукта.</p></div>
+              </div>
+              <div class="chips"><span>Vite</span><span>JavaScript</span><span>CSS</span><span>Responsive</span><span>Animation</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/esse-cold-black">Исходный код</a><a class="button" href="https://ncatofthe.github.io/esse-cold-black/">Открыть сайт</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/esse-original-cover.png" data-lightbox-src="screenshots/esse-original-cover.png" data-lightbox-title="ESSE - Главная страница ESSE"><img src="screenshots/esse-original-cover.png" alt="Главная страница ESSE" width="1920" height="1080" loading="lazy" /><span>Главная страница ESSE</span></a><a href="screenshots/esse-original-full.jpg" data-lightbox-src="screenshots/esse-original-full.jpg" data-lightbox-title="ESSE - Полный скрин страницы"><img src="screenshots/esse-original-full.jpg" alt="Полный скрин страницы" width="1920" height="6480" loading="lazy" /><span>Полный скрин страницы</span></a></div></details></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <a class="shot-main" href="screenshots/esse-himalaya-cover.png" data-lightbox-src="screenshots/esse-himalaya-cover.png" data-lightbox-title="ESSE Sense Himalaya - Himalaya scroll-сцена" aria-label="Открыть полный скриншот проекта ESSE Sense Himalaya"><img src="screenshots/esse-himalaya-cover.png" alt="ESSE Sense Himalaya" width="1920" height="1080" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <div class="project-body">
+              <div class="meta"><span>scroll-презентация</span><span>кинематографичный сценарий</span></div>
+              <h3>ESSE Sense Himalaya</h3>
+              <p class="headline">Иммерсивная scroll-страница с атмосферой, продуктовой линейкой и последовательными акцентами на деталях.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Нужно было показать продукт через последовательный визуальный сценарий с ощущением глубины и движения.</p></div>
+                <div><span>Решение</span><p>Собрал отдельную страницу с pinned-секциями, staged-анимациями, продуктовой линейкой и аккуратным fallback для мобильных экранов.</p></div>
+                <div><span>Моя роль</span><p>Frontend, GSAP-сценарии, responsive states, оптимизация ассетов, проверка scroll-поведения и кадров.</p></div>
+                <div><span>Результат</span><p>Страница показывает умение делать сложные промо-сценарии, где frontend работает как интерактивная презентация.</p></div>
+              </div>
+              <div class="chips"><span>Vite</span><span>GSAP</span><span>JavaScript</span><span>CSS</span><span>Responsive</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/esse-cold-black">Исходный код</a><a class="button" href="https://ncatofthe.github.io/esse-cold-black/himalaya.html">Открыть сайт</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/esse-himalaya-cover.png" data-lightbox-src="screenshots/esse-himalaya-cover.png" data-lightbox-title="ESSE Sense Himalaya - Himalaya scroll-сцена"><img src="screenshots/esse-himalaya-cover.png" alt="Himalaya scroll-сцена" width="1920" height="1080" loading="lazy" /><span>Himalaya scroll-сцена</span></a><a href="screenshots/esse-himalaya-full.jpg" data-lightbox-src="screenshots/esse-himalaya-full.jpg" data-lightbox-title="ESSE Sense Himalaya - Полный скрин страницы"><img src="screenshots/esse-himalaya-full.jpg" alt="Полный скрин страницы" width="1920" height="6480" loading="lazy" /><span>Полный скрин страницы</span></a></div></details></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <a class="shot-main" href="screenshots/esse-kinetic-cover.png" data-lightbox-src="screenshots/esse-kinetic-cover.png" data-lightbox-title="Cold Black Element - Кинетическая версия" aria-label="Открыть полный скриншот проекта Cold Black Element"><img src="screenshots/esse-kinetic-cover.png" alt="Cold Black Element" width="1920" height="1080" loading="lazy" /><span class="shot-main-open">Открыть полный скрин</span></a>
+            <div class="project-body">
+              <div class="meta"><span>кинетический лендинг</span><span>продуктовая страница</span></div>
+              <h3>Cold Black Element</h3>
+              <p class="headline">Кинетическая версия продуктовой страницы с акцентом на форму, контраст и технологичный разбор продукта.</p>
+              <div class="details">
+                <div><span>Задача</span><p>Нужно было сделать более резкую и технологичную вариацию страницы, где продукт находится в центре первого экрана.</p></div>
+                <div><span>Решение</span><p>Собрал отдельный visual route с темной сценой, масками, продуктовой композицией, интерактивной линейкой и scroll-анимациями.</p></div>
+                <div><span>Моя роль</span><p>Верстка, CSS-маски, работа с изображениями, анимационная логика, адаптив и финальное визуальное QA.</p></div>
+                <div><span>Результат</span><p>Кейс усиливает портфолио по сайтам: показывает не только интерфейсы, но и умение делать дорогую визуальную подачу.</p></div>
+              </div>
+              <div class="chips"><span>Vite</span><span>GSAP</span><span>CSS masks</span><span>JavaScript</span><span>Visual QA</span></div>
+              <div class="project-actions"><a class="button" href="https://github.com/ncatofthe/esse-cold-black">Исходный код</a><a class="button" href="https://ncatofthe.github.io/esse-cold-black/element.html">Открыть сайт</a><details><summary>Скриншоты</summary><div class="strip"><a href="screenshots/esse-kinetic-cover.png" data-lightbox-src="screenshots/esse-kinetic-cover.png" data-lightbox-title="Cold Black Element - Кинетическая версия"><img src="screenshots/esse-kinetic-cover.png" alt="Кинетическая версия" width="1920" height="1080" loading="lazy" /><span>Кинетическая версия</span></a><a href="screenshots/esse-kinetic-full.jpg" data-lightbox-src="screenshots/esse-kinetic-full.jpg" data-lightbox-title="Cold Black Element - Полный скрин страницы"><img src="screenshots/esse-kinetic-full.jpg" alt="Полный скрин страницы" width="1920" height="6480" loading="lazy" /><span>Полный скрин страницы</span></a></div></details></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="services">
         <div class="section-head"><div><p class="kicker">Чем могу быть полезен</p><h2>Разрабатываю инструменты, которые закрывают конкретные рабочие задачи</h2></div></div>
         <div class="service-grid">
@@ -489,7 +573,7 @@
       </section>
     </main>
     <footer class="site-footer">
-      <span>© 2026 Глеб Жихарев</span>
+      <span>© 2026 Портфолио разработчика</span>
       <span>Портфолио обновлено в августе 2026 года</span>
       <a href="https://github.com/ncatofthe">GitHub</a>
       <a href="https://t.me/karameliew">Telegram</a>
@@ -502,9 +586,69 @@
         <figcaption class="lightbox-caption"></figcaption>
       </figure>
     </div>
+    <script src="i18n.js"></script>
     <script>
       (() => {
         const root = document.documentElement;
+        const i18n = window.portfolioI18n || { storageKey: "portfolio-language", pageTitles: { ru: document.title, en: document.title }, translations: {} };
+        const originalText = new WeakMap();
+        const originalAttrs = new WeakMap();
+        const normalize = (value) => value.replace(/\s+/g, " ").trim();
+        const getTranslation = (value, lang) => {
+          const normalized = normalize(value);
+          if (!normalized || lang === "ru") return value;
+          return i18n.translations[normalized] || value;
+        };
+        const applyLanguage = (lang) => {
+          root.lang = lang;
+          document.title = i18n.pageTitles[lang] || document.title;
+          document.querySelectorAll("[data-lang-option]").forEach((button) => {
+            const active = button.dataset.langOption === lang;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+          });
+
+          const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+              const parent = node.parentElement;
+              if (!parent || parent.closest("script, style")) return NodeFilter.FILTER_REJECT;
+              return normalize(node.nodeValue || "") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            },
+          });
+
+          let node = walker.nextNode();
+          while (node) {
+            const original = originalText.get(node) || node.nodeValue || "";
+            originalText.set(node, original);
+            const leading = original.match(/^\s*/)?.[0] || "";
+            const trailing = original.match(/\s*$/)?.[0] || "";
+            node.nodeValue = lang === "ru" ? original : `${leading}${getTranslation(original, lang)}${trailing}`;
+            node = walker.nextNode();
+          }
+
+          document.querySelectorAll("[aria-label], [data-lightbox-title], [alt]").forEach((element) => {
+            const attrs = originalAttrs.get(element) || new Map();
+            ["aria-label", "data-lightbox-title", "alt"].forEach((attr) => {
+              const current = element.getAttribute(attr);
+              if (!current) return;
+              if (!attrs.has(attr)) attrs.set(attr, current);
+              const original = attrs.get(attr) || current;
+              element.setAttribute(attr, lang === "ru" ? original : getTranslation(original, lang));
+            });
+            originalAttrs.set(element, attrs);
+          });
+        };
+
+        const initialLang = localStorage.getItem(i18n.storageKey) === "en" ? "en" : "ru";
+        applyLanguage(initialLang);
+        document.querySelectorAll("[data-lang-option]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const lang = button.dataset.langOption === "en" ? "en" : "ru";
+            localStorage.setItem(i18n.storageKey, lang);
+            applyLanguage(lang);
+          });
+        });
+
         const selectors = [".section", ".panel", ".result", ".card", ".project", ".experience-card", ".stack-group", ".chips span", ".contact", ".links"].join(",");
         const items = Array.from(document.querySelectorAll(selectors));
         root.classList.add("scroll-ready");
