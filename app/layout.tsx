@@ -42,7 +42,7 @@ const portfolioJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   name: "Портфолио разработчика",
-  about: "Разработка внутренних сервисов, сайтов, автоматизации и AI-инструментов",
+  about: "Разработка внутренних сервисов, сайтов, автоматизации, ботов и прикладных инструментов",
   url: "https://ncatofthe.github.io/portfolio/",
   sameAs: ["https://github.com/ncatofthe", "https://t.me/vivesupport"],
 };

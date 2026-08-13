@@ -53,28 +53,22 @@ zhikharev@sfuk.ru
 
 1. Office ServiceDesk
    - Описание: внутренний портал заявок, роли, статусы, база знаний, email-интеграция, админка.
-   - Результат: используют 3 компании.
+   - Результат: внедрен в рабочих процессах компаний.
    - Стек: React, TypeScript, Express, Prisma, PostgreSQL, Playwright.
    - Скриншоты: `docs/screenshots/servicedesk-dashboard-cover.png`, `docs/screenshots/servicedesk-tickets.png`, `docs/screenshots/servicedesk-queue.png`, `docs/screenshots/servicedesk-admin.png`.
 
 2. MarketplaceBot
    - Описание: desktop-приложение и боты для ответов на отзывы Ozon/Wildberries.
-   - Результат: меньше ручной работы для 37 сотрудников.
+   - Результат: меньше ручной работы для сотрудников.
    - Стек: Python, Tkinter, API, PyInstaller.
    - Скриншот: `docs/screenshots/marketplacebot-compile.png`.
 
-3. AI Workbench
-   - Описание: локальный инструмент для многоагентной разработки и работы с LLM.
-   - Результат: используется в реальных фриланс-задачах и друзьями-фрилансерами.
-   - Стек: Python, FastAPI, React, TypeScript, SQLite, Ollama.
-   - Скриншоты: `docs/screenshots/ai-workbench.jpg`, `docs/screenshots/ai-workbench-new-task.png`.
-
-4. SystemInfo
+3. SystemInfo
    - Описание: PowerShell-утилита для диагностики Windows-ПК и сбора информации.
    - Стек: PowerShell, WMI, Windows.
    - Скриншот: `docs/screenshots/systeminfo-cover.png`.
 
-5. Inventory App
+4. Inventory App
    - Описание: приложение для учета IT-оборудования.
    - Стек: Python, SQLite, Tkinter.
    - Скриншот: `docs/screenshots/inventory-compile.png`.
@@ -175,7 +169,7 @@ zhikharev@sfuk.ru
 
 1. Заполнить имя, фото/аватар, город, контакты внутри площадки.
 2. Добавить ссылку на портфолио и GitHub, если площадка разрешает внешние ссылки.
-3. Загрузить 3-5 проектов: ServiceDesk, MarketplaceBot, AI Workbench, SystemInfo, Inventory App.
+3. Загрузить 3-5 проектов: ServiceDesk, MarketplaceBot, SystemInfo, Inventory App, один из сайтов.
 4. Создать 3 основных услуги: бот, скрипт, доработка сайта.
 5. Создать 2 IT-услуги: виртуальная машина, Windows Server/Bitrix или диагностика HDD/SSD.
 6. Настроить уведомления на email/Telegram, если площадка позволяет.

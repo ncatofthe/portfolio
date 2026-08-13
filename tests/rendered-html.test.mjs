@@ -34,7 +34,7 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /ВАШИ ПРОЦЕССЫ\./);
   assert.match(html, /Внутренние сервисы, сайты, боты и автоматизация/);
   assert.match(html, /Office ServiceDesk/);
-  assert.match(html, /AI Workbench/);
+  assert.doesNotMatch(html, /AI Workbench|ai-workbench|Ollama|\bLLM\b/i);
   assert.match(html, /MarketplaceBot/);
   assert.match(html, /Veld Co template/);
   assert.match(html, /ESSE — 30 лет качества и инноваций/);
@@ -49,20 +49,20 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /Заказать автоматизацию/);
   assert.match(html, /Заказать сайт/);
   assert.match(html, /https:\/\/t\.me\/vivesupport/);
-  assert.match(html, /Системный администратор-программист/);
+  assert.match(html, /Системное администрирование/);
   assert.match(html, /ОТКРЫТ К ПРОЕКТНОЙ РАБОТЕ/);
   assert.match(html, /Системное администрирование/i);
-  assert.match(html, /Для 37 сотрудников/);
-  assert.match(html, /Полный цикл/);
+  assert.match(html, /10\+ компаний/);
+  assert.match(html, /100\+ сотрудников/);
+  assert.match(html, /получили сайты, сервисы и автоматизацию/);
   assert.match(html, /PowerShell и автоматизация/);
   assert.match(html, /Windows Server и виртуализация/);
   assert.match(html, /Инвентаризация и оборудование/);
   assert.match(html, /Диагностика и безопасность/);
   assert.match(html, /marketplacebot-product\.png/);
-  assert.match(html, /ai-workbench-workflow\.png/);
   assert.match(html, /max-summary-architecture\.png/);
   assert.match(html, /inventory-dashboard\.png/);
-  assert.match(html, /используют разработанный мной ServiceDesk/);
+  assert.match(html, /работают с внедренными инструментами/);
   assert.match(html, /02 \/ ЧТО ДЕЛАЮ/);
   assert.match(html, /03 \/ ВЫБРАННЫЕ ПРОЕКТЫ/);
   assert.match(html, /09 \/ КОНТАКТ/);
@@ -84,7 +84,6 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /servicedesk-dashboard-cover\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /servicedesk-queue\.png"[^>]+width="1920" height="1080"/);
   assert.match(docsHtml, /marketplacebot-product\.png"[^>]+width="1600" height="1000"/);
-  assert.match(docsHtml, /ai-workbench-workflow\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /max-summary-architecture\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /marki-poisk-dashboard\.png"[^>]+width="1600" height="1000"/);
@@ -110,6 +109,9 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /order-modal/);
   assert.match(docsHtml, /data-lightbox-src="\/portfolio\/screenshots\/servicedesk-dashboard-cover\.png"/);
   assert.match(docsHtml, /Системное администрирование/i);
+  assert.match(docsHtml, /10\+ компаний/);
+  assert.match(docsHtml, /100\+ сотрудников/);
+  assert.doesNotMatch(docsHtml, /AI Workbench|ai-workbench|Ollama|\bLLM\b/i);
   assert.match(docsHtml, /DNS\/DHCP/);
   assert.match(docsHtml, /VMware/);
   assert.match(docsHtml, /восстановление данных/);
@@ -132,7 +134,6 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   await Promise.all([
     access(new URL("../docs/screenshots/servicedesk-dashboard-cover.png", import.meta.url)),
     access(new URL("../docs/screenshots/marketplacebot-product.png", import.meta.url)),
-    access(new URL("../docs/screenshots/ai-workbench-workflow.png", import.meta.url)),
     access(new URL("../docs/screenshots/max-summary-architecture.png", import.meta.url)),
     access(new URL("../docs/screenshots/inventory-dashboard.png", import.meta.url)),
     access(new URL("../docs/screenshots/marki-poisk-dashboard.png", import.meta.url)),

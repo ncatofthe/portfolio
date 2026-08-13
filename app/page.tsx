@@ -11,12 +11,12 @@ const contacts = {
 
 const proofPoints = [
   {
-    value: "3 компании",
-    label: "используют разработанный мной ServiceDesk",
+    value: "10+ компаний",
+    label: "получили сайты, сервисы и автоматизацию",
   },
   {
-    value: "Для 37 сотрудников",
-    label: "сокращен объем повторяющейся работы с отзывами",
+    value: "100+ сотрудников",
+    label: "работают с внедренными инструментами",
   },
   {
     value: "Полный цикл",
@@ -44,8 +44,8 @@ const aboutTimeline = [
   },
   {
     tag: "сейчас",
-    title: "Сервисы и системы",
-    text: "Совмещаю разработку внутренних сервисов с системным администрированием — вижу задачу от инфраструктуры до кода.",
+    title: "Разработка и системы",
+    text: "Большой практический опыт в разработке и системном администрировании помогает видеть задачу целиком: от инфраструктуры до работающего продукта.",
   },
 ];
 
@@ -81,7 +81,6 @@ const coreStack = [
   "Prisma",
   "Docker",
   "Playwright",
-  "Ollama",
 ];
 
 const additionalStack = [
@@ -113,12 +112,12 @@ const additionalStack = [
 
 const experience = [
   {
-    title: "Системный администратор-программист",
-    place: "2024 - настоящее время",
+    title: "Системное администрирование",
+    place: "Практический опыт",
     text: "Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.",
   },
   {
-    title: "Независимый разработчик",
+    title: "Разработка продуктов",
     place: "2022 - настоящее время",
     text: "Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.",
   },
@@ -176,8 +175,8 @@ const projects = [
     title: "Office ServiceDesk",
     featured: true,
     tag: "внутренний сервис",
-    result: "используется 3 компаниями",
-    headline: "Внутренняя система управления заявками, которую используют три компании.",
+    result: "внедрен в рабочих процессах компаний",
+    headline: "Внутренняя система управления заявками для команд и компаний.",
     task:
       "Обращения сотрудников поступали через мессенджеры, почту и внешние helpdesk-сервисы. Заявки было сложно распределять, отслеживать и контролировать.",
     solution:
@@ -225,7 +224,7 @@ const projects = [
     title: "MarketplaceBot",
     featured: true,
     tag: "автоматизация маркетплейсов",
-    result: "меньше ручной работы для 37 сотрудников",
+    result: "меньше ручной работы для команды",
     headline: "Desktop-приложение и боты для автоматической обработки отзывов Ozon и Wildberries.",
     task:
       "Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия в маркетплейсах.",
@@ -234,7 +233,7 @@ const projects = [
     role:
       "Проектирование сценариев, разработка Python-приложения, интеграции с API маркетплейсов, настройка сборки и проверка рабочих модулей.",
     outcome:
-      "Автоматизация маркетплейсов сократила объём ручной работы для 37 сотрудников и ускорила обработку повторяющихся отзывов.",
+      "Автоматизация маркетплейсов сократила объём ручной работы команды и ускорила обработку повторяющихся отзывов.",
     stack: ["Python", "Tkinter", "Ozon API", "Wildberries API", "PyInstaller"],
     link: "https://github.com/ncatofthe/MarketplaceBot",
     cover: {
@@ -253,43 +252,6 @@ const projects = [
       {
         src: "/screenshots/marketplacebot-compile.png",
         caption: "Техническая проверка модулей без API-ключей",
-        width: 1600,
-        height: 1000,
-      },
-    ],
-  },
-  {
-    title: "AI Workbench",
-    featured: true,
-    tag: "AI-инструмент",
-    result: "используется в реальных фриланс-задачах",
-    headline: "Локальная offline-first платформа для многоагентной разработки.",
-    task:
-      "Нужно было ускорить проектную разработку: сохранять контекст задачи, формировать план, распределять работу между агентами и проверять результат.",
-    solution:
-      "Собрал платформу с локальным LLM-контуром, REST API, сохранением запусков, approval-механизмом и интерфейсом для управления задачами.",
-    role:
-      "Архитектура продукта, backend, frontend, сценарии работы агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.",
-    outcome:
-      "Платформа принимает задачу, формирует план, распределяет этапы между агентными ролями, сохраняет историю выполнения и проверяет созданные приложения через API- и браузерные сценарии.",
-    stack: ["Python", "FastAPI", "React", "TypeScript", "SQLite", "Ollama"],
-    link: "https://github.com/ncatofthe/ai-workbench",
-    screenshots: [
-      {
-        src: "/screenshots/ai-workbench.jpg",
-        caption: "Dashboard локальной платформы",
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: "/screenshots/ai-workbench-new-task.png",
-        caption: "Создание новой задачи",
-        width: 1600,
-        height: 1173,
-      },
-      {
-        src: "/screenshots/ai-workbench-workflow.png",
-        caption: "План, агентные роли, шаги выполнения и проверки",
         width: 1600,
         height: 1000,
       },
@@ -748,9 +710,9 @@ export default function Home() {
           <a className="btn btn-outline" href="https://t.me/vivesupport">TELEGRAM ↗</a>
         </div>
         <div className="hero-metrics">
-          <div><strong>3</strong><span className="mono">КОМПАНИИ ИСПОЛЬЗУЮТ SERVICE DESK</span></div>
+          <div><strong>10+</strong><span className="mono">КОМПАНИЙ В ПРОЕКТАХ И ВНЕДРЕНИЯХ</span></div>
+          <div><strong>100+</strong><span className="mono">СОТРУДНИКОВ РАБОТАЮТ С ИНСТРУМЕНТАМИ</span></div>
           <div><strong>{totalCases}</strong><span className="mono">ГОТОВЫХ ПРОЕКТОВ В ПОРТФОЛИО</span></div>
-          <div><strong>01</strong><span className="mono">ИСПОЛНИТЕЛЬ ПОЛНЫЙ ЦИКЛ</span></div>
         </div>
         <div className="hero-terminal" aria-hidden="true">
           <div className="hero-terminal-bar">
@@ -760,7 +722,7 @@ export default function Home() {
             <span className="t-muted">$</span> whoami{"\n"}
             <span className="t-muted">&gt; developer · sysadmin · automation</span>{"\n\n"}
             <span className="t-muted">$</span> ls ./projects{"\n"}
-            office-servicedesk/  marketplacebot/  ai-workbench/{"\n\n"}
+            office-servicedesk/  marketplacebot/  client-sites/{"\n\n"}
             <span className="t-muted">$</span> ./deploy.sh --project office-servicedesk{"\n"}
             <span className="t-blue">building</span>… <span className="t-accent">done</span> in 1.4s{"\n"}
             <span className="t-accent">✓</span> queues, roles, email sync — <span className="t-muted">live</span>{"\n\n"}
@@ -780,10 +742,10 @@ export default function Home() {
         <div className="about-heading" data-reveal><h2>НЕ ТОЛЬКО КОД.<br /><em>ЕЩЁ И ИНФРАСТРУКТУРА.</em></h2></div>
         <div className="about-body" data-reveal>
           <p className="about-lead">
-            Совмещаю системное администрирование и разработку. С 2022 года веду проекты как независимый разработчик,
-            параллельно работаю системным администратором-программистом: поддерживаю рабочие места, автоматизирую
-            внутренние процессы и довожу собственные сервисы до внедрения. Такой опыт на стыке ролей помогает видеть
-            задачу целиком — от инфраструктуры и рабочих мест до кода, который эту инфраструктуру разгружает.
+            У меня большой практический опыт в разработке и системном администрировании. С 2022 года создаю сайты,
+            внутренние сервисы, ботов и автоматизацию, а также решаю инфраструктурные задачи: поддержка рабочих мест,
+            диагностика, настройка окружения и сопровождение внедренных решений. Это помогает видеть задачу целиком —
+            от инфраструктуры и пользователей до кода и запуска продукта.
           </p>
           <div className="about-facts">
             {aboutFacts.map((fact) => (
@@ -824,7 +786,7 @@ export default function Home() {
 
       <section className="intro" id="services">
         <div className="section-label mono">02 / ЧТО ДЕЛАЮ</div>
-        <div className="intro-heading"><h2>ОДИН ПОДХОД.<br /><em>РЕШЕНИЕ</em> ПОД ЗАДАЧУ.</h2></div>
+        <div className="intro-heading"><h2><em>РЕШЕНИЯ</em><br />ПОД БИЗНЕС-ЗАДАЧИ.</h2></div>
         <div className="scope-list">
           {services.map((service, index) => (
             <article className="scope-row" key={service.title} data-reveal>
@@ -845,7 +807,6 @@ export default function Home() {
         <h2>ПОЛЬЗА,<br /><em>КОТОРУЮ ВИДНО.</em></h2>
         <div className="fit-grid">
           {proofPoints.map((point, index) => <article key={point.value}><span className="mono">0{index + 1}</span><strong>{point.value}</strong><p>{point.label}</p></article>)}
-          <aside><span className="mono">ПОДХОД</span><p>Не обещаю магию. Уточняю задачу, показываю работающий результат и честно обозначаю ограничения.</p></aside>
         </div>
       </section>
 
@@ -861,7 +822,7 @@ export default function Home() {
       </section>
 
       <section className="offer-section" id="order">
-        <div className="offer-dark"><span className="mono">06 / ЗАКАЗАТЬ</span><h2>НУЖЕН САЙТ<br />ИЛИ <em>АВТОМАТИЗАЦИЯ?</em></h2><p>Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.</p></div>
+        <div className="offer-dark"><span className="mono">06 / ЗАКАЗАТЬ</span><h2>НУЖЕН САЙТ<br />ИЛИ <em>АВТОМАТИЗАЦИЯ?</em></h2><p>Покажу релевантные примеры, уточню объем и предложу понятный следующий шаг.</p></div>
         <div className="offer-paper"><span className="mono">СТАРТ ПРОЕКТА</span><strong>ОБСУДИМ<br />ЗАДАЧУ</strong><p>Сайты, боты, интеграции, скрипты, внутренние сервисы и небольшие приложения.</p><button type="button" data-order-trigger className="offer-button mono">ВЫБРАТЬ РЕШЕНИЕ ↗</button><a href="https://t.me/vivesupport" className="mono">TELEGRAM / @VIVESUPPORT ↗</a></div>
       </section>
 

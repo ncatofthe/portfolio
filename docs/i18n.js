@@ -14,8 +14,8 @@ window.portfolioI18n = {
   "И САЙТЫ.": "AND WEBSITES.",
   "Внутренние сервисы, сайты, боты и автоматизация под реальные рабочие процессы.":
     "Internal tools, websites, bots and automation built around real workflows.",
-  "КОМПАНИИ ИСПОЛЬЗУЮТ SERVICE DESK": "COMPANIES USE THE SERVICE DESK",
-  "ИСПОЛНИТЕЛЬ ПОЛНЫЙ ЦИКЛ": "ONE DEVELOPER END TO END",
+  "КОМПАНИЙ В ПРОЕКТАХ И ВНЕДРЕНИЯХ": "COMPANIES ACROSS PROJECTS AND ROLLOUTS",
+  "СОТРУДНИКОВ РАБОТАЮТ С ИНСТРУМЕНТАМИ": "EMPLOYEES USE THE DELIVERED TOOLS",
   "ЗАКАЗАТЬ РЕШЕНИЕ": "ORDER A SOLUTION",
   "ФОКУС / 2026": "FOCUS / 2026",
   "РЕЗУЛЬТАТ ВМЕСТО ЛИШНЕГО.": "RESULTS WITHOUT THE NOISE.",
@@ -24,7 +24,7 @@ window.portfolioI18n = {
   "ВНУТРЕННИЕ СЕРВИСЫ ✦ САЙТЫ ✦ АВТОМАТИЗАЦИЯ ✦ API ✦ БОТЫ ✦":
     "INTERNAL TOOLS ✦ WEBSITES ✦ AUTOMATION ✦ API ✦ BOTS ✦",
   "01 / ЧТО ДЕЛАЮ": "01 / WHAT I DO",
-  "ОДИН ПОДХОД. РЕШЕНИЕ ПОД ЗАДАЧУ.": "ONE APPROACH. A SOLUTION FOR THE TASK.",
+  "РЕШЕНИЯ ПОД БИЗНЕС-ЗАДАЧИ.": "SOLUTIONS FOR BUSINESS TASKS.",
   "02 / ВЫБРАННЫЕ ПРОЕКТЫ": "02 / SELECTED PROJECTS",
   "РАБОТЫ, КОТОРЫЕ РАБОТАЮТ.": "WORK THAT WORKS.",
   "Полные кейсы: задача, решение, роль, результат и живые скриншоты.":
@@ -35,8 +35,6 @@ window.portfolioI18n = {
   "ПОДРОБНЕЕ +": "DETAILS +",
   "03 / РЕЗУЛЬТАТЫ": "03 / RESULTS",
   "ПОЛЬЗА, КОТОРУЮ ВИДНО.": "VALUE YOU CAN SEE.",
-  "Не обещаю магию. Уточняю задачу, показываю работающий результат и честно обозначаю ограничения.":
-    "I do not promise magic. I clarify the task, demonstrate working results and state constraints honestly.",
   "04 / ПРОЦЕСС": "04 / PROCESS",
   "ОТ ЗАДАЧИ ДО ЗАПУСКА.": "FROM TASK TO LAUNCH.",
   "РАЗБОР": "DISCOVERY",
@@ -49,7 +47,7 @@ window.portfolioI18n = {
   "Разворачиваю, документирую и сопровождаю после запуска.": "I deploy, document and support the product after launch.",
   "05 / ЗАКАЗАТЬ": "05 / ORDER",
   "НУЖЕН САЙТ ИЛИ АВТОМАТИЗАЦИЯ?": "NEED A WEBSITE OR AUTOMATION?",
-  "Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.": "I will show relevant examples, clarify scope and propose a clear next step.",
+  "Покажу релевантные примеры, уточню объем и предложу понятный следующий шаг.": "I will show relevant examples, clarify scope and propose a clear next step.",
   "СТАРТ ПРОЕКТА": "PROJECT START",
   "ОБСУДИМ ЗАДАЧУ": "LET'S DISCUSS THE TASK",
   "Сайты, боты, интеграции, скрипты, внутренние сервисы и небольшие приложения.": "Websites, bots, integrations, scripts, internal tools and small applications.",
@@ -86,8 +84,8 @@ window.portfolioI18n = {
   "Заказать автоматизацию или сайт": "Order Automation or a Website",
   "Сайты и автоматизация": "Websites and Automation",
   "Что можно заказать": "What You Can Order",
-  "Выберите направление — я помогу уточнить задачу, предложу подход и оценю реализацию.":
-    "Choose a direction — I will help clarify the task, suggest an approach and estimate the implementation.",
+  "Выберите направление — я помогу уточнить задачу, оценю объем и предложу решение.":
+    "Choose a direction — I will help clarify the task, estimate the scope and suggest a solution.",
   "Автоматизация": "Automation",
   "Для процессов, где ручную работу можно заменить понятным инструментом.":
     "For workflows where repetitive manual work can be replaced with a practical tool.",
@@ -111,10 +109,10 @@ window.portfolioI18n = {
   "прикладные инструменты под рабочие процессы": "practical tools for real workflows",
   "Основной профиль — внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения бизнеса.":
     "My main focus is internal tools, automation, API integrations and service applications. System administration experience helps me understand users, infrastructure and real business constraints.",
-  "3 компании": "3 companies",
-  "используют разработанный мной ServiceDesk": "use the ServiceDesk I developed",
-  "Для 37 сотрудников": "For 37 employees",
-  "сокращен объем повторяющейся работы с отзывами": "reduced repetitive work with marketplace reviews",
+  "10+ компаний": "10+ companies",
+  "получили сайты, сервисы и автоматизацию": "received websites, tools and automation",
+  "100+ сотрудников": "100+ employees",
+  "работают с внедренными инструментами": "work with delivered tools",
   "Полный цикл": "Full cycle",
   "от анализа процесса и архитектуры до разработки, тестирования и внедрения": "from process analysis and architecture to development, testing and rollout",
   "Главные проекты": "Main Projects",
@@ -131,9 +129,9 @@ window.portfolioI18n = {
   "Моя роль": "My Role",
   "Результат": "Result",
   "внутренний сервис": "internal service",
-  "используется 3 компаниями": "used by 3 companies",
-  "Внутренняя система управления заявками, которую используют три компании.":
-    "An internal request management system used by three companies.",
+  "внедрен в рабочих процессах компаний": "deployed in company workflows",
+  "Внутренняя система управления заявками для команд и компаний.":
+    "An internal request management system for teams and companies.",
   "Обращения сотрудников поступали через мессенджеры, почту и внешние helpdesk-сервисы. Заявки было сложно распределять, отслеживать и контролировать.":
     "Employee requests came through messengers, email and external helpdesk tools. It was difficult to route, track and control them.",
   "Разработал единый портал с очередями исполнителей, базой знаний, комментариями, вложениями, email-интеграцией, ролями доступа, уведомлениями и административной панелью.":
@@ -147,7 +145,7 @@ window.portfolioI18n = {
   "Очередь исполнителей": "Agent queue",
   "Настройки и роли": "Settings and roles",
   "автоматизация маркетплейсов": "marketplace automation",
-  "меньше ручной работы для 37 сотрудников": "less manual work for 37 employees",
+  "меньше ручной работы для команды": "less manual work for the team",
   "Desktop-приложение и боты для автоматической обработки отзывов Ozon и Wildberries.":
     "Desktop app and bots for automated Ozon and Wildberries review processing.",
   "Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия в маркетплейсах.":
@@ -156,24 +154,10 @@ window.portfolioI18n = {
     "Built a GUI app with rating-based reply templates, scheduled processing, settings storage, logging and Windows build preparation.",
   "Проектирование сценариев, разработка Python-приложения, интеграции с API маркетплейсов, настройка сборки и проверка рабочих модулей.":
     "Scenario design, Python app development, marketplace API integrations, build setup and module checks.",
-  "Автоматизация маркетплейсов сократила объём ручной работы для 37 сотрудников и ускорила обработку повторяющихся отзывов.":
-    "Marketplace automation reduced manual work for 37 employees and accelerated recurring review processing.",
+  "Автоматизация маркетплейсов сократила объём ручной работы команды и ускорила обработку повторяющихся отзывов.":
+    "Marketplace automation reduced manual work for the team and accelerated recurring review processing.",
   "Настройки API, шаблоны и журнал обработки": "API settings, templates and processing log",
   "Техническая проверка модулей без API-ключей": "Module check without API keys",
-  "AI-инструмент": "AI tool",
-  "используется в реальных фриланс-задачах": "used in real freelance tasks",
-  "Локальная offline-first платформа для многоагентной разработки.": "Local offline-first platform for multi-agent development.",
-  "Нужно было ускорить проектную разработку: сохранять контекст задачи, формировать план, распределять работу между агентами и проверять результат.":
-    "The goal was to speed up project work: keep task context, build a plan, split work between agents and verify the result.",
-  "Собрал платформу с локальным LLM-контуром, REST API, сохранением запусков, approval-механизмом и интерфейсом для управления задачами.":
-    "Built a platform with a local LLM workflow, REST API, run history, approval flow and task management UI.",
-  "Архитектура продукта, backend, frontend, сценарии работы агентов, интеграция Ollama, хранение данных и проверки через pytest/Playwright.":
-    "Product architecture, backend, frontend, agent workflows, Ollama integration, data storage and pytest/Playwright checks.",
-  "Платформа принимает задачу, формирует план, распределяет этапы между агентными ролями, сохраняет историю выполнения и проверяет созданные приложения через API- и браузерные сценарии.":
-    "The platform accepts a task, creates a plan, assigns steps to agent roles, stores execution history and verifies generated apps through API and browser scenarios.",
-  "Dashboard локальной платформы": "Local platform dashboard",
-  "Создание новой задачи": "New task creation",
-  "План, агентные роли, шаги выполнения и проверки": "Plan, agent roles, execution steps and checks",
   "презентационный сайт": "presentation website",
   "брендовая страница": "brand page",
   "ESSE — 30 лет качества и инноваций": "ESSE — 30 Years of Quality and Innovation",
@@ -247,12 +231,12 @@ window.portfolioI18n = {
     "React interfaces, REST APIs, databases, authorization, server logic, checks and launch preparation.",
   "Опыт и база": "Experience and Background",
   "Разработка плюс понимание IT-инфраструктуры": "Development plus IT infrastructure understanding",
-  "2024 - настоящее время": "2024 - present",
-  "Системный администратор-программист": "System Administrator / Developer",
+  "Практический опыт": "Practical experience",
+  "Системное администрирование": "System Administration",
   "Поддержка пользователей и рабочих мест, диагностика Windows/Linux, автоматизация внутренних процессов, разработка служебных инструментов и сопровождение внедренных решений.":
     "User and workstation support, Windows/Linux diagnostics, internal process automation, development of service tools and support for implemented solutions.",
   "2022 - настоящее время": "2022 - present",
-  "Независимый разработчик": "Independent Developer",
+  "Разработка продуктов": "Product Development",
   "Создание сайтов, внутренних сервисов, ботов, интеграций и прикладных утилит под задачи компаний, фрилансеров и небольших команд.":
     "Building websites, internal tools, bots, integrations and practical utilities for companies, freelancers and small teams.",
   "образование": "education",
@@ -291,8 +275,8 @@ window.portfolioI18n = {
   "инвентаризация оборудования": "equipment inventory",
   "подбор комплектующих ПК": "PC component selection",
   "Открыт к работе и проектным задачам": "Open to Work and Project Tasks",
-  "Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу — помогу определить подход и оценить реализацию.":
-    "I am interested in internal tools, automation, API integrations and service applications. Describe the task and I will help define the approach and estimate implementation.",
+  "Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений. Опишите задачу — помогу оценить объем и подготовить решение.":
+    "I am interested in internal tools, automation, API integrations and service applications. Describe the task and I will help estimate the scope and prepare a solution.",
   "Обсудить задачу в Telegram: @vivesupport": "Discuss a task in Telegram: @vivesupport",
   "Telegram: @vivesupport": "Telegram: @vivesupport",
   "Написать на email: zhikharev@sfuk.ru": "Email: zhikharev@sfuk.ru",
@@ -335,5 +319,8 @@ window.portfolioI18n = {
   "Визуальная концепция, frontend-разработка, motion-логика, адаптив и подготовка самостоятельного репозитория без сборочных зависимостей.": "Visual concept, frontend development, motion logic, responsive behavior and a standalone dependency-free repository.",
   "Кейс показывает умение создавать не только прикладные интерфейсы, но и дорогую презентационную подачу для бренда.": "This case shows the ability to create polished brand presentation sites as well as practical interfaces.",
   "Первый экран неофициального концепта": "First screen of the unofficial concept",
+  "У меня большой практический опыт в разработке и системном администрировании. С 2022 года создаю сайты, внутренние сервисы, ботов и автоматизацию, а также решаю инфраструктурные задачи: поддержка рабочих мест, диагностика, настройка окружения и сопровождение внедренных решений. Это помогает видеть задачу целиком — от инфраструктуры и пользователей до кода и запуска продукта.": "I have extensive practical experience in both development and system administration. Since 2022, I have built websites, internal tools, bots and automation while also solving infrastructure tasks: workstation support, diagnostics, environment setup and rollout support. This helps me see the whole task, from infrastructure and users to code and launch.",
+  "Разработка и системы": "Development and systems",
+  "Большой практический опыт в разработке и системном администрировании помогает видеть задачу целиком: от инфраструктуры до работающего продукта.": "Extensive practical experience in development and system administration helps me see the whole task: from infrastructure to a working product.",
 }
 };

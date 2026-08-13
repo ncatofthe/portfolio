@@ -359,7 +359,7 @@ export function ScrollReveal() {
           <header className="order-modal-header">
             <span>Сайты и автоматизация</span>
             <h2>Что можно заказать</h2>
-            <p>Выберите направление — я помогу уточнить задачу, предложу подход и оценю реализацию.</p>
+            <p>Выберите направление — я помогу уточнить задачу, оценю объем и предложу решение.</p>
           </header>
           <div className="order-options">
             <article className="order-option order-option-automation">
