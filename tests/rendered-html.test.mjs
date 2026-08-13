@@ -52,7 +52,7 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /Системный администратор-программист/);
   assert.match(html, /ОТКРЫТ К ПРОЕКТНОЙ РАБОТЕ/);
   assert.match(html, /Системное администрирование/i);
-  assert.match(html, /Для 3 сотрудников/);
+  assert.match(html, /Для 37 сотрудников/);
   assert.match(html, /Полный цикл/);
   assert.match(html, /PowerShell и автоматизация/);
   assert.match(html, /Windows Server и виртуализация/);

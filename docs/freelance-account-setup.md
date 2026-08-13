@@ -59,7 +59,7 @@ zhikharev@sfuk.ru
 
 2. MarketplaceBot
    - Описание: desktop-приложение и боты для ответов на отзывы Ozon/Wildberries.
-   - Результат: меньше ручной работы для 3 сотрудников.
+   - Результат: меньше ручной работы для 37 сотрудников.
    - Стек: Python, Tkinter, API, PyInstaller.
    - Скриншот: `docs/screenshots/marketplacebot-compile.png`.
 

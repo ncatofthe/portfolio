@@ -113,7 +113,7 @@ window.portfolioI18n = {
     "My main focus is internal tools, automation, API integrations and service applications. System administration experience helps me understand users, infrastructure and real business constraints.",
   "3 компании": "3 companies",
   "используют разработанный мной ServiceDesk": "use the ServiceDesk I developed",
-  "Для 3 сотрудников": "For 3 employees",
+  "Для 37 сотрудников": "For 37 employees",
   "сокращен объем повторяющейся работы с отзывами": "reduced repetitive work with marketplace reviews",
   "Полный цикл": "Full cycle",
   "от анализа процесса и архитектуры до разработки, тестирования и внедрения": "from process analysis and architecture to development, testing and rollout",
@@ -147,7 +147,7 @@ window.portfolioI18n = {
   "Очередь исполнителей": "Agent queue",
   "Настройки и роли": "Settings and roles",
   "автоматизация маркетплейсов": "marketplace automation",
-  "меньше ручной работы для 3 сотрудников": "less manual work for 3 employees",
+  "меньше ручной работы для 37 сотрудников": "less manual work for 37 employees",
   "Desktop-приложение и боты для автоматической обработки отзывов Ozon и Wildberries.":
     "Desktop app and bots for automated Ozon and Wildberries review processing.",
   "Сотрудникам приходилось вручную просматривать отзывы, выбирать шаблон ответа и повторять однотипные действия в маркетплейсах.":
@@ -156,8 +156,8 @@ window.portfolioI18n = {
     "Built a GUI app with rating-based reply templates, scheduled processing, settings storage, logging and Windows build preparation.",
   "Проектирование сценариев, разработка Python-приложения, интеграции с API маркетплейсов, настройка сборки и проверка рабочих модулей.":
     "Scenario design, Python app development, marketplace API integrations, build setup and module checks.",
-  "Автоматизация маркетплейсов сократила объём ручной работы для трёх сотрудников и ускорила обработку повторяющихся отзывов.":
-    "Marketplace automation reduced manual work for three employees and accelerated recurring review processing.",
+  "Автоматизация маркетплейсов сократила объём ручной работы для 37 сотрудников и ускорила обработку повторяющихся отзывов.":
+    "Marketplace automation reduced manual work for 37 employees and accelerated recurring review processing.",
   "Настройки API, шаблоны и журнал обработки": "API settings, templates and processing log",
   "Техническая проверка модулей без API-ключей": "Module check without API keys",
   "AI-инструмент": "AI tool",

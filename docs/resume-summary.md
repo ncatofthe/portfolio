@@ -40,7 +40,7 @@ Python, JavaScript, TypeScript, React, HTML, CSS, PHP 8, REST API, JWT, RBAC, My
 
 ### MarketplaceBot
 
-Автоматизация ответов на отзывы Ozon и Wildberries. Решение помогло компании и сократило ручную работу 3 сотрудникам.
+Автоматизация ответов на отзывы Ozon и Wildberries. Решение помогло компании и сократило ручную работу 37 сотрудникам.
 
 ### AI Workbench
 
