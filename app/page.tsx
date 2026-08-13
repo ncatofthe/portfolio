@@ -24,6 +24,31 @@ const proofPoints = [
   },
 ];
 
+const aboutFacts = [
+  { label: "Локация", text: "Москва · удалённо и гибридно" },
+  { label: "Фокус", text: "Внутренние сервисы и автоматизация процессов" },
+  { label: "В разработке", text: "независимо — с 2022 года" },
+  { label: "Образование", text: "СПО «Программирование компьютерных систем», диплом 4.75 из 5" },
+];
+
+const aboutTimeline = [
+  {
+    tag: "старт",
+    title: "Поддержка и инфраструктура",
+    text: "Начинал с поддержки пользователей и рабочих мест: диагностика Windows/Linux, сети, рабочее окружение.",
+  },
+  {
+    tag: "рост",
+    title: "Первая автоматизация",
+    text: "От PowerShell-скриптов для рутинных задач — к первым сайтам, ботам и интеграциям для реальных заказчиков.",
+  },
+  {
+    tag: "сейчас",
+    title: "Сервисы и системы",
+    text: "Совмещаю разработку внутренних сервисов с системным администрированием — вижу задачу от инфраструктуры до кода.",
+  },
+];
+
 const services = [
   {
     title: "Внутренние сервисы",
@@ -373,6 +398,68 @@ const projects = [
       },
     ],
   },
+  {
+    title: "MarkiPoisk",
+    featured: true,
+    tag: "автоматизация маркировки",
+    result: "обработка PDF и DataMatrix",
+    headline: "Утилита для обработки маркировки табачной продукции в процессах, связанных с «Честным знаком».",
+    task:
+      "Нужно было быстро извлекать данные из PDF с маркировкой, находить нужные коды и готовить результаты для дальнейшей работы сотрудников.",
+    solution:
+      "Разработал CLI- и GUI-инструмент: распознавание DataMatrix/QR, разбор GS1-полей, поиск по индексу и экспорт в CSV/JSON/Excel.",
+    role:
+      "Проектирование сценария обработки, Python-разработка, работа с PDF и кодами, интерфейс на Tkinter, тесты и подготовка Windows-сборки.",
+    outcome:
+      "Рутинный разбор маркировки превращен в повторяемый локальный процесс с поиском и выгрузкой структурированных данных.",
+    stack: ["Python", "Tkinter", "PyMuPDF", "ZXing", "GS1", "openpyxl"],
+    link: "https://github.com/ncatofthe/marki-poisk",
+    cover: {
+      src: "/screenshots/marki-poisk-dashboard.png",
+      caption: "MarkiPoisk: поиск по маркировке",
+      width: 1600,
+      height: 1000,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/marki-poisk-dashboard.png",
+        caption: "Поиск, таблица результатов и экспорт",
+        width: 1600,
+        height: 1000,
+      },
+    ],
+  },
+  {
+    title: "PC Inventory v9",
+    featured: false,
+    tag: "инвентаризация рабочих станций",
+    result: "анализ отчетов и проблем",
+    headline: "Локальное приложение для сбора, анализа и экспорта сведений о Windows-компьютерах.",
+    task:
+      "Нужно было свести разрозненные TXT-отчеты по рабочим станциям в понятную картину по ОС, процессорам, памяти, дискам и установленному ПО.",
+    solution:
+      "Собрал Tkinter-приложение с загрузкой папок, фильтрами, статистикой, проверкой свободного места и ресурсов, журналом и экспортом CSV/Excel.",
+    role:
+      "Архитектура локальной утилиты, парсинг отчетов, диагностика порогов, интерфейс, визуализация и подготовка сценария запуска.",
+    outcome:
+      "Инструмент помогает быстрее проводить инвентаризацию и находить рабочие станции, которым нужна проверка или обновление.",
+    stack: ["Python", "Tkinter", "pandas", "matplotlib", "CSV", "Excel"],
+    link: "https://github.com/ncatofthe/pc-inventory-v9",
+    cover: {
+      src: "/screenshots/pc-inventory-dashboard.png",
+      caption: "PC Inventory v9: статистика и фильтры",
+      width: 1600,
+      height: 1000,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/pc-inventory-dashboard.png",
+        caption: "Статистика по станциям, ресурсам и дискам",
+        width: 1600,
+        height: 1000,
+      },
+    ],
+  },
 ];
 
 const featuredProjects = projects.filter((project) => project.featured);
@@ -515,350 +602,69 @@ const websiteProjects = [
       },
     ],
   },
+  {
+    title: "Lukoil Redesign Concept",
+    tag: "дизайн-концепт",
+    result: "неофициальный концепт сайта",
+    headline: "Иммерсивный концепт корпоративного сайта с выразительной типографикой, контрастной сценой и scroll-анимациями.",
+    task: "Нужно было показать, как можно переосмыслить подачу крупной компании через современный визуальный сценарий и понятную навигацию.",
+    solution: "Собрал чистый HTML/CSS/JS-концепт с preloader, прогрессом прокрутки, адаптивной навигацией, canvas-эффектом и последовательными секциями.",
+    role: "Визуальная концепция, frontend-разработка, motion-логика, адаптив и подготовка самостоятельного репозитория без сборочных зависимостей.",
+    outcome: "Кейс показывает умение создавать не только прикладные интерфейсы, но и дорогую презентационную подачу для бренда.",
+    stack: ["HTML", "CSS", "JavaScript", "Canvas", "Responsive", "Motion"],
+    link: "https://github.com/ncatofthe/lukoil-redesign-concept",
+    cover: {
+      src: "/screenshots/lukoil-concept-cover.png",
+      caption: "Lukoil redesign concept",
+      width: 2560,
+      height: 1440,
+    },
+    screenshots: [
+      {
+        src: "/screenshots/lukoil-concept-cover.png",
+        caption: "Первый экран неофициального концепта",
+        width: 2560,
+        height: 1440,
+      },
+    ],
+  },
 ];
-
-function ProjectCard({ project, compact = false }: { project: (typeof projects)[number] | (typeof websiteProjects)[number]; compact?: boolean }) {
-  const mainShot = project.cover ?? project.screenshots[0];
-
-  return (
-    <article className={`project-card ${compact ? "project-card-compact" : "project-card-featured"}`}>
-      <a
-        className="project-shot"
-        href={mainShot.src}
-        data-lightbox-src={mainShot.src}
-        data-lightbox-title={`${project.title} - ${mainShot.caption}`}
-        aria-label={`Открыть полный скриншот проекта ${project.title}`}
-      >
-        <img
-          src={mainShot.src}
-          alt={`Скриншот проекта ${project.title}: ${mainShot.caption}`}
-          width={mainShot.width}
-          height={mainShot.height}
-          loading={compact ? "lazy" : "eager"}
-        />
-        <span className="project-shot-open">Открыть полный скрин</span>
-      </a>
-      <div className="project-content">
-        <div className="project-meta">
-          <span>{project.tag}</span>
-          <span>{project.result}</span>
-        </div>
-        <h3>{project.title}</h3>
-        <p className="project-headline">{project.headline}</p>
-        <div className="project-detail-grid">
-          <div>
-            <span>Задача</span>
-            <p>{project.task}</p>
-          </div>
-          <div>
-            <span>Решение</span>
-            <p>{project.solution}</p>
-          </div>
-          <div>
-            <span>Моя роль</span>
-            <p>{project.role}</p>
-          </div>
-          <div>
-            <span>Результат</span>
-            <p>{project.outcome}</p>
-          </div>
-        </div>
-        <div className="stack-list">
-          {project.stack.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
-        <div className="project-actions">
-          <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
-            Исходный код
-          </a>
-          {"live" in project && project.live ? (
-            <a className="project-link" href={project.live} target="_blank" rel="noreferrer">
-              Открыть сайт
-            </a>
-          ) : null}
-          <details className="screenshot-gallery">
-            <summary>Скриншоты</summary>
-            <div className="shot-strip">
-              {project.screenshots.map((shot) => (
-                <a href={shot.src} key={shot.src} data-lightbox-src={shot.src} data-lightbox-title={`${project.title} - ${shot.caption}`}>
-                  <img src={shot.src} alt={shot.caption} width={shot.width} height={shot.height} loading="lazy" />
-                  <span>{shot.caption}</span>
-                </a>
-              ))}
-            </div>
-          </details>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function LegacyHome() {
-  return (
-    <main>
-      <ScrollReveal />
-      <section className="hero">
-        <nav className="topbar" aria-label="Главная навигация">
-          <a href="#projects">Кейсы</a>
-          <a href="#websites">Сайты</a>
-          <a href="#services">Чем полезен</a>
-          <a href="#experience">Опыт</a>
-          <a href="#admin-skills">Администрирование</a>
-          <a href="#stack">Стек</a>
-          <a href="#contacts">Контакты</a>
-          <button className="topbar-order" type="button" data-order-trigger>
-            Заказать
-          </button>
-          <div className="language-switch" role="group" aria-label="Language">
-            <button type="button" data-lang-option="ru" aria-pressed="true">
-              RU
-            </button>
-            <button type="button" data-lang-option="en" aria-pressed="false">
-              EN
-            </button>
-          </div>
-        </nav>
-
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Внутренние сервисы, автоматизация и интеграции</p>
-            <h1>{contacts.displayTitle}</h1>
-            <p className="hero-role">{contacts.role}</p>
-            <p className="hero-meta">Москва · удаленно / гибридно · открыт к проектной работе</p>
-            <p className="lead">
-              Создаю Service Desk, ботов, интеграции, административные панели и служебные приложения для компаний.
-              Разбираюсь в рабочем процессе, проектирую решение, разрабатываю frontend- и backend-часть и довожу продукт до
-              внедрения.
-            </p>
-            <div className="hero-actions">
-              <button className="primary-action order-action" type="button" data-order-trigger>
-                Заказать автоматизацию или сайт
-              </button>
-              <a className="primary-action" href="#projects">
-                Посмотреть проекты
-              </a>
-              <a className="secondary-action" href="https://t.me/vivesupport">
-                Обсудить задачу в Telegram
-              </a>
-              <a className="secondary-action" href="/resume-developer.pdf" download>
-                Скачать резюме
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-panel">
-            <div className="status-card">
-              <span className="status-label">Фокус</span>
-              <strong>прикладные инструменты под рабочие процессы</strong>
-              <p>
-                Основной профиль — внутренние сервисы, автоматизация, API-интеграции и служебные приложения. Опыт
-                системного администрирования помогает лучше понимать пользователей, инфраструктуру и реальные ограничения
-                бизнеса.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section results-strip" aria-label="Ключевые результаты">
-        {proofPoints.map((point) => (
-          <article className="result-card" key={point.value}>
-            <strong>{point.value}</strong>
-            <span>{point.label}</span>
-          </article>
-        ))}
-      </section>
-
-      <section className="section projects" id="projects">
-        <div className="section-heading">
-          <p className="section-kicker">Главные проекты</p>
-          <h2>Кейсы, которые показывают коммерческую пользу и личный вклад</h2>
-        </div>
-        <div className="project-list">
-          {featuredProjects.map((project) => (
-            <ProjectCard project={project} key={project.title} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section projects website-projects" id="websites">
-        <div className="section-heading">
-          <p className="section-kicker">Недавно разработанные сайты</p>
-          <h2>
-            Четыре сайта: коммерческий шаблон Veld Co и три ESSE-страницы с разным типом frontend-задач.
-          </h2>
-        </div>
-        <div className="project-list">
-          {websiteProjects.map((project) => (
-            <ProjectCard project={project} compact key={project.title} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="services">
-        <div className="section-heading">
-          <p className="section-kicker">Чем могу быть полезен</p>
-          <h2>Разрабатываю инструменты, которые закрывают конкретные рабочие задачи</h2>
-        </div>
-        <div className="services-grid services-grid-focused">
-          {services.map((service) => (
-            <article className="service-card" key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section experience-section" id="experience">
-        <div className="section-heading">
-          <p className="section-kicker">Опыт и база</p>
-          <h2>Разработка плюс понимание IT-инфраструктуры</h2>
-        </div>
-        <div className="experience-grid">
-          {experience.map((item) => (
-            <article className="experience-card" key={item.title}>
-              <span>{item.place}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-          <article className="experience-card education-card">
-            <span>образование</span>
-            <h3>{education.title}</h3>
-            <p>{education.text}</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section tools-section" id="admin-skills">
-        <div className="section-heading">
-          <p className="section-kicker">Системное администрирование</p>
-          <h2>Понимаю инфраструктуру, рабочие места и реальные ограничения пользователей</h2>
-        </div>
-        <div className="admin-grid">
-          {sysadminSkills.map((skill) => (
-            <article className="admin-item" key={skill.title}>
-              <h3>{skill.title}</h3>
-              <p>{skill.text}</p>
-            </article>
-          ))}
-        </div>
-        <div className="admin-tag-cloud" aria-label="Инструменты системного администрирования">
-          {adminTags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-      </section>
-
-      <section className="section projects other-projects" id="other-projects">
-        <div className="section-heading">
-          <p className="section-kicker">Дополнительные проекты</p>
-          <h2>Утилиты, боты и инструменты для прикладных задач</h2>
-        </div>
-        <div className="project-list">
-          {otherProjects.map((project) => (
-            <ProjectCard project={project} compact key={project.title} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section stack" id="stack">
-        <div className="section-heading">
-          <p className="section-kicker">Стек</p>
-          <h2>Основные технологии и дополнительные компетенции</h2>
-        </div>
-        <div className="stack-groups">
-          <article className="stack-group">
-            <h3>Основной стек</h3>
-            <div className="skill-cloud">
-              {coreStack.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
-          </article>
-          <article className="stack-group extra-card">
-            <h3>Дополнительные компетенции</h3>
-            <p>
-              Не выношу это в основное позиционирование, но могу подключаться к задачам, где помогает опыт
-              администрирования, анализа трафика, игровых движков и понимания железа.
-            </p>
-            <div className="skill-cloud">
-              {additionalStack.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="section contact-section" id="contacts">
-        <div>
-          <p className="section-kicker">Контакты</p>
-          <h2>Открыт к работе и проектным задачам</h2>
-          <p>
-            Интересны задачи в области внутренних сервисов, автоматизации, API-интеграций и служебных приложений.
-            Опишите задачу — помогу определить подход и оценить реализацию.
-          </p>
-        </div>
-        <div className="contact-card">
-          <button className="contact-order-trigger" type="button" data-order-trigger>
-            Заказать автоматизацию или сайт
-          </button>
-          <a href="https://t.me/vivesupport">Обсудить задачу в Telegram: {contacts.telegram}</a>
-          <a href={`mailto:${contacts.email}`}>Написать на email: {contacts.email}</a>
-          <a href="/resume-developer.pdf" download>
-            Скачать резюме разработчика
-          </a>
-          <a href="/resume-admin.pdf" download>
-            Скачать резюме сисадмина-программиста
-          </a>
-          <a href={contacts.github} target="_blank" rel="noreferrer">
-            GitHub: ncatofthe
-          </a>
-          <a href={contacts.githubPages}>GitHub Pages: portfolio</a>
-        </div>
-      </section>
-      <footer className="site-footer">
-        <span>© 2026 Портфолио разработчика</span>
-        <span>Портфолио обновлено в августе 2026 года</span>
-        <a href={contacts.github} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        <a href="https://t.me/vivesupport">Telegram: @vivesupport</a>
-        <a href="/resume-developer.pdf" download>
-          Резюме
-        </a>
-      </footer>
-    </main>
-  );
-}
 
 type PortfolioProject = (typeof projects)[number] | (typeof websiteProjects)[number];
 
-function ViveProjectCard({ project, index }: { project: PortfolioProject; index: number }) {
+function projectDomain(project: PortfolioProject) {
+  const slug = project.link.replace("https://github.com/ncatofthe/", "");
+  return "live" in project && project.live ? project.live.replace(/^https?:\/\//, "") : `github.com/ncatofthe/${slug}`;
+}
+
+function ProjectCase({ project, index }: { project: PortfolioProject; index: number }) {
   const mainShot = project.cover ?? project.screenshots[0];
 
   return (
     <article className={`project ${index % 3 === 0 ? "project-wide" : ""}`} data-reveal>
       <a
-        className="project-visual"
+        className="browser-frame"
         href={mainShot.src}
         data-lightbox-src={mainShot.src}
         data-lightbox-title={`${project.title} - ${mainShot.caption}`}
         data-tilt
         aria-label={`Открыть полный скриншот проекта ${project.title}`}
       >
-        <img
-          src={mainShot.src}
-          alt={`Скриншот проекта ${project.title}: ${mainShot.caption}`}
-          width={mainShot.width}
-          height={mainShot.height}
-          loading={index < 2 ? "eager" : "lazy"}
-        />
-        <span className="visual-code mono">PROJECT / {String(index + 1).padStart(2, "0")}</span>
-        <span className="project-shot-open">Открыть</span>
+        <div className="browser-frame-bar" aria-hidden="true">
+          <i /><i /><i />
+          <em>{projectDomain(project)}</em>
+        </div>
+        <div className="project-visual">
+          <img
+            src={mainShot.src}
+            alt={`Скриншот проекта ${project.title}: ${mainShot.caption}`}
+            width={mainShot.width}
+            height={mainShot.height}
+            loading={index < 2 ? "eager" : "lazy"}
+          />
+          <span className="visual-code mono">PROJECT / {String(index + 1).padStart(2, "0")}</span>
+          <span className="project-shot-open">Открыть</span>
+        </div>
       </a>
       <div className="project-meta-line mono">
         <span>{project.tag}</span>
@@ -897,6 +703,7 @@ function ViveProjectCard({ project, index }: { project: PortfolioProject; index:
 
 export default function Home() {
   const selectedProjects: PortfolioProject[] = [...featuredProjects, ...websiteProjects, ...otherProjects];
+  const totalCases = selectedProjects.length;
 
   return (
     <main className="site-shell">
@@ -907,7 +714,7 @@ export default function Home() {
         </a>
         <button className="menu-toggle mono" type="button" aria-expanded="false" aria-controls="main-nav">МЕНЮ</button>
         <nav className="main-nav mono" id="main-nav" aria-label="Главная навигация">
-          <a href="#projects">Проекты</a><a href="#services">Услуги</a><a href="#experience">Опыт</a><a href="#stack">Стек</a>
+          <a href="#about">Обо мне</a><a href="#projects">Проекты</a><a href="#services">Услуги</a><a href="#experience">Опыт</a><a href="#stack">Стек</a><a href="#contacts">Контакты</a>
         </nav>
         <div className="topbar-actions">
           <div className="language-switch mono" role="group" aria-label="Language">
@@ -919,20 +726,48 @@ export default function Home() {
       </header>
 
       <section className="hero">
-        <div className="hero-kicker mono">NCAT / DEVELOPMENT / 2026</div>
+        <div className="hero-bg" aria-hidden="true" />
+        <div className="hero-bg-grid" aria-hidden="true" />
+        <img
+          className="hero-bg-photo"
+          src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1400&auto=format&fit=crop"
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+        />
+        <div className="hero-kicker mono">NCAT / DEVELOPMENT &amp; AUTOMATION / 2026</div>
         <div className="hero-status mono"><i /> ОТКРЫТ К ПРОЕКТНОЙ РАБОТЕ</div>
-        <h1 className="hero-title"><span>СЕРВИСЫ</span><span>И САЙТЫ.</span></h1>
+        <h1 className="hero-title">
+          <span>АВТОМАТИЗИРУЮ</span>
+          <span className="accent-word">ВАШИ ПРОЦЕССЫ.</span>
+        </h1>
         <p className="hero-copy">Внутренние сервисы, сайты, боты и автоматизация под реальные рабочие процессы.</p>
-        <div className="hero-metrics">
-          <div><strong>3</strong><span className="mono">КОМПАНИИ<br />ИСПОЛЬЗУЮТ SERVICE DESK</span></div>
-          <div><strong>01</strong><span className="mono">ИСПОЛНИТЕЛЬ<br />ПОЛНЫЙ ЦИКЛ</span></div>
+        <div className="hero-actions-row">
+          <button className="btn btn-solid" type="button" data-order-trigger>ЗАКАЗАТЬ РЕШЕНИЕ ↗</button>
+          <a className="btn btn-outline" href="#projects">СМОТРЕТЬ ПРОЕКТЫ</a>
+          <a className="btn btn-outline" href="https://t.me/vivesupport">TELEGRAM ↗</a>
         </div>
-        <button className="hero-cta mono" type="button" data-order-trigger>ЗАКАЗАТЬ РЕШЕНИЕ <span>↗</span></button>
-        <aside className="hero-aside">
-          <span className="mono">ФОКУС / 2026</span>
-          <strong>РЕЗУЛЬТАТ<br />ВМЕСТО<br />ЛИШНЕГО.</strong>
-          <p>Разбираюсь в задаче, проектирую решение, пишу frontend и backend, интегрирую и довожу до внедрения.</p>
-        </aside>
+        <div className="hero-metrics">
+          <div><strong>3</strong><span className="mono">КОМПАНИИ ИСПОЛЬЗУЮТ SERVICE DESK</span></div>
+          <div><strong>{totalCases}</strong><span className="mono">ГОТОВЫХ ПРОЕКТОВ В ПОРТФОЛИО</span></div>
+          <div><strong>01</strong><span className="mono">ИСПОЛНИТЕЛЬ ПОЛНЫЙ ЦИКЛ</span></div>
+        </div>
+        <div className="hero-terminal" aria-hidden="true">
+          <div className="hero-terminal-bar">
+            <i /><i /><i /><span className="mono">bash — ncat.dev</span>
+          </div>
+          <pre>
+            <span className="t-muted">$</span> whoami{"\n"}
+            <span className="t-muted">&gt; developer · sysadmin · automation</span>{"\n\n"}
+            <span className="t-muted">$</span> ls ./projects{"\n"}
+            office-servicedesk/  marketplacebot/  ai-workbench/{"\n\n"}
+            <span className="t-muted">$</span> ./deploy.sh --project office-servicedesk{"\n"}
+            <span className="t-blue">building</span>… <span className="t-accent">done</span> in 1.4s{"\n"}
+            <span className="t-accent">✓</span> queues, roles, email sync — <span className="t-muted">live</span>{"\n\n"}
+            <span className="t-muted">$</span> echo $FOCUS{"\n"}
+            &quot;результат вместо лишнего&quot;<span className="t-cursor" />
+          </pre>
+        </div>
       </section>
 
       <div className="ticker" aria-hidden="true"><div>
@@ -940,8 +775,55 @@ export default function Home() {
         <span>ВНУТРЕННИЕ СЕРВИСЫ ✦ САЙТЫ ✦ АВТОМАТИЗАЦИЯ ✦ API ✦ БОТЫ ✦</span>
       </div></div>
 
+      <section className="about" id="about">
+        <div className="section-label mono">01 / ОБО МНЕ</div>
+        <div className="about-heading" data-reveal><h2>НЕ ТОЛЬКО КОД.<br /><em>ЕЩЁ И ИНФРАСТРУКТУРА.</em></h2></div>
+        <div className="about-body" data-reveal>
+          <p className="about-lead">
+            Совмещаю системное администрирование и разработку. С 2022 года веду проекты как независимый разработчик,
+            параллельно работаю системным администратором-программистом: поддерживаю рабочие места, автоматизирую
+            внутренние процессы и довожу собственные сервисы до внедрения. Такой опыт на стыке ролей помогает видеть
+            задачу целиком — от инфраструктуры и рабочих мест до кода, который эту инфраструктуру разгружает.
+          </p>
+          <div className="about-facts">
+            {aboutFacts.map((fact) => (
+              <div key={fact.label}>
+                <span>{fact.label}</span>
+                <p>{fact.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="about-visual" data-reveal>
+          <div className="about-badge">
+            <strong>2022</strong>
+            <span>Независимый разработчик</span>
+          </div>
+          <figure className="about-photo-frame">
+            <img
+              src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop"
+              alt="Экран с кодом и терминалом — рабочий процесс разработки и автоматизации"
+              loading="lazy"
+            />
+            <figcaption className="about-photo-caption">
+              <strong>Фокус на результате</strong>
+              Код, автоматизация и инфраструктура — в одной связке, без лишних абстракций.
+            </figcaption>
+          </figure>
+        </div>
+        <div className="about-timeline">
+          {aboutTimeline.map((stage) => (
+            <article key={stage.title} data-reveal>
+              <span className="mono">{stage.tag}</span>
+              <h3>{stage.title}</h3>
+              <p>{stage.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="intro" id="services">
-        <div className="section-label mono">01 / ЧТО ДЕЛАЮ</div>
+        <div className="section-label mono">02 / ЧТО ДЕЛАЮ</div>
         <div className="intro-heading"><h2>ОДИН ПОДХОД.<br /><em>РЕШЕНИЕ</em> ПОД ЗАДАЧУ.</h2></div>
         <div className="scope-list">
           {services.map((service, index) => (
@@ -953,13 +835,13 @@ export default function Home() {
       </section>
 
       <section className="work" id="projects">
-        <div className="section-label mono">02 / ВЫБРАННЫЕ ПРОЕКТЫ</div>
+        <div className="section-label mono">03 / ВЫБРАННЫЕ ПРОЕКТЫ</div>
         <div className="work-heading"><h2>РАБОТЫ,<br />КОТОРЫЕ <em>РАБОТАЮТ.</em></h2><p>Полные кейсы: задача, решение, роль, результат и живые скриншоты.</p></div>
-        <div className="project-grid">{selectedProjects.map((project, index) => <ViveProjectCard project={project} index={index} key={project.title} />)}</div>
+        <div className="project-grid">{selectedProjects.map((project, index) => <ProjectCase project={project} index={index} key={project.title} />)}</div>
       </section>
 
       <section className="fit-section">
-        <div className="section-label mono">03 / РЕЗУЛЬТАТЫ</div>
+        <div className="section-label mono">04 / РЕЗУЛЬТАТЫ</div>
         <h2>ПОЛЬЗА,<br /><em>КОТОРУЮ ВИДНО.</em></h2>
         <div className="fit-grid">
           {proofPoints.map((point, index) => <article key={point.value}><span className="mono">0{index + 1}</span><strong>{point.value}</strong><p>{point.label}</p></article>)}
@@ -968,7 +850,7 @@ export default function Home() {
       </section>
 
       <section className="process">
-        <div className="section-label mono">04 / ПРОЦЕСС</div>
+        <div className="section-label mono">05 / ПРОЦЕСС</div>
         <h2>ОТ ЗАДАЧИ<br />ДО <em>ЗАПУСКА.</em></h2>
         <div className="process-grid">
           <article><span className="mono">01</span><h3>РАЗБОР</h3><p>Фиксирую цель, пользователей, ограничения и ожидаемый результат.</p></article>
@@ -979,12 +861,12 @@ export default function Home() {
       </section>
 
       <section className="offer-section" id="order">
-        <div className="offer-dark"><span className="mono">05 / ЗАКАЗАТЬ</span><h2>НУЖЕН САЙТ<br />ИЛИ <em>АВТОМАТИЗАЦИЯ?</em></h2><p>Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.</p></div>
+        <div className="offer-dark"><span className="mono">06 / ЗАКАЗАТЬ</span><h2>НУЖЕН САЙТ<br />ИЛИ <em>АВТОМАТИЗАЦИЯ?</em></h2><p>Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.</p></div>
         <div className="offer-paper"><span className="mono">СТАРТ ПРОЕКТА</span><strong>ОБСУДИМ<br />ЗАДАЧУ</strong><p>Сайты, боты, интеграции, скрипты, внутренние сервисы и небольшие приложения.</p><button type="button" data-order-trigger className="offer-button mono">ВЫБРАТЬ РЕШЕНИЕ ↗</button><a href="https://t.me/vivesupport" className="mono">TELEGRAM / @VIVESUPPORT ↗</a></div>
       </section>
 
       <section className="experience-section" id="experience">
-        <div className="section-label mono">06 / ОПЫТ</div>
+        <div className="section-label mono">07 / ОПЫТ</div>
         <h2>РАЗРАБОТКА<br />И <em>ИНФРАСТРУКТУРА.</em></h2>
         <div className="experience-list">
           {experience.map((item, index) => <article className="experience-row" key={item.title}><span className="mono">0{index + 1}</span><div><small>{item.place}</small><h3>{item.title}</h3></div><p>{item.text}</p></article>)}
@@ -997,7 +879,7 @@ export default function Home() {
       </section>
 
       <section className="stack-section" id="stack">
-        <div className="section-label mono">07 / СТЕК</div>
+        <div className="section-label mono">08 / СТЕК</div>
         <h2>ИНСТРУМЕНТЫ<br /><em>ДЛЯ РЕЗУЛЬТАТА.</em></h2>
         <div className="stack-lines">
           <div><span className="mono">ОСНОВНОЙ</span><p>{coreStack.join(" / ")}</p></div>
@@ -1007,7 +889,7 @@ export default function Home() {
       </section>
 
       <section className="contact" id="contacts">
-        <div className="section-label mono">08 / КОНТАКТ</div>
+        <div className="section-label mono">09 / КОНТАКТ</div>
         <p className="mono">ЕСТЬ ЗАДАЧА?</p><h2>ДАВАЙТЕ<br /><em>ОБСУДИМ.</em></h2>
         <div className="contact-links">
           <a href="https://t.me/vivesupport"><span>TELEGRAM</span><strong>@VIVESUPPORT</strong><b>↗</b></a>

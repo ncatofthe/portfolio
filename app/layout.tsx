@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/portfolio/",
   },
-  themeColor: "#f1efe6",
+  themeColor: "#08090b",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

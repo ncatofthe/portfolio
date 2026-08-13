@@ -30,8 +30,8 @@ test("server-renders the portfolio page", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Портфолио разработчика внутренних сервисов<\/title>/i);
-  assert.match(html, /СЕРВИСЫ/);
-  assert.match(html, /И САЙТЫ\./);
+  assert.match(html, /АВТОМАТИЗИРУЮ/);
+  assert.match(html, /ВАШИ ПРОЦЕССЫ\./);
   assert.match(html, /Внутренние сервисы, сайты, боты и автоматизация/);
   assert.match(html, /Office ServiceDesk/);
   assert.match(html, /AI Workbench/);
@@ -40,6 +40,9 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /ESSE — 30 лет качества и инноваций/);
   assert.match(html, /ESSE Sense Himalaya/);
   assert.match(html, /Cold Black Element/);
+  assert.match(html, /MarkiPoisk/);
+  assert.match(html, /PC Inventory v9/);
+  assert.match(html, /Lukoil Redesign Concept/);
   assert.match(html, /data-lang-option="en"/);
   assert.match(html, /data-order-trigger="true"/);
   assert.match(html, /Что можно заказать/);
@@ -60,9 +63,9 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /max-summary-architecture\.png/);
   assert.match(html, /inventory-dashboard\.png/);
   assert.match(html, /используют разработанный мной ServiceDesk/);
-  assert.match(html, /01 \/ ЧТО ДЕЛАЮ/);
-  assert.match(html, /02 \/ ВЫБРАННЫЕ ПРОЕКТЫ/);
-  assert.match(html, /08 \/ КОНТАКТ/);
+  assert.match(html, /02 \/ ЧТО ДЕЛАЮ/);
+  assert.match(html, /03 \/ ВЫБРАННЫЕ ПРОЕКТЫ/);
+  assert.match(html, /09 \/ КОНТАКТ/);
   assert.doesNotMatch(html, /Жихарев Глеб/);
   assert.doesNotMatch(html, /karameliew/i);
   assert.doesNotMatch(html, /Task Manager|task_bogdan/i);
@@ -84,6 +87,9 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /ai-workbench-workflow\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /max-summary-architecture\.png"[^>]+width="1600" height="1000"/);
   assert.match(docsHtml, /inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /marki-poisk-dashboard\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /pc-inventory-dashboard\.png"[^>]+width="1600" height="1000"/);
+  assert.match(docsHtml, /lukoil-concept-cover\.png"[^>]+width="2560" height="1440"/);
   assert.match(docsHtml, /site\.js/);
   assert.match(docsHtml, /i18n\.js/);
   assert.match(docsHtml, /data-lang-option="ru"/);
@@ -116,13 +122,12 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(scrollReveal, /data-lightbox-src/);
   assert.match(scrollReveal, /data-order-trigger/);
   assert.match(scrollReveal, /order-modal-close/);
-  assert.match(globals, /--paper:\s*#f1efe6/);
-  assert.match(globals, /--signal:\s*#ef3d19/);
-  assert.match(globals, /Montserrat/);
-  assert.match(globals, /ticker 28s linear infinite/);
+  assert.match(globals, /--bg:\s*#f5f3ec/);
+  assert.match(globals, /--accent:\s*#3a56f0/);
+  assert.match(globals, /Space Grotesk/);
+  assert.match(globals, /ticker 32s linear infinite/);
   assert.match(globals, /lightbox-frame/);
   assert.match(globals, /object-fit:\s*contain/);
-  assert.doesNotMatch(globals, /object-fit:\s*cover/);
 
   await Promise.all([
     access(new URL("../docs/screenshots/servicedesk-dashboard-cover.png", import.meta.url)),
@@ -130,6 +135,9 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
     access(new URL("../docs/screenshots/ai-workbench-workflow.png", import.meta.url)),
     access(new URL("../docs/screenshots/max-summary-architecture.png", import.meta.url)),
     access(new URL("../docs/screenshots/inventory-dashboard.png", import.meta.url)),
+    access(new URL("../docs/screenshots/marki-poisk-dashboard.png", import.meta.url)),
+    access(new URL("../docs/screenshots/pc-inventory-dashboard.png", import.meta.url)),
+    access(new URL("../docs/screenshots/lukoil-concept-cover.png", import.meta.url)),
     access(new URL("../docs/screenshots/veldco-cover.png", import.meta.url)),
     access(new URL("../docs/screenshots/veldco-full.png", import.meta.url)),
     access(new URL("../docs/screenshots/esse-original-cover.png", import.meta.url)),

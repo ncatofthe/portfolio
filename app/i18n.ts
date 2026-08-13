@@ -17,16 +17,20 @@ export const translations: Record<string, string> = {
     "Internal tools, websites, bots and automation built around real workflows.",
   "КОМПАНИИ ИСПОЛЬЗУЮТ SERVICE DESK": "COMPANIES USE THE SERVICE DESK",
   "ИСПОЛНИТЕЛЬ ПОЛНЫЙ ЦИКЛ": "ONE DEVELOPER END TO END",
-  "ЗАКАЗАТЬ РЕШЕНИЕ": "ORDER A SOLUTION",
-  "ФОКУС / 2026": "FOCUS / 2026",
-  "РЕЗУЛЬТАТ ВМЕСТО ЛИШНЕГО.": "RESULTS WITHOUT THE NOISE.",
-  "Разбираюсь в задаче, проектирую решение, пишу frontend и backend, интегрирую и довожу до внедрения.":
-    "I clarify the task, design the solution, build frontend and backend, integrate it and bring it to launch.",
+  "ЗАКАЗАТЬ РЕШЕНИЕ ↗": "ORDER A SOLUTION ↗",
+  "СМОТРЕТЬ ПРОЕКТЫ": "VIEW PROJECTS",
+  "АВТОМАТИЗИРУЮ": "AUTOMATE",
+  "ВАШИ ПРОЦЕССЫ.": "YOUR WORKFLOWS.",
+  "ГОТОВЫХ ПРОЕКТОВ В ПОРТФОЛИО": "SHIPPED PROJECTS IN THE PORTFOLIO",
+  "\"результат вместо лишнего\"": "\"results over noise\"",
   "ВНУТРЕННИЕ СЕРВИСЫ ✦ САЙТЫ ✦ АВТОМАТИЗАЦИЯ ✦ API ✦ БОТЫ ✦":
     "INTERNAL TOOLS ✦ WEBSITES ✦ AUTOMATION ✦ API ✦ BOTS ✦",
-  "01 / ЧТО ДЕЛАЮ": "01 / WHAT I DO",
+  "01 / ОБО МНЕ": "01 / ABOUT",
+  "НЕ ТОЛЬКО КОД.": "NOT JUST CODE.",
+  "ЕЩЁ И ИНФРАСТРУКТУРА.": "INFRASTRUCTURE TOO.",
+  "02 / ЧТО ДЕЛАЮ": "02 / WHAT I DO",
   "ОДИН ПОДХОД. РЕШЕНИЕ ПОД ЗАДАЧУ.": "ONE APPROACH. A SOLUTION FOR THE TASK.",
-  "02 / ВЫБРАННЫЕ ПРОЕКТЫ": "02 / SELECTED PROJECTS",
+  "03 / ВЫБРАННЫЕ ПРОЕКТЫ": "03 / SELECTED PROJECTS",
   "РАБОТЫ, КОТОРЫЕ РАБОТАЮТ.": "WORK THAT WORKS.",
   "Полные кейсы: задача, решение, роль, результат и живые скриншоты.":
     "Complete cases: task, solution, role, outcome and real screenshots.",
@@ -34,11 +38,11 @@ export const translations: Record<string, string> = {
   "КОД ↗": "CODE ↗",
   "САЙТ ↗": "LIVE ↗",
   "ПОДРОБНЕЕ +": "DETAILS +",
-  "03 / РЕЗУЛЬТАТЫ": "03 / RESULTS",
+  "04 / РЕЗУЛЬТАТЫ": "04 / RESULTS",
   "ПОЛЬЗА, КОТОРУЮ ВИДНО.": "VALUE YOU CAN SEE.",
   "Не обещаю магию. Уточняю задачу, показываю работающий результат и честно обозначаю ограничения.":
     "I do not promise magic. I clarify the task, demonstrate working results and state constraints honestly.",
-  "04 / ПРОЦЕСС": "04 / PROCESS",
+  "05 / ПРОЦЕСС": "05 / PROCESS",
   "ОТ ЗАДАЧИ ДО ЗАПУСКА.": "FROM TASK TO LAUNCH.",
   "РАЗБОР": "DISCOVERY",
   "ПРОТОТИП": "PROTOTYPE",
@@ -48,26 +52,27 @@ export const translations: Record<string, string> = {
   "Проектирую сценарии, интерфейс и техническую архитектуру.": "I design workflows, interface and technical architecture.",
   "Собираю продукт, интеграции и проверяю критические сценарии.": "I build the product and integrations and verify critical flows.",
   "Разворачиваю, документирую и сопровождаю после запуска.": "I deploy, document and support the product after launch.",
-  "05 / ЗАКАЗАТЬ": "05 / ORDER",
+  "06 / ЗАКАЗАТЬ": "06 / ORDER",
   "НУЖЕН САЙТ ИЛИ АВТОМАТИЗАЦИЯ?": "NEED A WEBSITE OR AUTOMATION?",
   "Покажу подходящие примеры, уточню объем и предложу понятный следующий шаг.": "I will show relevant examples, clarify scope and propose a clear next step.",
   "СТАРТ ПРОЕКТА": "PROJECT START",
   "ОБСУДИМ ЗАДАЧУ": "LET'S DISCUSS THE TASK",
   "Сайты, боты, интеграции, скрипты, внутренние сервисы и небольшие приложения.": "Websites, bots, integrations, scripts, internal tools and small applications.",
   "ВЫБРАТЬ РЕШЕНИЕ ↗": "CHOOSE A SOLUTION ↗",
-  "06 / ОПЫТ": "06 / EXPERIENCE",
+  "07 / ОПЫТ": "07 / EXPERIENCE",
   "РАЗРАБОТКА И ИНФРАСТРУКТУРА.": "DEVELOPMENT AND INFRASTRUCTURE.",
   "СИСТЕМНОЕ АДМИНИСТРИРОВАНИЕ / ПОДРОБНО": "SYSTEM ADMINISTRATION / DETAILS",
-  "07 / СТЕК": "07 / STACK",
+  "08 / СТЕК": "08 / STACK",
   "ИНСТРУМЕНТЫ ДЛЯ РЕЗУЛЬТАТА.": "TOOLS FOR RESULTS.",
   "ОСНОВНОЙ": "CORE",
   "ДОПОЛНИТЕЛЬНО": "ADDITIONAL",
   "АДМИНИСТРИРОВАНИЕ": "ADMINISTRATION",
-  "08 / КОНТАКТ": "08 / CONTACT",
+  "09 / КОНТАКТ": "09 / CONTACT",
   "ЕСТЬ ЗАДАЧА?": "HAVE A TASK?",
   "ДАВАЙТЕ ОБСУДИМ.": "LET'S TALK.",
   "СКАЧАТЬ PDF": "DOWNLOAD PDF",
   "НАВЕРХ ↑": "BACK TO TOP ↑",
+  "Обо мне": "About",
   "Кейсы": "Cases",
   "Сайты": "Websites",
   "Чем полезен": "Services",
@@ -218,6 +223,48 @@ export const translations: Record<string, string> = {
   "Кейс усиливает портфолио по сайтам: показывает не только интерфейсы, но и умение делать дорогую визуальную подачу.":
     "This case strengthens the website portfolio by showing not only interfaces, but also premium visual presentation skills.",
   "Кинетическая версия": "Kinetic version",
+  "MarkiPoisk": "MarkiPoisk",
+  "автоматизация маркировки": "marking automation",
+  "обработка PDF и DataMatrix": "PDF and DataMatrix processing",
+  "Утилита для обработки маркировки табачной продукции в процессах, связанных с «Честным знаком»." :
+    "A utility for processing tobacco product markings in workflows related to the Honest Sign system.",
+  "Нужно было быстро извлекать данные из PDF с маркировкой, находить нужные коды и готовить результаты для дальнейшей работы сотрудников." :
+    "The task was to extract marking data from PDFs, find the right codes and prepare structured results for employees.",
+  "Разработал CLI- и GUI-инструмент: распознавание DataMatrix/QR, разбор GS1-полей, поиск по индексу и экспорт в CSV/JSON/Excel." :
+    "Built a CLI and GUI tool with DataMatrix/QR recognition, GS1 field parsing, indexed search and CSV/JSON/Excel export.",
+  "Проектирование сценария обработки, Python-разработка, работа с PDF и кодами, интерфейс на Tkinter, тесты и подготовка Windows-сборки." :
+    "Processing workflow design, Python development, PDF and code handling, Tkinter UI, tests and Windows build preparation.",
+  "Рутинный разбор маркировки превращен в повторяемый локальный процесс с поиском и выгрузкой структурированных данных." :
+    "Routine marking analysis became a repeatable local workflow with search and structured data export.",
+  "Поиск, таблица результатов и экспорт": "Search, results table and export",
+  "PC Inventory v9": "PC Inventory v9",
+  "инвентаризация рабочих станций": "workstation inventory",
+  "анализ отчетов и проблем": "report and issue analysis",
+  "Локальное приложение для сбора, анализа и экспорта сведений о Windows-компьютерах." :
+    "A local app for collecting, analyzing and exporting Windows workstation data.",
+  "Нужно было свести разрозненные TXT-отчеты по рабочим станциям в понятную картину по ОС, процессорам, памяти, дискам и установленному ПО." :
+    "The task was to turn scattered workstation TXT reports into a clear view of operating systems, CPUs, memory, disks and installed software.",
+  "Собрал Tkinter-приложение с загрузкой папок, фильтрами, статистикой, проверкой свободного места и ресурсов, журналом и экспортом CSV/Excel." :
+    "Built a Tkinter app with folder loading, filters, statistics, free-space and resource checks, logging and CSV/Excel export.",
+  "Архитектура локальной утилиты, парсинг отчетов, диагностика порогов, интерфейс, визуализация и подготовка сценария запуска." :
+    "Local utility architecture, report parsing, threshold diagnostics, interface, visualization and launch workflow.",
+  "Инструмент помогает быстрее проводить инвентаризацию и находить рабочие станции, которым нужна проверка или обновление." :
+    "The tool speeds up inventory work and helps identify workstations that need inspection or an upgrade.",
+  "Статистика по станциям, ресурсам и дискам": "Workstation, resource and disk statistics",
+  "Lukoil Redesign Concept": "Lukoil Redesign Concept",
+  "дизайн-концепт": "design concept",
+  "неофициальный концепт сайта": "unofficial website concept",
+  "Иммерсивный концепт корпоративного сайта с выразительной типографикой, контрастной сценой и scroll-анимациями." :
+    "An immersive corporate website concept with expressive typography, a high-contrast scene and scroll animations.",
+  "Нужно было показать, как можно переосмыслить подачу крупной компании через современный визуальный сценарий и понятную навигацию." :
+    "The goal was to explore a modern visual narrative and clear navigation for a large company.",
+  "Собрал чистый HTML/CSS/JS-концепт с preloader, прогрессом прокрутки, адаптивной навигацией, canvas-эффектом и последовательными секциями." :
+    "Built a dependency-free HTML/CSS/JS concept with a preloader, scroll progress, responsive navigation, canvas effects and staged sections.",
+  "Визуальная концепция, frontend-разработка, motion-логика, адаптив и подготовка самостоятельного репозитория без сборочных зависимостей." :
+    "Visual concept, frontend development, motion logic, responsive behavior and a standalone dependency-free repository.",
+  "Кейс показывает умение создавать не только прикладные интерфейсы, но и дорогую презентационную подачу для бренда." :
+    "This case shows the ability to create polished brand presentation sites as well as practical interfaces.",
+  "Первый экран неофициального концепта": "First screen of the unofficial concept",
   "коммерческий шаблон": "commercial template",
   "каталог и публичные страницы": "catalog and public pages",
   "Veld Co template": "Veld Co template",
@@ -302,4 +349,28 @@ export const translations: Record<string, string> = {
   "Портфолио обновлено в августе 2026 года": "Portfolio updated in August 2026",
   "Портфолио разработчика": "Developer portfolio",
   "Резюме": "Resume",
+  "Совмещаю системное администрирование и разработку. С 2022 года веду проекты как независимый разработчик, параллельно работаю системным администратором-программистом: поддерживаю рабочие места, автоматизирую внутренние процессы и довожу собственные сервисы до внедрения. Такой опыт на стыке ролей помогает видеть задачу целиком — от инфраструктуры и рабочих мест до кода, который эту инфраструктуру разгружает.":
+    "I combine system administration with development. Since 2022 I have worked as an independent developer, and in parallel I work as a system administrator/developer: supporting workstations, automating internal processes and bringing my own services to launch. This cross-role experience helps me see the whole task — from infrastructure and workstations to the code that takes the load off them.",
+  "Локация": "Location",
+  "Москва · удалённо и гибридно": "Moscow · remote and hybrid",
+  "В разработке": "Building since",
+  "независимо — с 2022 года": "independently — since 2022",
+  "Образование": "Education",
+  "Внутренние сервисы и автоматизация процессов": "Internal tools and process automation",
+  "СПО «Программирование компьютерных систем», диплом 4.75 из 5": "Secondary vocational diploma in Computer Systems Programming, GPA 4.75 out of 5",
+  "Экран с кодом и терминалом — рабочий процесс разработки и автоматизации": "A code and terminal screen — the everyday process of development and automation",
+  "Фокус на результате": "Focus on the result",
+  "Код, автоматизация и инфраструктура — в одной связке, без лишних абстракций.": "Code, automation and infrastructure work together, without unnecessary abstractions.",
+  "старт": "start",
+  "рост": "growth",
+  "сейчас": "now",
+  "Поддержка и инфраструктура": "Support and infrastructure",
+  "Начинал с поддержки пользователей и рабочих мест: диагностика Windows/Linux, сети, рабочее окружение.":
+    "I started with user and workstation support: Windows/Linux diagnostics, networks and environment setup.",
+  "Первая автоматизация": "First automation",
+  "От PowerShell-скриптов для рутинных задач — к первым сайтам, ботам и интеграциям для реальных заказчиков.":
+    "From PowerShell scripts for routine tasks to the first websites, bots and integrations for real clients.",
+  "Сервисы и системы": "Services and systems",
+  "Совмещаю разработку внутренних сервисов с системным администрированием — вижу задачу от инфраструктуры до кода.":
+    "I combine internal tools development with system administration — I see the task from infrastructure to code.",
 };
