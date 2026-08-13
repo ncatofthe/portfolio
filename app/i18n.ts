@@ -141,14 +141,14 @@ export const translations: Record<string, string> = {
   "Обращения сотрудников поступали через мессенджеры, почту и внешние helpdesk-сервисы. Заявки было сложно распределять, отслеживать и контролировать.":
     "Employee requests came through messengers, email and external helpdesk tools. It was difficult to route, track and control them.",
   "Разработал единый портал с очередями исполнителей, базой знаний, комментариями, вложениями, email-интеграцией, ролями доступа, уведомлениями и административной панелью.":
-    "Built a unified portal with agent queues, a knowledge base, comments, attachments, email integration, access roles, notifications and an admin panel.",
+    "Built a unified portal with assignee queues, a knowledge base, comments, attachments, email integration, access roles, notifications and an admin panel.",
   "Анализ рабочих процессов, проектирование архитектуры и базы данных, frontend- и backend-разработка, интеграции, тестирование, развёртывание и сопровождение.":
     "Workflow analysis, architecture and database design, frontend and backend development, integrations, testing, deployment and support.",
   "Система помогает централизованно регистрировать, распределять и обрабатывать внутренние обращения вместо разрозненных чатов.":
     "The system centralizes internal requests instead of scattered chats and helps register, route and process them.",
   "Главная панель с метриками": "Dashboard with metrics",
   "Список заявок и фильтры": "Request list and filters",
-  "Очередь исполнителей": "Agent queue",
+  "Очередь исполнителей": "Assignee queue",
   "Настройки и роли": "Settings and roles",
   "автоматизация маркетплейсов": "marketplace automation",
   "меньше ручной работы для команды": "less manual work for the team",

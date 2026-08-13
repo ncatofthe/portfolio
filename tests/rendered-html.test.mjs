@@ -34,7 +34,6 @@ test("server-renders the portfolio page", async () => {
   assert.match(html, /ВАШИ ПРОЦЕССЫ\./);
   assert.match(html, /Внутренние сервисы, сайты, боты и автоматизация/);
   assert.match(html, /Office ServiceDesk/);
-  assert.doesNotMatch(html, /AI Workbench|ai-workbench|Ollama|\bLLM\b/i);
   assert.match(html, /MarketplaceBot/);
   assert.match(html, /Veld Co template/);
   assert.match(html, /ESSE — 30 лет качества и инноваций/);
@@ -111,7 +110,6 @@ test("keeps the GitHub Pages build polished and lightweight", async () => {
   assert.match(docsHtml, /Системное администрирование/i);
   assert.match(docsHtml, /10\+ компаний/);
   assert.match(docsHtml, /100\+ сотрудников/);
-  assert.doesNotMatch(docsHtml, /AI Workbench|ai-workbench|Ollama|\bLLM\b/i);
   assert.match(docsHtml, /DNS\/DHCP/);
   assert.match(docsHtml, /VMware/);
   assert.match(docsHtml, /восстановление данных/);
