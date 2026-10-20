@@ -7,7 +7,7 @@
 
 Сайт-портфолио для найма и фриланса: основная версия на vinext/Next (`app/`) и статическая для GitHub Pages (`docs/`).
 
-Карточка проекта: `~/Vaults/Main/20 Проекты/portfolio.md`.
+Карточка проекта — в `~/Vaults/Main/20 Проекты/` (та, где `путь: ~/Code/personal/portfolio`).
 
 ## Команды
 
